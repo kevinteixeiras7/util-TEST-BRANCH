@@ -6,6 +6,7 @@
 <title>Seventy7 - Utilisation Report</title>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/lz-string/1.4.4/lz-string.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;600;700;800&family=DM+Mono:wght@300;400;500&family=Barlow:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
 :root{--black:#1a1a2e;--surface:#22223a;--card:#2a2a45;--border:#3d3d5c;--orange:#FF4D00;--orange-dim:rgba(255,77,0,0.15);--white:#f0f0f0;--muted:#8888aa;--mid:#b0b0cc;}
@@ -65,6 +66,8 @@ body{background:var(--black);color:var(--white);font-family:'Barlow',sans-serif;
 .topbar{display:flex;align-items:center;justify-content:space-between;padding:14px 40px;border-bottom:1px solid var(--border);position:sticky;top:0;background:var(--black);backdrop-filter:blur(8px);z-index:100;transition:background .25s,border-color .25s;}
 .brand{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:18px;letter-spacing:.12em;}
 .brand span{color:var(--orange);}
+.brand-wrap{display:flex;flex-direction:column;gap:2px;line-height:1;}
+.brand-tagline{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);}
 .topbar-right{display:flex;align-items:center;gap:10px;}
 .period-badge{font-family:'DM Mono',monospace;font-size:11px;background:var(--orange-dim);border:1px solid rgba(255,77,0,.3);color:var(--orange);padding:4px 12px;border-radius:2px;letter-spacing:.06em;text-transform:uppercase;}
 .updated-badge{font-family:'DM Mono',monospace;font-size:10px;color:var(--muted);}
@@ -330,6 +333,28 @@ td.muted{color:var(--muted);font-size:11px;}
 .client-swing-tag.new-tag{background:rgba(255,77,0,.12);color:var(--orange);}
 .client-swing-tag.lost-tag{background:rgba(128,128,128,.1);color:var(--muted);}
 
+/* ── Taller bars ──────────────────────────────────────── */
+.util-bar{height:8px;width:60px;}
+.util-bar-fill{transition:width .6s cubic-bezier(.4,0,.2,1);}
+.big-bar{height:6px;}
+/* ── Tooltip on util bar ──────────────────────────────── */
+.util-bar-wrap{position:relative;}
+.util-bar-wrap[data-tip]:hover::after{content:attr(data-tip);position:absolute;bottom:calc(100% + 7px);right:0;background:var(--card);border:1px solid var(--border);color:var(--white);font-family:'DM Mono',monospace;font-size:10px;padding:5px 9px;white-space:nowrap;z-index:50;pointer-events:none;letter-spacing:.04em;box-shadow:0 2px 8px rgba(0,0,0,.2);}
+/* ── Row entrance animation ───────────────────────────── */
+@keyframes utilRowIn{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:translateY(0)}}
+/* ── Initials avatars ─────────────────────────────────── */
+.util-avatar{display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;border-radius:50%;font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:700;letter-spacing:.04em;flex-shrink:0;margin-right:8px;vertical-align:middle;}
+/* ── Chart wrappers ───────────────────────────────────── */
+.chart-section{margin:32px 0;}
+.chart-wrap{background:var(--card);border:1px solid var(--border);padding:24px 28px;position:relative;}
+[data-theme="light"] .chart-wrap{box-shadow:0 1px 3px rgba(0,0,0,.05);}
+.chart-label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:16px;}
+.chart-legend{display:flex;gap:16px;flex-wrap:wrap;margin-top:14px;}
+.chart-legend-item{display:flex;align-items:center;gap:6px;font-family:'DM Mono',monospace;font-size:10px;color:var(--muted);}
+.chart-legend-pip{width:20px;height:3px;border-radius:2px;}
+/* ── Sparklines ───────────────────────────────────────── */
+.sparkline-cell{padding:8px 14px !important;vertical-align:middle;}
+
 @media(max-width:1100px){.kpi-grid{grid-template-columns:repeat(3,1fr)}.dept-grid{grid-template-columns:repeat(3,1fr)}.cap-dept-summary{grid-template-columns:repeat(3,1fr)}.swings-grid{grid-template-columns:1fr}.client-swings-wrap{grid-template-columns:1fr}}
 @media(max-width:700px){.kpi-grid{grid-template-columns:repeat(2,1fr)}.dept-grid{grid-template-columns:repeat(2,1fr)}.hours-mix{grid-template-columns:repeat(2,1fr)}.cap-dept-summary{grid-template-columns:repeat(2,1fr)}.content{padding:20px}.topbar,.nav{padding-left:20px;padding-right:20px}.swings-grid{grid-template-columns:1fr}.client-swings-wrap{grid-template-columns:1fr}}
 
@@ -415,8 +440,14 @@ td.muted{color:var(--muted);font-size:11px;}
     <button class="btn-ghost" onclick="openAdminModal()">Admin</button>
   </div>
   <div class="empty-logo">SEVENTY<span>7</span></div>
-  <div class="empty-title">Utilisation Report</div>
-  <div class="empty-icon">📊</div>
+  <div class="empty-title">Studio Utilisation Dashboard</div>
+  <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" style="opacity:.25;margin-bottom:16px">
+    <rect x="4" y="36" width="12" height="24" rx="2" fill="var(--muted)"/>
+    <rect x="20" y="24" width="12" height="36" rx="2" fill="var(--muted)"/>
+    <rect x="36" y="14" width="12" height="46" rx="2" fill="var(--orange)"/>
+    <rect x="52" y="28" width="12" height="32" rx="2" fill="var(--muted)"/>
+    <line x1="4" y1="8" x2="60" y2="8" stroke="var(--border)" stroke-width="1.5" stroke-dasharray="3 3"/>
+  </svg>
   <p style="color:var(--muted);font-size:13px;max-width:340px;line-height:1.8;margin-bottom:32px">No report published yet. Click Admin in the top right to upload the first report.</p>
 </div>
 
@@ -466,7 +497,10 @@ td.muted{color:var(--muted);font-size:11px;}
 
 <div id="dashboard-screen" style="display:none">
   <header class="topbar">
-    <div class="brand">SEVENTY<span>7</span></div>
+    <div class="brand-wrap">
+      <div class="brand">SEVENTY<span>7</span></div>
+      <div class="brand-tagline">Studio Utilisation Dashboard</div>
+    </div>
     <div class="topbar-right">
       <span class="updated-badge" id="updated-badge"></span>
       <button class="target-badge" id="target-badge-btn" onclick="openTargetEdit()">Target: <span id="target-display">75%</span></button>
@@ -674,10 +708,11 @@ function getTarget(){ return (parseFloat(lsGet(LS_TARGET)) || 75) / 100; }
 function bcol(p){ return p>=0.85?'#3ddc84':p>=0.6?'#f5a623':'#ff6b6b'; }
 function getSt(p){ return p<0?'error':p>=0.85?'on-target':p>=0.6?'building':'low'; }
 function stBadge(s){return{'on-target':'<span class="badge on-target">&#x2713; On Target</span>','building':'<span class="badge building">&#x2197; Medium</span>','error':'<span class="badge error">&#x26A0; Data Error</span>','low':'<span class="badge low">&#x26A0; Low</span>'}[s]||'<span class="badge low">&#x26A0; Low</span>';}
-function uBar(p){
+function uBar(p, tip){
   var c=bcol(p);
   var tw=Math.min(getTarget()*100,100).toFixed(1);
-  return '<div class="util-bar-wrap"><div class="util-bar"><div class="util-bar-fill" style="width:'+Math.min(p*100,100).toFixed(1)+'%;background:'+c+'"></div><div class="util-target-tick" style="left:'+tw+'%"></div></div><span class="util-val" style="color:'+c+'">'+fPct(p)+'</span></div>';
+  var tipAttr=tip?' data-tip="'+tip+'"':'';
+  return '<div class="util-bar-wrap"'+tipAttr+'><div class="util-bar"><div class="util-bar-fill" style="width:'+Math.min(p*100,100).toFixed(1)+'%;background:'+c+'"></div><div class="util-target-tick" style="left:'+tw+'%"></div></div><span class="util-val" style="color:'+c+'">'+fPct(p)+'</span></div>';
 }
 function openTargetEdit(){
   var t=Math.round(getTarget()*100);
@@ -720,6 +755,9 @@ function toggleTheme(){
   const icon=isDark?'&#x2600;':'🌙';
   ['theme-btn','theme-btn-empty'].forEach(function(id){const el=document.getElementById(id);if(el)el.innerHTML=icon;});
   lsSet('s77_theme',isDark?'light':'dark');
+  var current=lsGet(LS_CURRENT);
+  var otPayload=lsGet(LS_OVERTIME)||{};
+  if(current&&current.staffData)buildAllTabs(current,otPayload);
 }
 function initTheme(){
   const saved=lsGet('s77_theme')||'dark';
@@ -1015,6 +1053,15 @@ function buildDashTab(staffData,dt,period){
     '<div class="mix-cell"><div class="mix-label">Holiday Hours</div><div class="mix-val">'+fmt(Math.round(totHol))+'</div></div>'+
     '<div class="mix-cell"><div class="mix-label">Sick Hours</div><div class="mix-val">'+fmt(Math.round(totSck))+'</div></div>'+
     '<div class="mix-cell"><div class="mix-label">Internal Hours</div><div class="mix-val">'+fmt(Math.round(totInt))+'</div></div>';
+  // Dept chart
+  var chartWrap = document.getElementById('dash-dept-chart');
+  if (!chartWrap) {
+    var section = document.createElement('div');
+    section.className = 'chart-section';
+    section.innerHTML = '<div class="chart-wrap"><div class="chart-label">Department Utilisation</div><canvas id="dash-dept-chart" height="160"></canvas></div>';
+    document.getElementById('hours-mix').parentNode.insertBefore(section, document.getElementById('hours-mix').nextSibling);
+  }
+  setTimeout(function(){ renderDeptChart(dt); }, 0);
 }
 
 function animateKPIs(){
@@ -1035,8 +1082,18 @@ function animateKPIs(){
 
 function buildUtilTab(staffData,period,otData){
   otData=otData||{};
+  var DEPT_COLORS={
+    'Photography':{bg:'rgba(55,138,221,.2)',fg:'#4a9eff'},
+    'Retouch':{bg:'rgba(29,158,117,.2)',fg:'#1D9E75'},
+    'Videography':{bg:'rgba(245,166,35,.2)',fg:'#f5a623'},
+    'Styling':{bg:'rgba(212,83,126,.2)',fg:'#D4537E'},
+    'Art Direction':{bg:'rgba(127,119,221,.2)',fg:'#7F77DD'}
+  };
+  function getInitials(name){var p=name.trim().split(' ');return p.length>=2?(p[0][0]+p[p.length-1][0]).toUpperCase():name.substring(0,2).toUpperCase();}
   let rows='';
+  var personIdx=0;
   DEPT_ORDER.forEach(function(dept){
+    var dc=DEPT_COLORS[dept]||{bg:'rgba(128,128,128,.15)',fg:'#888'};
     rows+='<tr class="dept-row"><td colspan="12">'+dept+'</td></tr>';
     STAFF_ROSTER.filter(function(s){return s.dept===dept;}).forEach(function(s){
       const d=staffData[s.name],p=pct(d.cli,d.cap);
@@ -1044,9 +1101,13 @@ function buildUtilTab(staffData,period,otData){
       const ot=otData[s.name]||{otHrs:0,otDays:0,otDetails:[]};
       const hasOt=ot.otHrs>0;
       const totalLogged=Math.round((d.cli+d.hol+d.sck+d.int)*10)/10;
+      const delay=(personIdx*28)+'ms';
+      const tip=fPct(p)+' · '+fmt(d.cli)+'h of '+fmt(d.cap)+'h capacity';
+      const avatar='<span class="util-avatar" style="background:'+dc.bg+';color:'+dc.fg+'">'+getInitials(s.name)+'</span>';
+      personIdx++;
 
-      rows+='<tr class="util-person-row'+(hasOt?' util-ot-row':'')+'" onclick="toggleUtilBreakdown(\''+uid+'\')">';
-      rows+='<td><span class="util-name-btn"><span class="util-chevron" id="chv-'+uid+'">&#9658;</span>'+s.name+'</span></td>';
+      rows+='<tr class="util-person-row'+(hasOt?' util-ot-row':'')+'" style="animation:utilRowIn .3s ease both;animation-delay:'+delay+'" onclick="toggleUtilBreakdown(\''+uid+'\')">';
+      rows+='<td><span class="util-name-btn"><span class="util-chevron" id="chv-'+uid+'">&#9658;</span>'+avatar+s.name+'</span></td>';
       rows+='<td class="muted" style="text-align:right">'+dept+'</td>';
       rows+='<td>'+fmt(d.cap)+'</td>';
       rows+='<td>'+(d.cli>0?fmt(d.cli):'--')+'</td>';
@@ -1060,7 +1121,7 @@ function buildUtilTab(staffData,period,otData){
       }else{
         rows+='<td><span style="color:var(--muted);font-family:\'DM Mono\',monospace;font-size:11px">--</span></td>';
       }
-      rows+='<td>'+uBar(p)+'</td>';
+      rows+='<td>'+uBar(p,tip)+'</td>';
       rows+='<td>'+stBadge(getSt(p))+'</td>';
       rows+='</tr>';
 
@@ -1345,22 +1406,26 @@ function buildHistoryTab(){
 
   var html = '';
 
-  // ── 1. Monthly Trend table ────────────────────────────────────
+  // ── 1. Monthly Trend (chart + table) ─────────────────────────
   html+='<div class="section-header"><div class="section-title">Monthly Trend</div><div class="section-sub">Department utilisation across all periods</div></div>';
+  html+='<div class="chart-wrap" style="margin-bottom:28px"><div class="chart-label">Utilisation over time</div><canvas id="trend-chart" height="180"></canvas></div>';
   html+='<div class="hist-trend-wrap"><table class="hist-trend-table"><thead><tr><th class="left">Department</th>';
   allPeriods.forEach(function(p){
     html+='<th class="'+(p.isCurrent?'hist-current':'')+'">'+p.data.period+(p.isCurrent?' <span style="font-size:9px;color:var(--orange);vertical-align:middle">NOW</span>':'')+'</th>';
   });
+  html+='<th style="min-width:72px;text-align:center">Trend</th>';
   html+='</tr></thead><tbody>';
   ['Studio Total'].concat(DEPT_ORDER).forEach(function(dept){
     const isTotal=dept==='Studio Total';
     html+='<tr class="'+(isTotal?'hist-total-row':'')+'"><td>'+dept+'</td>';
+    var sparkVals=[];
     allPeriods.forEach(function(p,pi){
       const sd=p.data.staffData;
       let cli=0,cap=0;
       if(isTotal){Object.values(sd).forEach(function(s){cli+=s.cli;cap+=s.cap;});}
       else{Object.values(sd).filter(function(s){return s.dept===dept;}).forEach(function(s){cli+=s.cli;cap+=s.cap;});}
       const util=cap>0?cli/cap:0;
+      sparkVals.push(util);
       const col=bcol(util);
       let changeHtml='';
       if(pi<allPeriods.length-1){
@@ -1377,9 +1442,12 @@ function buildHistoryTab(){
       }
       html+='<td><span class="hist-pct" style="color:'+col+'">'+fPct(util)+'</span>'+changeHtml+'</td>';
     });
+    html+='<td class="sparkline-cell">'+makeSpark(sparkVals.slice().reverse(), 64, 24)+'</td>';
     html+='</tr>';
   });
   html+='</tbody></table></div>';
+  // Render trend chart after DOM update
+  setTimeout(function(){ renderTrendChart(allPeriods); }, 0);
 
   // ── 2. Client Hour Changes ─────────────────────────────────────
   var clientHtml = buildClientChanges(currData, compPeriod.data);
@@ -1396,6 +1464,104 @@ function buildHistoryTab(){
   html += '</div>';
 
   container.innerHTML=html;
+}
+
+/* ── Chart instances ─────────────────────────────────────────────── */
+var _deptChart=null, _trendChart=null;
+
+function chartTheme(){
+  var light=document.documentElement.getAttribute('data-theme')==='light';
+  return{
+    grid: light?'rgba(0,0,0,.06)':'rgba(128,128,160,.1)',
+    text: light?'#88887E':'#8888aa',
+    bg:   light?'#FFFFFF':'#2a2a45',
+    tick: light?'#3D3D38':'#b0b0cc'
+  };
+}
+
+function makeSpark(vals, w, h){
+  if(!vals||vals.length<2)return '<span style="color:var(--muted);font-size:10px">—</span>';
+  var max=Math.max.apply(null,vals.map(function(v){return Math.max(v,0.1);}));
+  var pts=vals.map(function(v,i){
+    var x=(i/(vals.length-1))*(w-4)+2;
+    var y=h-2-(v/max)*(h-6);
+    return x.toFixed(1)+','+y.toFixed(1);
+  }).join(' ');
+  var lastVal=vals[vals.length-1];
+  var col=bcol(lastVal);
+  return '<svg width="'+w+'" height="'+h+'" viewBox="0 0 '+w+' '+h+'" style="display:block;overflow:visible"><polyline points="'+pts+'" fill="none" stroke="'+col+'" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="'+(w-2).toFixed(1)+'" cy="'+(h-2-(lastVal/max)*(h-6)).toFixed(1)+'" r="2.5" fill="'+col+'"/></svg>';
+}
+
+function renderDeptChart(dt){
+  var canvas=document.getElementById('dash-dept-chart');
+  if(!canvas||!window.Chart)return;
+  if(_deptChart){_deptChart.destroy();}
+  var th=chartTheme();
+  var labels=DEPT_ORDER.map(function(d){return d.replace('Art Direction','Art Dir');});
+  var values=DEPT_ORDER.map(function(d){return dt[d]&&dt[d].cap>0?(dt[d].cli/dt[d].cap*100):0;});
+  var colors=DEPT_ORDER.map(function(d){return bcol(dt[d]&&dt[d].cap>0?dt[d].cli/dt[d].cap:0);});
+  var tgt=getTarget()*100;
+  _deptChart=new Chart(canvas,{
+    type:'bar',
+    data:{
+      labels:labels,
+      datasets:[
+        {data:values,backgroundColor:colors.map(function(c){return c+'cc';}),borderColor:colors,borderWidth:1,borderRadius:3,borderSkipped:false},
+        {type:'line',data:new Array(labels.length).fill(85),borderColor:'rgba(61,220,132,.4)',borderWidth:1,borderDash:[4,4],pointRadius:0,label:'On Target (85%)'},
+        {type:'line',data:new Array(labels.length).fill(tgt),borderColor:'rgba(255,77,0,.5)',borderWidth:1,borderDash:[3,3],pointRadius:0,label:'Target ('+Math.round(tgt)+'%)'}
+      ]
+    },
+    options:{
+      responsive:true,
+      plugins:{legend:{display:false},tooltip:{callbacks:{label:function(ctx){return ctx.raw.toFixed(1)+'%';}}}},
+      scales:{
+        x:{grid:{color:th.grid},ticks:{color:th.text,font:{family:"'Barlow Condensed', sans-serif",size:12,weight:'600'},letterSpacing:'.06em'}},
+        y:{min:0,max:100,grid:{color:th.grid},ticks:{color:th.text,font:{family:"'DM Mono', monospace",size:10},callback:function(v){return v+'%';}},border:{display:false}}
+      }
+    }
+  });
+}
+
+function renderTrendChart(allPeriods){
+  var canvas=document.getElementById('trend-chart');
+  if(!canvas||!window.Chart)return;
+  if(_trendChart){_trendChart.destroy();}
+  var th=chartTheme();
+  var reversed=allPeriods.slice().reverse();
+  var labels=reversed.map(function(p){return p.data.period;});
+  var DEPT_LINE_COLORS=['#4a9eff','#1D9E75','#f5a623','#D4537E','#7F77DD'];
+  var datasets=[];
+  // Studio total
+  datasets.push({
+    label:'Studio Total',
+    data:reversed.map(function(p){var cli=0,cap=0;Object.values(p.data.staffData).forEach(function(s){cli+=s.cli;cap+=s.cap;});return cap>0?(cli/cap*100):0;}),
+    borderColor:'#FF4D00',backgroundColor:'rgba(255,77,0,.08)',fill:true,borderWidth:2.5,pointRadius:4,pointBackgroundColor:'#FF4D00',tension:.3
+  });
+  // Per dept
+  DEPT_ORDER.forEach(function(dept,i){
+    datasets.push({
+      label:dept,
+      data:reversed.map(function(p){var cli=0,cap=0;Object.values(p.data.staffData).filter(function(s){return s.dept===dept;}).forEach(function(s){cli+=s.cli;cap+=s.cap;});return cap>0?(cli/cap*100):0;}),
+      borderColor:DEPT_LINE_COLORS[i],backgroundColor:'transparent',borderWidth:1.5,pointRadius:3,pointBackgroundColor:DEPT_LINE_COLORS[i],tension:.3,borderDash:i>0?[4,4]:[]
+    });
+  });
+  // On-target line
+  datasets.push({label:'On Target',data:new Array(labels.length).fill(85),borderColor:'rgba(61,220,132,.3)',borderWidth:1,borderDash:[5,5],pointRadius:0,fill:false});
+  _trendChart=new Chart(canvas,{
+    type:'line',
+    data:{labels:labels,datasets:datasets},
+    options:{
+      responsive:true,
+      interaction:{mode:'index',intersect:false},
+      plugins:{
+        legend:{display:true,position:'bottom',labels:{color:th.text,font:{family:"'DM Mono', monospace",size:10},boxWidth:20,padding:14,usePointStyle:true,pointStyle:'circle'}}
+      },
+      scales:{
+        x:{grid:{color:th.grid},ticks:{color:th.text,font:{family:"'DM Mono', monospace",size:10}}},
+        y:{min:0,max:100,grid:{color:th.grid},ticks:{color:th.text,font:{family:"'DM Mono', monospace",size:10},callback:function(v){return v+'%';}},border:{display:false}}
+      }
+    }
+  });
 }
 
 function buildDeptTab(dt,period){
