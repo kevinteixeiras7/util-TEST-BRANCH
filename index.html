@@ -69,8 +69,9 @@ body{background:var(--black);color:var(--white);font-family:'Barlow',sans-serif;
 .brand-wrap{display:flex;flex-direction:column;gap:2px;line-height:1;}
 .brand-tagline{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);}
 .topbar-right{display:flex;align-items:center;gap:10px;}
+.period-stack{display:flex;flex-direction:column;align-items:flex-end;gap:1px;}
 .period-badge{font-family:'DM Mono',monospace;font-size:11px;background:var(--orange-dim);border:1px solid rgba(255,77,0,.3);color:var(--orange);padding:4px 12px;border-radius:2px;letter-spacing:.06em;text-transform:uppercase;}
-.updated-badge{font-family:'DM Mono',monospace;font-size:10px;color:var(--muted);}
+.updated-badge{font-family:'DM Mono',monospace;font-size:9px;color:var(--muted);letter-spacing:.04em;}
 .nav{display:flex;padding:0 40px;border-bottom:1px solid var(--border);overflow-x:auto;background:var(--black);transition:background .25s,border-color .25s;}
 .nav button{font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;background:none;border:none;color:var(--muted);padding:13px 18px;cursor:pointer;border-bottom:2px solid transparent;transition:all .2s;white-space:nowrap;position:relative;}
 .nav button:hover{color:var(--white);}
@@ -115,7 +116,7 @@ thead th:first-child,thead th.left{text-align:left;}
 tbody tr{border-bottom:1px solid rgba(128,128,128,.1);transition:background .15s;}
 tbody tr:hover{background:rgba(128,128,128,.06);}
 tbody tr.dept-row{background:var(--surface);}
-tbody tr.dept-row td{font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);padding:16px 14px 6px;border-bottom:none;}
+tbody tr.dept-row td{font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);padding:20px 14px 7px;border-bottom:none;box-shadow:inset 3px 0 0 var(--border);}
 tbody tr.total-row td{font-weight:600;background:var(--surface);}
 td{padding:10px 14px;color:var(--white);text-align:right;font-family:'DM Mono',monospace;font-size:12px;}
 td:first-child{text-align:left;font-family:'Barlow',sans-serif;font-size:13px;font-weight:500;}
@@ -416,7 +417,21 @@ p,span,div,td,th,h1,h2,h3,label{cursor:default;}
 button,.btn,.btn-ghost,.btn-primary,.nav button,.filter-pill,.theme-btn,.skills-sub-btn,.nav-roadmap,.modal-close,.history-delete-btn,.cap-reset-btn,.comp-period-select,.hist-period-dropdown,.drop-zone,.cap-drop-zone,.util-person-row,.cap-reset-btn{cursor:pointer;}
 input,textarea,select{cursor:text;}
 /* ── Sticky util table header ─────────────────────────── */
-#tab-utilisation thead th{position:sticky;top:57px;background:var(--black);z-index:10;}
+#tab-utilisation thead th{position:sticky;top:63px;background:var(--black);z-index:10;}
+/* ── Insight strip ────────────────────────────────────── */
+.insight-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border);margin-bottom:28px;}
+.insight-cell{background:var(--card);padding:14px 20px;transition:background .25s;}
+.insight-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:8px;}
+.insight-val{font-family:'Barlow Condensed',sans-serif;font-size:18px;font-weight:700;color:var(--white);letter-spacing:.03em;}
+.insight-sub{font-family:'DM Mono',monospace;font-size:10px;color:var(--muted);margin-top:3px;}
+.status-pills{display:flex;gap:6px;flex-wrap:wrap;margin-top:2px;}
+.spill{font-family:'DM Mono',monospace;font-size:10px;font-weight:500;padding:3px 8px;border-radius:2px;}
+.spill.g{background:rgba(61,220,132,.14);color:#3ddc84;}
+.spill.a{background:rgba(245,166,35,.14);color:#f5a623;}
+.spill.r{background:rgba(255,107,107,.14);color:#ff6b6b;}
+[data-theme="light"] .insight-cell{box-shadow:0 1px 3px rgba(0,0,0,.05);}
+/* ── Capacity bank holiday ────────────────────────────── */
+.cap-cell.cap-bh span{background:rgba(74,158,255,.1);color:#4a9eff;}
 /* ── Row hover left accent ────────────────────────────── */
 tbody tr.util-person-row:hover td:first-child{box-shadow:inset 3px 0 0 var(--orange);}
 /* ── Threshold legend ─────────────────────────────────── */
@@ -514,13 +529,15 @@ tbody tr.util-person-row:hover td:first-child{box-shadow:inset 3px 0 0 var(--ora
       <div class="brand-tagline">Studio Utilisation Dashboard</div>
     </div>
     <div class="topbar-right">
-      <span class="updated-badge" id="updated-badge"></span>
       <div class="thr-legend">
         <div class="thr-item"><div class="thr-pip" style="background:#3ddc84"></div>On Target 85%+</div>
         <div class="thr-item"><div class="thr-pip" style="background:#f5a623"></div>Medium 60%+</div>
         <div class="thr-item"><div class="thr-pip" style="background:#ff6b6b"></div>Low &lt;60%</div>
       </div>
-      <div class="period-badge" id="period-badge">--</div>
+      <div class="period-stack">
+        <div class="period-badge" id="period-badge">--</div>
+        <span class="updated-badge" id="updated-badge"></span>
+      </div>
       <button class="theme-btn" id="theme-btn" onclick="toggleTheme()">🌙</button>
       <button class="btn-ghost" onclick="openAdminModal()">Admin</button>
     </div>
@@ -543,6 +560,7 @@ tbody tr.util-person-row:hover td:first-child{box-shadow:inset 3px 0 0 var(--ora
 
     <div id="tab-dashboard" class="tab-section active">
       <div class="kpi-grid" id="kpi-grid"></div>
+      <div class="insight-strip" id="insight-strip"></div>
       <div class="section-header"><div class="section-title">Department Overview</div><div class="section-sub" id="dept-overview-sub"></div></div>
       <div class="dept-grid" id="dept-cards"></div>
     </div>
@@ -982,7 +1000,13 @@ function showDashboard(payload){
   document.getElementById('empty-screen').style.display='none';
   document.getElementById('dashboard-screen').style.display='block';
   document.getElementById('period-badge').textContent=payload.period||'--';
-  if(payload.updatedAt)document.getElementById('updated-badge').textContent='Updated '+niceDate(payload.updatedAt);
+  if(payload.updatedAt){
+    try{
+      const d=new Date(payload.updatedAt);
+      const dateStr=d.toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'});
+      document.getElementById('updated-badge').textContent='Updated '+dateStr;
+    }catch(e){document.getElementById('updated-badge').textContent='';}
+  }
   const cap=lsGet(LS_CAPACITY);
   if(cap)renderCapGrid(cap);
 }
@@ -1011,19 +1035,38 @@ function buildDashTab(staffData,dt,period){
   const gapSign=gap>=0?'+':'';
   const gapCol=gap>=0?'#3ddc84':'#ff6b6b';
   const gapHtml='<div class="kpi-vs-target" style="color:'+gapCol+'">'+gapSign+gap.toFixed(1)+'pp vs 85% target</div>';
-  const kpiDelay=['0ms','70ms','140ms','210ms','280ms'];
   document.getElementById('kpi-grid').innerHTML=
-    '<div class="kpi" style="animation:kpiIn .45s ease both;animation-delay:'+kpiDelay[0]+'"><div class="kpi-label">Studio Utilisation</div><div class="kpi-value accent" data-countup="pct" data-target="'+(uP*100).toFixed(1)+'">0.0%</div>'+gapHtml+'</div>'+
-    '<div class="kpi" style="animation:kpiIn .45s ease both;animation-delay:'+kpiDelay[1]+'"><div class="kpi-label">Total Client Hours</div><div class="kpi-value" data-countup="int" data-target="'+Math.round(totCli)+'">0</div><div class="kpi-sub">Across all departments</div></div>'+
-    '<div class="kpi" style="animation:kpiIn .45s ease both;animation-delay:'+kpiDelay[2]+'"><div class="kpi-label">Total Capacity</div><div class="kpi-value" data-countup="int" data-target="'+totCap+'">0</div><div class="kpi-sub">'+STAFF_ROSTER.length+' staff · '+period+'</div></div>'+
-    '<div class="kpi" style="animation:kpiIn .45s ease both;animation-delay:'+kpiDelay[3]+'"><div class="kpi-label">Sick Leave</div><div class="kpi-value" data-countup="hrs" data-target="'+Math.round(totSck)+'">0 <span style="font-size:20px">hrs</span></div><div class="kpi-sub">'+fPct(pct(totSck,totCap))+' of capacity</div></div>'+
-    '<div class="kpi" style="animation:kpiIn .45s ease both;animation-delay:'+kpiDelay[4]+'"><div class="kpi-label">Training Investment</div><div class="kpi-value" data-countup="hrs" data-target="'+totTrn+'">0 <span style="font-size:20px">hrs</span></div><div class="kpi-sub">Training &amp; Upskilling hours</div></div>';
+    '<div class="kpi"><div class="kpi-label">Studio Utilisation</div><div class="kpi-value accent" data-countup="pct" data-target="'+(uP*100).toFixed(1)+'">0.0%</div>'+gapHtml+'</div>'+
+    '<div class="kpi"><div class="kpi-label">Total Client Hours</div><div class="kpi-value" data-countup="int" data-target="'+Math.round(totCli)+'">0</div><div class="kpi-sub">Across all departments</div></div>'+
+    '<div class="kpi"><div class="kpi-label">Total Capacity</div><div class="kpi-value" data-countup="int" data-target="'+totCap+'">0</div><div class="kpi-sub">'+STAFF_ROSTER.length+' staff · '+period+'</div></div>'+
+    '<div class="kpi"><div class="kpi-label">Sick Leave</div><div class="kpi-value" data-countup="hrs" data-target="'+Math.round(totSck)+'">0 <span style="font-size:20px">hrs</span></div><div class="kpi-sub">'+fPct(pct(totSck,totCap))+' of capacity</div></div>'+
+    '<div class="kpi"><div class="kpi-label">Training Investment</div><div class="kpi-value" data-countup="hrs" data-target="'+totTrn+'">0 <span style="font-size:20px">hrs</span></div><div class="kpi-sub">Training &amp; Upskilling hours</div></div>';
   animateKPIs();
+
+  // ── Insight strip ──────────────────────────────────────────
+  var onT=0,med=0,low=0;
+  STAFF_ROSTER.forEach(function(s){var d=staffData[s.name];if(!d||d.cap===0)return;var u=d.cli/d.cap;var st=getSt(u);if(st==='on-target')onT++;else if(st==='building')med++;else low++;});
+  var topClient=null,topClientHrs=0;
+  // clientHours is not in dt scope - get from staffData breakdown
+  var clientTotals={};
+  STAFF_ROSTER.forEach(function(s){var d=staffData[s.name];if(!d)return;Object.entries(d.breakdown||{}).forEach(function(e){if(['· Holiday','· Illness & absence','· Internal'].includes(e[0]))return;clientTotals[e[0]]=(clientTotals[e[0]]||0)+e[1];});});
+  Object.entries(clientTotals).forEach(function(e){if(e[1]>topClientHrs){topClientHrs=e[1];topClient=e[0];}});
+  var topDept=DEPT_ORDER[0];
+  DEPT_ORDER.forEach(function(d){if(pct(dt[d].cli,dt[d].cap)>pct(dt[topDept].cli,dt[topDept].cap))topDept=d;});
+  var topDeptPct=fPct(pct(dt[topDept].cli,dt[topDept].cap));
+  var insightEl=document.getElementById('insight-strip');
+  if(insightEl){
+    insightEl.innerHTML=
+      '<div class="insight-cell"><div class="insight-label">Staff Status</div><div class="status-pills"><span class="spill g">'+onT+' on target</span><span class="spill a">'+med+' medium</span><span class="spill r">'+low+' low</span></div></div>'+
+      '<div class="insight-cell"><div class="insight-label">Top Client</div><div class="insight-val">'+( topClient||'—')+'</div><div class="insight-sub">'+Math.round(topClientHrs)+'h logged this period</div></div>'+
+      '<div class="insight-cell"><div class="insight-label">Leading Dept</div><div class="insight-val">'+topDept+'</div><div class="insight-sub">'+topDeptPct+' utilisation</div></div>';
+  }
+
   document.getElementById('dept-overview-sub').textContent='Utilisation by studio department';
   document.getElementById('dept-cards').innerHTML=DEPT_ORDER.map(function(d,i){
     const p=pct(dt[d].cli,dt[d].cap),c=bcol(p);
     const barW=Math.min(p*100,100).toFixed(1);
-    const dly=(i*80+350)+'ms';
+    const dly=(i*80+100)+'ms';
     return '<div class="dept-card"><div class="dept-card-name">'+d+'</div><div class="dept-pct" style="color:'+c+'">'+fPct(p)+'</div><div class="big-bar"><div class="big-bar-fill" style="--bar-w:'+barW+'%;width:'+barW+'%;background:'+c+';animation-delay:'+dly+'"></div></div><div class="dept-stats"><div><div class="dept-stat-label">Client</div><div class="dept-stat-val">'+fmt(Math.round(dt[d].cli))+'</div></div><div><div class="dept-stat-label">Capacity</div><div class="dept-stat-val">'+fmt(dt[d].cap)+'</div></div><div><div class="dept-stat-label">Holiday</div><div class="dept-stat-val">'+fmt(Math.round(dt[d].hol))+'</div></div><div><div class="dept-stat-label">Sick</div><div class="dept-stat-val">'+fmt(Math.round(dt[d].sck))+'</div></div></div></div>';
   }).join('');
 }
@@ -1619,45 +1662,78 @@ function showTab(id,btn){
     switchSkillsTab('photo-video',document.querySelector('.skills-sub-btn'));
 }
 
+/* ── UK Bank Holidays ───────────────────────────────────────────── */
+var UK_BH = [
+  '2026-01-01','2026-04-03','2026-04-06','2026-05-04','2026-05-25',
+  '2026-08-31','2026-12-25','2026-12-28',
+  '2025-01-01','2025-04-18','2025-04-21','2025-05-05','2025-05-26',
+  '2025-08-25','2025-12-25','2025-12-26'
+];
+function isBankHoliday(dateMs){
+  var d=new Date(dateMs);
+  var str=d.getUTCFullYear()+'-'+String(d.getUTCMonth()+1).padStart(2,'0')+'-'+String(d.getUTCDate()).padStart(2,'0');
+  return UK_BH.includes(str);
+}
+
 function renderCapGrid(data){
   const weekStartSerial=data.weekStartSerial,staffAvail=data.staffAvail,uploadedAt=data.uploadedAt;
   const MONTHS=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
   const DAYS=['Mon','Tue','Wed','Thu','Fri'];
   const wkMs=(weekStartSerial-25569)*86400*1000;
   const wkDate=new Date(wkMs);
-  const dayLabels=DAYS.map(function(l,i){const d=new Date(wkMs+i*86400*1000);return l+' '+d.getUTCDate()+' '+MONTHS[d.getUTCMonth()];});
   const endDate=new Date(wkMs+4*86400*1000);
   const wkLbl=wkDate.getUTCDate()+'&ndash;'+endDate.getUTCDate()+' '+MONTHS[wkDate.getUTCMonth()]+' '+wkDate.getUTCFullYear();
+
+  // Build day info array (date, label, isBH)
+  const days=DAYS.map(function(l,i){
+    var ms=wkMs+i*86400*1000;
+    var d=new Date(ms);
+    return{label:l+' '+d.getUTCDate()+' '+MONTHS[d.getUTCMonth()],ms:ms,bh:isBankHoliday(ms)};
+  });
+
+  // Dept summary (exclude bank holidays from free count)
   const deptSummary={};
-  DEPT_ORDER.forEach(function(d){deptSummary[d]={free:0,partial:0,full:0};});
+  DEPT_ORDER.forEach(function(d){deptSummary[d]={free:0,partial:0,full:0,bh:days.filter(function(d){return d.bh;}).length};});
   staffAvail.forEach(function(s){
     const ds=deptSummary[s.dept];if(!ds)return;
     let anyBooked=false,anyFull=false;
-    s.hours.forEach(function(h){if(h>=7.5)anyFull=true;else if(h>0)anyBooked=true;});
+    s.hours.forEach(function(h,i){if(days[i].bh)return;if(h>=7.5)anyFull=true;else if(h>0)anyBooked=true;});
     if(!anyFull&&!anyBooked)ds.free++;else if(anyFull&&!anyBooked)ds.full++;else ds.partial++;
   });
+
+  var uploadedStr='';
+  if(uploadedAt){try{uploadedStr='Uploaded '+new Date(uploadedAt).toLocaleDateString('en-GB',{day:'numeric',month:'short'});}catch(e){}}
+
   let html='<div class="cap-meta"><div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap"><div class="cap-week-badge">Week of '+wkLbl+'</div>';
-  if(uploadedAt)html+='<span style="font-family:\'DM Mono\',monospace;font-size:10px;color:var(--muted)">Uploaded '+niceDate(uploadedAt)+'</span>';
-  html+='<button class="cap-reset-btn" onclick="resetCapTab()">&#x21A9; Upload Different File</button></div></div>';
+  if(uploadedStr)html+='<span style="font-family:\'DM Mono\',monospace;font-size:10px;color:var(--muted)">'+uploadedStr+'</span>';
+  html+='<button class="cap-reset-btn" onclick="resetCapTab()">&#x21A9; Upload Different Week</button>';
+  html+='</div><p style="font-family:\'DM Mono\',monospace;font-size:10px;color:var(--muted);margin-top:8px;line-height:1.7">Shows booked client work from Workbook schedule. Holiday &amp; sick days only appear here if entered in Workbook\'s Schedule view.</p></div>';
   html+='<div class="cap-dept-summary">';
   DEPT_ORDER.forEach(function(d){const ds=deptSummary[d];html+='<div class="cap-dept-cell"><div class="cap-dept-name">'+d+'</div><div class="cap-dept-stat"><span class="cap-stat-label">Free</span><span class="cap-stat-val free">'+ds.free+'</span></div><div class="cap-dept-stat"><span class="cap-stat-label">Partial</span><span class="cap-stat-val partial">'+ds.partial+'</span></div><div class="cap-dept-stat"><span class="cap-stat-label">Full</span><span class="cap-stat-val full">'+ds.full+'</span></div></div>';});
   html+='</div><div class="cap-grid-wrap"><table class="cap-table"><thead><tr><th class="cap-name-hd">Staff</th>';
-  dayLabels.forEach(function(d){html+='<th class="cap-day-hd">'+d+'</th>';});
+  days.forEach(function(d){html+='<th class="cap-day-hd'+(d.bh?' cap-bh-hd':'')+'" style="'+(d.bh?'color:#4a9eff':'')+'">'+(d.bh?'🏖 ':'')+d.label+'</th>';});
   html+='</tr></thead><tbody>';
   DEPT_ORDER.forEach(function(dept){
     html+='<tr class="cap-dept-hd"><td colspan="6">'+dept+'</td></tr>';
     staffAvail.filter(function(s){return s.dept===dept;}).forEach(function(s){
       html+='<tr><td class="cap-name-td">'+s.name+'</td>';
-      s.hours.forEach(function(h){html+=capCell(h);});
+      s.hours.forEach(function(h,i){html+=capCell(h,days[i].bh);});
       html+='</tr>';
     });
   });
-  html+='</tbody></table></div><div class="cap-legend"><div class="cap-legend-item"><span class="cap-legend-pip" style="background:rgba(61,220,132,.12);color:#3ddc84">FREE</span><span class="cap-legend-lbl">No bookings</span></div><div class="cap-legend-item"><span class="cap-legend-pip" style="background:rgba(245,166,35,.12);color:#f5a623">3.5h</span><span class="cap-legend-lbl">Partial - remaining hours shown</span></div><div class="cap-legend-item"><span class="cap-legend-pip" style="background:rgba(128,128,128,.08);color:var(--muted)">FULL</span><span class="cap-legend-lbl">Fully booked (7.5+ hrs)</span></div></div>';
+  html+='</tbody></table></div>';
+  html+='<div class="cap-legend">';
+  html+='<div class="cap-legend-item"><span class="cap-legend-pip" style="background:rgba(61,220,132,.12);color:#3ddc84">FREE</span><span class="cap-legend-lbl">No bookings</span></div>';
+  html+='<div class="cap-legend-item"><span class="cap-legend-pip" style="background:rgba(245,166,35,.12);color:#f5a623">3.5h</span><span class="cap-legend-lbl">Partial — remaining hours</span></div>';
+  html+='<div class="cap-legend-item"><span class="cap-legend-pip" style="background:rgba(128,128,128,.08);color:var(--muted)">FULL</span><span class="cap-legend-lbl">Fully booked</span></div>';
+  html+='<div class="cap-legend-item"><span class="cap-legend-pip" style="background:rgba(74,158,255,.1);color:#4a9eff">B/H</span><span class="cap-legend-lbl">Bank holiday</span></div>';
+  html+='</div>';
   document.getElementById('cap-grid').innerHTML=html;
   document.getElementById('cap-upload-area').style.display='none';
   document.getElementById('cap-grid').style.display='block';
 }
-function capCell(h){
+function capCell(h, isBH){
+  if(isBH)return '<td class="cap-cell cap-bh"><span>B/H</span></td>';
   if(h>=7.5)return '<td class="cap-cell cap-full"><span>FULL</span></td>';
   if(h>0){const f=parseFloat((7.5-h).toFixed(1));return '<td class="cap-cell cap-partial"><span>'+(f%1===0?f.toFixed(0):f.toFixed(1))+'h free</span></td>';}
   return '<td class="cap-cell cap-free"><span>FREE</span></td>';
