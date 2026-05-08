@@ -9,7 +9,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;600;700;800&family=DM+Mono:wght@300;400;500&family=Barlow:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
-:root{--black:#1a1a2e;--surface:#22223a;--card:#2a2a45;--border:#3d3d5c;--orange:#FF4D00;--orange-dim:rgba(255,77,0,0.15);--white:#f0f0f0;--muted:#8888aa;--mid:#b0b0cc;}
+:root{--black:#111110;--surface:#1B1B19;--card:#222220;--border:#313130;--orange:#FF4D00;--orange-dim:rgba(255,77,0,0.12);--white:#EDEDEA;--muted:#88887E;--mid:#C0C0B8;}
 [data-theme="light"]{--black:#F5F5F2;--surface:#ECECEA;--card:#FFFFFF;--border:#DCDCDA;--orange:#FF4D00;--orange-dim:rgba(255,77,0,0.07);--white:#111110;--muted:#88887E;--mid:#3D3D38;}
 *{margin:0;padding:0;box-sizing:border-box;}
 body{background:var(--black);color:var(--white);font-family:'Barlow',sans-serif;font-size:13px;line-height:1.5;min-height:100vh;transition:background .25s,color .25s;}
@@ -337,21 +337,25 @@ td.muted{color:var(--muted);font-size:11px;}
 .util-bar{height:8px;width:60px;}
 .util-bar-fill{transition:width .6s cubic-bezier(.4,0,.2,1);}
 .big-bar{height:6px;}
+/* ── Big bar fill animation ───────────────────────────── */
+@keyframes bigBarGrow{from{width:0}to{width:var(--bar-w)}}
+.big-bar-fill{animation:bigBarGrow .9s cubic-bezier(.4,0,.2,1) both;}
+/* ── KPI card entrance ────────────────────────────────── */
+@keyframes kpiIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+/* ── Dept card hover lift ─────────────────────────────── */
+.dept-card{transition:background .25s,transform .2s,box-shadow .2s;cursor:default;}
+.dept-card:hover{transform:translateY(-2px);}
+[data-theme="light"] .dept-card:hover{box-shadow:0 4px 12px rgba(0,0,0,.1);}
 /* ── Tooltip on util bar ──────────────────────────────── */
 .util-bar-wrap{position:relative;}
 .util-bar-wrap[data-tip]:hover::after{content:attr(data-tip);position:absolute;bottom:calc(100% + 7px);right:0;background:var(--card);border:1px solid var(--border);color:var(--white);font-family:'DM Mono',monospace;font-size:10px;padding:5px 9px;white-space:nowrap;z-index:50;pointer-events:none;letter-spacing:.04em;box-shadow:0 2px 8px rgba(0,0,0,.2);}
 /* ── Row entrance animation ───────────────────────────── */
 @keyframes utilRowIn{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:translateY(0)}}
-/* ── Initials avatars ─────────────────────────────────── */
-.util-avatar{display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;border-radius:50%;font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:700;letter-spacing:.04em;flex-shrink:0;margin-right:8px;vertical-align:middle;}
 /* ── Chart wrappers ───────────────────────────────────── */
 .chart-section{margin:32px 0;}
 .chart-wrap{background:var(--card);border:1px solid var(--border);padding:24px 28px;position:relative;}
 [data-theme="light"] .chart-wrap{box-shadow:0 1px 3px rgba(0,0,0,.05);}
 .chart-label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:16px;}
-.chart-legend{display:flex;gap:16px;flex-wrap:wrap;margin-top:14px;}
-.chart-legend-item{display:flex;align-items:center;gap:6px;font-family:'DM Mono',monospace;font-size:10px;color:var(--muted);}
-.chart-legend-pip{width:20px;height:3px;border-radius:2px;}
 /* ── Sparklines ───────────────────────────────────────── */
 .sparkline-cell{padding:8px 14px !important;vertical-align:middle;}
 
@@ -535,8 +539,6 @@ td.muted{color:var(--muted);font-size:11px;}
       <div class="kpi-grid" id="kpi-grid"></div>
       <div class="section-header"><div class="section-title">Department Overview</div><div class="section-sub" id="dept-overview-sub"></div></div>
       <div class="dept-grid" id="dept-cards"></div>
-      <div class="section-header" style="margin-top:32px"><div class="section-title">Hours Mix</div><div class="section-sub" id="mix-sub"></div></div>
-      <div class="hours-mix" id="hours-mix"></div>
     </div>
 
     <div id="tab-utilisation" class="tab-section">
@@ -1022,46 +1024,30 @@ function buildAllTabs(payload,otPayload){
 function buildDashTab(staffData,dt,period){
   const totCap=DEPT_ORDER.reduce(function(a,d){return a+dt[d].cap;},0);
   const totCli=DEPT_ORDER.reduce(function(a,d){return a+dt[d].cli;},0);
-  const totHol=DEPT_ORDER.reduce(function(a,d){return a+dt[d].hol;},0);
   const totSck=DEPT_ORDER.reduce(function(a,d){return a+dt[d].sck;},0);
-  const totInt=DEPT_ORDER.reduce(function(a,d){return a+dt[d].int;},0);
   const uP=pct(totCli,totCap);
-  let topD=DEPT_ORDER[0];
-  DEPT_ORDER.forEach(function(d){if(pct(dt[d].cli,dt[d].cap)>pct(dt[topD].cli,dt[topD].cap))topD=d;});
   const totTrn=Math.round(Object.values(staffData).reduce(function(a,s){return a+(s.trn||0);},0)*10)/10;
   const tgt=getTarget();
   const gap=(uP-tgt)*100;
   const gapSign=gap>=0?'+':'';
   const gapCol=gap>=0?'#3ddc84':'#ff6b6b';
   const gapHtml='<div class="kpi-vs-target" style="color:'+gapCol+'">'+gapSign+gap.toFixed(1)+'pp vs '+Math.round(tgt*100)+'% target</div>';
+  const kpiDelay=['0ms','70ms','140ms','210ms','280ms'];
   document.getElementById('kpi-grid').innerHTML=
-    '<div class="kpi"><div class="kpi-label">Studio Utilisation</div><div class="kpi-value accent" data-countup="pct" data-target="'+(uP*100).toFixed(1)+'">0.0%</div>'+gapHtml+'</div>'+
-    '<div class="kpi"><div class="kpi-label">Total Client Hours</div><div class="kpi-value" data-countup="int" data-target="'+Math.round(totCli)+'">0</div><div class="kpi-sub">Across all departments</div></div>'+
-    '<div class="kpi"><div class="kpi-label">Total Capacity</div><div class="kpi-value" data-countup="int" data-target="'+totCap+'">0</div><div class="kpi-sub">'+STAFF_ROSTER.length+' staff · '+period+'</div></div>'+
-    '<div class="kpi"><div class="kpi-label">Sick Leave</div><div class="kpi-value" data-countup="hrs" data-target="'+Math.round(totSck)+'">0 <span style="font-size:20px">hrs</span></div><div class="kpi-sub">'+fPct(pct(totSck,totCap))+' of capacity</div></div>'+
-    '<div class="kpi"><div class="kpi-label">Training Investment</div><div class="kpi-value" data-countup="hrs" data-target="'+totTrn+'">0 <span style="font-size:20px">hrs</span></div><div class="kpi-sub">Training &amp; Upskilling hours</div></div>';
+    '<div class="kpi" style="animation:kpiIn .45s ease both;animation-delay:'+kpiDelay[0]+'"><div class="kpi-label">Studio Utilisation</div><div class="kpi-value accent" data-countup="pct" data-target="'+(uP*100).toFixed(1)+'">0.0%</div>'+gapHtml+'</div>'+
+    '<div class="kpi" style="animation:kpiIn .45s ease both;animation-delay:'+kpiDelay[1]+'"><div class="kpi-label">Total Client Hours</div><div class="kpi-value" data-countup="int" data-target="'+Math.round(totCli)+'">0</div><div class="kpi-sub">Across all departments</div></div>'+
+    '<div class="kpi" style="animation:kpiIn .45s ease both;animation-delay:'+kpiDelay[2]+'"><div class="kpi-label">Total Capacity</div><div class="kpi-value" data-countup="int" data-target="'+totCap+'">0</div><div class="kpi-sub">'+STAFF_ROSTER.length+' staff · '+period+'</div></div>'+
+    '<div class="kpi" style="animation:kpiIn .45s ease both;animation-delay:'+kpiDelay[3]+'"><div class="kpi-label">Sick Leave</div><div class="kpi-value" data-countup="hrs" data-target="'+Math.round(totSck)+'">0 <span style="font-size:20px">hrs</span></div><div class="kpi-sub">'+fPct(pct(totSck,totCap))+' of capacity</div></div>'+
+    '<div class="kpi" style="animation:kpiIn .45s ease both;animation-delay:'+kpiDelay[4]+'"><div class="kpi-label">Training Investment</div><div class="kpi-value" data-countup="hrs" data-target="'+totTrn+'">0 <span style="font-size:20px">hrs</span></div><div class="kpi-sub">Training &amp; Upskilling hours</div></div>';
   animateKPIs();
   document.getElementById('dept-overview-sub').textContent='Utilisation by studio department';
   const tgtW=Math.min(tgt*100,100).toFixed(1);
-  document.getElementById('dept-cards').innerHTML=DEPT_ORDER.map(function(d){
+  document.getElementById('dept-cards').innerHTML=DEPT_ORDER.map(function(d,i){
     const p=pct(dt[d].cli,dt[d].cap),c=bcol(p);
-    return '<div class="dept-card"><div class="dept-card-name">'+d+'</div><div class="dept-pct" style="color:'+c+'">'+fPct(p)+'</div><div class="big-bar"><div class="big-bar-fill" style="width:'+Math.min(p*100,100).toFixed(1)+'%;background:'+c+'"></div><div class="big-bar-target" style="left:'+tgtW+'%"></div></div><div class="dept-stats"><div><div class="dept-stat-label">Client</div><div class="dept-stat-val">'+fmt(Math.round(dt[d].cli))+'</div></div><div><div class="dept-stat-label">Capacity</div><div class="dept-stat-val">'+fmt(dt[d].cap)+'</div></div><div><div class="dept-stat-label">Holiday</div><div class="dept-stat-val">'+fmt(Math.round(dt[d].hol))+'</div></div><div><div class="dept-stat-label">Sick</div><div class="dept-stat-val">'+fmt(Math.round(dt[d].sck))+'</div></div></div></div>';
+    const barW=Math.min(p*100,100).toFixed(1);
+    const dly=(i*80+350)+'ms';
+    return '<div class="dept-card"><div class="dept-card-name">'+d+'</div><div class="dept-pct" style="color:'+c+'">'+fPct(p)+'</div><div class="big-bar"><div class="big-bar-fill" style="--bar-w:'+barW+'%;width:'+barW+'%;background:'+c+';animation-delay:'+dly+'"></div><div class="big-bar-target" style="left:'+tgtW+'%"></div></div><div class="dept-stats"><div><div class="dept-stat-label">Client</div><div class="dept-stat-val">'+fmt(Math.round(dt[d].cli))+'</div></div><div><div class="dept-stat-label">Capacity</div><div class="dept-stat-val">'+fmt(dt[d].cap)+'</div></div><div><div class="dept-stat-label">Holiday</div><div class="dept-stat-val">'+fmt(Math.round(dt[d].hol))+'</div></div><div><div class="dept-stat-label">Sick</div><div class="dept-stat-val">'+fmt(Math.round(dt[d].sck))+'</div></div></div></div>';
   }).join('');
-  document.getElementById('mix-sub').textContent='Studio total · '+period;
-  document.getElementById('hours-mix').innerHTML=
-    '<div class="mix-cell"><div class="mix-label">Client Hours</div><div class="mix-val">'+fmt(Math.round(totCli))+'</div></div>'+
-    '<div class="mix-cell"><div class="mix-label">Holiday Hours</div><div class="mix-val">'+fmt(Math.round(totHol))+'</div></div>'+
-    '<div class="mix-cell"><div class="mix-label">Sick Hours</div><div class="mix-val">'+fmt(Math.round(totSck))+'</div></div>'+
-    '<div class="mix-cell"><div class="mix-label">Internal Hours</div><div class="mix-val">'+fmt(Math.round(totInt))+'</div></div>';
-  // Dept chart
-  var chartWrap = document.getElementById('dash-dept-chart');
-  if (!chartWrap) {
-    var section = document.createElement('div');
-    section.className = 'chart-section';
-    section.innerHTML = '<div class="chart-wrap"><div class="chart-label">Department Utilisation</div><canvas id="dash-dept-chart" height="160"></canvas></div>';
-    document.getElementById('hours-mix').parentNode.insertBefore(section, document.getElementById('hours-mix').nextSibling);
-  }
-  setTimeout(function(){ renderDeptChart(dt); }, 0);
 }
 
 function animateKPIs(){
@@ -1082,18 +1068,9 @@ function animateKPIs(){
 
 function buildUtilTab(staffData,period,otData){
   otData=otData||{};
-  var DEPT_COLORS={
-    'Photography':{bg:'rgba(55,138,221,.2)',fg:'#4a9eff'},
-    'Retouch':{bg:'rgba(29,158,117,.2)',fg:'#1D9E75'},
-    'Videography':{bg:'rgba(245,166,35,.2)',fg:'#f5a623'},
-    'Styling':{bg:'rgba(212,83,126,.2)',fg:'#D4537E'},
-    'Art Direction':{bg:'rgba(127,119,221,.2)',fg:'#7F77DD'}
-  };
-  function getInitials(name){var p=name.trim().split(' ');return p.length>=2?(p[0][0]+p[p.length-1][0]).toUpperCase():name.substring(0,2).toUpperCase();}
   let rows='';
   var personIdx=0;
   DEPT_ORDER.forEach(function(dept){
-    var dc=DEPT_COLORS[dept]||{bg:'rgba(128,128,128,.15)',fg:'#888'};
     rows+='<tr class="dept-row"><td colspan="12">'+dept+'</td></tr>';
     STAFF_ROSTER.filter(function(s){return s.dept===dept;}).forEach(function(s){
       const d=staffData[s.name],p=pct(d.cli,d.cap);
@@ -1103,11 +1080,10 @@ function buildUtilTab(staffData,period,otData){
       const totalLogged=Math.round((d.cli+d.hol+d.sck+d.int)*10)/10;
       const delay=(personIdx*28)+'ms';
       const tip=fPct(p)+' · '+fmt(d.cli)+'h of '+fmt(d.cap)+'h capacity';
-      const avatar='<span class="util-avatar" style="background:'+dc.bg+';color:'+dc.fg+'">'+getInitials(s.name)+'</span>';
       personIdx++;
 
       rows+='<tr class="util-person-row'+(hasOt?' util-ot-row':'')+'" style="animation:utilRowIn .3s ease both;animation-delay:'+delay+'" onclick="toggleUtilBreakdown(\''+uid+'\')">';
-      rows+='<td><span class="util-name-btn"><span class="util-chevron" id="chv-'+uid+'">&#9658;</span>'+avatar+s.name+'</span></td>';
+      rows+='<td><span class="util-name-btn"><span class="util-chevron" id="chv-'+uid+'">&#9658;</span>'+s.name+'</span></td>';
       rows+='<td class="muted" style="text-align:right">'+dept+'</td>';
       rows+='<td>'+fmt(d.cap)+'</td>';
       rows+='<td>'+(d.cli>0?fmt(d.cli):'--')+'</td>';
@@ -1408,7 +1384,6 @@ function buildHistoryTab(){
 
   // ── 1. Monthly Trend (chart + table) ─────────────────────────
   html+='<div class="section-header"><div class="section-title">Monthly Trend</div><div class="section-sub">Department utilisation across all periods</div></div>';
-  html+='<div class="chart-wrap" style="margin-bottom:28px"><div class="chart-label">Utilisation over time</div><canvas id="trend-chart" height="180"></canvas></div>';
   html+='<div class="hist-trend-wrap"><table class="hist-trend-table"><thead><tr><th class="left">Department</th>';
   allPeriods.forEach(function(p){
     html+='<th class="'+(p.isCurrent?'hist-current':'')+'">'+p.data.period+(p.isCurrent?' <span style="font-size:9px;color:var(--orange);vertical-align:middle">NOW</span>':'')+'</th>';
@@ -1446,8 +1421,6 @@ function buildHistoryTab(){
     html+='</tr>';
   });
   html+='</tbody></table></div>';
-  // Render trend chart after DOM update
-  setTimeout(function(){ renderTrendChart(allPeriods); }, 0);
 
   // ── 2. Client Hour Changes ─────────────────────────────────────
   var clientHtml = buildClientChanges(currData, compPeriod.data);
