@@ -9,7 +9,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;600;700;800&family=DM+Mono:wght@300;400;500&family=Barlow:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
-:root{--black:#111110;--surface:#1B1B19;--card:#222220;--border:#313130;--orange:#FF4D00;--orange-dim:rgba(255,77,0,0.12);--white:#EDEDEA;--muted:#88887E;--mid:#C0C0B8;}
+:root{--black:#181829;--surface:#21213A;--card:#292940;--border:#3C3C5C;--orange:#FF4D00;--orange-dim:rgba(255,77,0,0.13);--white:#F0F0F2;--muted:#9090B0;--mid:#C0C0D8;}
 [data-theme="light"]{--black:#F5F5F2;--surface:#ECECEA;--card:#FFFFFF;--border:#DCDCDA;--orange:#FF4D00;--orange-dim:rgba(255,77,0,0.07);--white:#111110;--muted:#88887E;--mid:#3D3D38;}
 *{margin:0;padding:0;box-sizing:border-box;}
 body{background:var(--black);color:var(--white);font-family:'Barlow',sans-serif;font-size:13px;line-height:1.5;min-height:100vh;transition:background .25s,color .25s;}
@@ -410,12 +410,19 @@ td.muted{color:var(--muted);font-size:11px;}
 .big-bar{position:relative;}
 .big-bar-target{position:absolute;top:-3px;bottom:-3px;width:2px;background:rgba(255,255,255,.7);border-radius:1px;transform:translateX(-50%);pointer-events:none;}
 [data-theme="light"] .big-bar-target{background:rgba(60,60,80,.3);}
-.target-badge{font-family:'DM Mono',monospace;font-size:10px;background:rgba(128,128,128,.08);border:1px solid var(--border);color:var(--muted);padding:4px 10px;border-radius:2px;cursor:pointer;transition:all .2s;letter-spacing:.05em;white-space:nowrap;display:flex;align-items:center;gap:5px;}
-.target-badge:hover{border-color:var(--mid);color:var(--white);}
-.target-edit-wrap{display:none;align-items:center;gap:6px;}
-.target-edit-wrap.open{display:flex;}
-.target-edit-input{background:var(--surface);border:1px solid var(--orange);color:var(--white);font-family:'DM Mono',monospace;font-size:12px;padding:4px 8px;width:58px;outline:none;text-align:center;border-radius:2px;}
-.kpi-vs-target{font-size:11px;margin-top:5px;font-family:'DM Mono',monospace;}
+/* ── Cursor control ───────────────────────────────────── */
+body{cursor:default;}
+p,span,div,td,th,h1,h2,h3,label{cursor:default;}
+button,.btn,.btn-ghost,.btn-primary,.nav button,.filter-pill,.theme-btn,.skills-sub-btn,.nav-roadmap,.modal-close,.history-delete-btn,.cap-reset-btn,.comp-period-select,.hist-period-dropdown,.drop-zone,.cap-drop-zone,.util-person-row,.cap-reset-btn{cursor:pointer;}
+input,textarea,select{cursor:text;}
+/* ── Sticky util table header ─────────────────────────── */
+#tab-utilisation thead th{position:sticky;top:57px;background:var(--black);z-index:10;}
+/* ── Row hover left accent ────────────────────────────── */
+tbody tr.util-person-row:hover td:first-child{box-shadow:inset 3px 0 0 var(--orange);}
+/* ── Threshold legend ─────────────────────────────────── */
+.thr-legend{display:flex;align-items:center;gap:14px;}
+.thr-item{display:flex;align-items:center;gap:5px;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);white-space:nowrap;}
+.thr-pip{width:7px;height:7px;border-radius:50%;flex-shrink:0;}
 
 /* ── Utilisation filter bar ─────────────────────────────────────── */
 .util-filter-bar{display:flex;align-items:center;gap:10px;margin-bottom:20px;flex-wrap:wrap;}
@@ -429,6 +436,7 @@ td.muted{color:var(--muted);font-size:11px;}
 .filter-pill.dept-active{background:rgba(74,158,255,.1);border-color:rgba(74,158,255,.3);color:#4a9eff;}
 .filter-sep{width:1px;height:20px;background:var(--border);flex-shrink:0;}
 .util-filter-count{font-family:'DM Mono',monospace;font-size:11px;color:var(--muted);margin-left:auto;white-space:nowrap;}
+.kpi-vs-target{font-size:11px;margin-top:5px;font-family:'DM Mono',monospace;}
 </style>
 </head>
 <body>
@@ -507,12 +515,10 @@ td.muted{color:var(--muted);font-size:11px;}
     </div>
     <div class="topbar-right">
       <span class="updated-badge" id="updated-badge"></span>
-      <button class="target-badge" id="target-badge-btn" onclick="openTargetEdit()">Target: <span id="target-display">75%</span></button>
-      <div class="target-edit-wrap" id="target-edit-wrap">
-        <input class="target-edit-input" id="target-edit-input" type="number" min="1" max="100" placeholder="75" onkeydown="if(event.key==='Enter')saveTarget();if(event.key==='Escape')closeTargetEdit();">
-        <span style="font-family:'DM Mono',monospace;font-size:11px;color:var(--muted)">%</span>
-        <button class="btn-ghost" style="padding:4px 10px;font-size:10px" onclick="saveTarget()">Save</button>
-        <button class="btn-ghost" style="padding:4px 10px;font-size:10px" onclick="closeTargetEdit()">✕</button>
+      <div class="thr-legend">
+        <div class="thr-item"><div class="thr-pip" style="background:#3ddc84"></div>On Target 85%+</div>
+        <div class="thr-item"><div class="thr-pip" style="background:#f5a623"></div>Medium 60%+</div>
+        <div class="thr-item"><div class="thr-pip" style="background:#ff6b6b"></div>Low &lt;60%</div>
       </div>
       <div class="period-badge" id="period-badge">--</div>
       <button class="theme-btn" id="theme-btn" onclick="toggleTheme()">🌙</button>
@@ -706,40 +712,14 @@ const pct  = (n,d) => d===0?0:n/d;
 const fmt  = n => typeof n==='number'?(n%1===0?n.toLocaleString():n.toFixed(1)):n;
 const fPct = n => (n*100).toFixed(1)+'%';
 const LS_TARGET = 's77_target';
-function getTarget(){ return (parseFloat(lsGet(LS_TARGET)) || 75) / 100; }
+function getTarget(){ return 0.75; }
 function bcol(p){ return p>=0.85?'#3ddc84':p>=0.6?'#f5a623':'#ff6b6b'; }
 function getSt(p){ return p<0?'error':p>=0.85?'on-target':p>=0.6?'building':'low'; }
 function stBadge(s){return{'on-target':'<span class="badge on-target">&#x2713; On Target</span>','building':'<span class="badge building">&#x2197; Medium</span>','error':'<span class="badge error">&#x26A0; Data Error</span>','low':'<span class="badge low">&#x26A0; Low</span>'}[s]||'<span class="badge low">&#x26A0; Low</span>';}
 function uBar(p, tip){
   var c=bcol(p);
-  var tw=Math.min(getTarget()*100,100).toFixed(1);
   var tipAttr=tip?' data-tip="'+tip+'"':'';
-  return '<div class="util-bar-wrap"'+tipAttr+'><div class="util-bar"><div class="util-bar-fill" style="width:'+Math.min(p*100,100).toFixed(1)+'%;background:'+c+'"></div><div class="util-target-tick" style="left:'+tw+'%"></div></div><span class="util-val" style="color:'+c+'">'+fPct(p)+'</span></div>';
-}
-function openTargetEdit(){
-  var t=Math.round(getTarget()*100);
-  document.getElementById('target-edit-input').value=t;
-  document.getElementById('target-badge-btn').style.display='none';
-  document.getElementById('target-edit-wrap').classList.add('open');
-  document.getElementById('target-edit-input').focus();
-}
-function closeTargetEdit(){
-  document.getElementById('target-badge-btn').style.display='';
-  document.getElementById('target-edit-wrap').classList.remove('open');
-}
-function saveTarget(){
-  var val=parseInt(document.getElementById('target-edit-input').value);
-  if(isNaN(val)||val<1||val>100)return;
-  lsSet(LS_TARGET, val);
-  document.getElementById('target-display').textContent=val+'%';
-  closeTargetEdit();
-  var current=lsGet(LS_CURRENT);
-  var otPayload=lsGet(LS_OVERTIME)||{};
-  if(current&&current.staffData)buildAllTabs(current,otPayload);
-}
-function initTarget(){
-  var saved=parseFloat(lsGet(LS_TARGET))||75;
-  document.getElementById('target-display').textContent=Math.round(saved)+'%';
+  return '<div class="util-bar-wrap"'+tipAttr+'><div class="util-bar"><div class="util-bar-fill" style="width:'+Math.min(p*100,100).toFixed(1)+'%;background:'+c+'"></div></div><span class="util-val" style="color:'+c+'">'+fPct(p)+'</span></div>';
 }
 function niceDate(iso){if(!iso)return '';try{return new Date(iso).toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric',hour:'2-digit',minute:'2-digit'});}catch(e){return '';}}
 function periodKey(p){return p.toLowerCase().replace(/\s+/g,'-');}
@@ -766,7 +746,6 @@ function initTheme(){
   document.documentElement.setAttribute('data-theme',saved);
   const icon=saved==='dark'?'🌙':'&#x2600;';
   ['theme-btn','theme-btn-empty'].forEach(function(id){const el=document.getElementById(id);if(el)el.innerHTML=icon;});
-  initTarget();
 }
 
 function openAdminModal(){
@@ -1027,11 +1006,11 @@ function buildDashTab(staffData,dt,period){
   const totSck=DEPT_ORDER.reduce(function(a,d){return a+dt[d].sck;},0);
   const uP=pct(totCli,totCap);
   const totTrn=Math.round(Object.values(staffData).reduce(function(a,s){return a+(s.trn||0);},0)*10)/10;
-  const tgt=getTarget();
+  const tgt=0.85;
   const gap=(uP-tgt)*100;
   const gapSign=gap>=0?'+':'';
   const gapCol=gap>=0?'#3ddc84':'#ff6b6b';
-  const gapHtml='<div class="kpi-vs-target" style="color:'+gapCol+'">'+gapSign+gap.toFixed(1)+'pp vs '+Math.round(tgt*100)+'% target</div>';
+  const gapHtml='<div class="kpi-vs-target" style="color:'+gapCol+'">'+gapSign+gap.toFixed(1)+'pp vs 85% target</div>';
   const kpiDelay=['0ms','70ms','140ms','210ms','280ms'];
   document.getElementById('kpi-grid').innerHTML=
     '<div class="kpi" style="animation:kpiIn .45s ease both;animation-delay:'+kpiDelay[0]+'"><div class="kpi-label">Studio Utilisation</div><div class="kpi-value accent" data-countup="pct" data-target="'+(uP*100).toFixed(1)+'">0.0%</div>'+gapHtml+'</div>'+
@@ -1041,12 +1020,11 @@ function buildDashTab(staffData,dt,period){
     '<div class="kpi" style="animation:kpiIn .45s ease both;animation-delay:'+kpiDelay[4]+'"><div class="kpi-label">Training Investment</div><div class="kpi-value" data-countup="hrs" data-target="'+totTrn+'">0 <span style="font-size:20px">hrs</span></div><div class="kpi-sub">Training &amp; Upskilling hours</div></div>';
   animateKPIs();
   document.getElementById('dept-overview-sub').textContent='Utilisation by studio department';
-  const tgtW=Math.min(tgt*100,100).toFixed(1);
   document.getElementById('dept-cards').innerHTML=DEPT_ORDER.map(function(d,i){
     const p=pct(dt[d].cli,dt[d].cap),c=bcol(p);
     const barW=Math.min(p*100,100).toFixed(1);
     const dly=(i*80+350)+'ms';
-    return '<div class="dept-card"><div class="dept-card-name">'+d+'</div><div class="dept-pct" style="color:'+c+'">'+fPct(p)+'</div><div class="big-bar"><div class="big-bar-fill" style="--bar-w:'+barW+'%;width:'+barW+'%;background:'+c+';animation-delay:'+dly+'"></div><div class="big-bar-target" style="left:'+tgtW+'%"></div></div><div class="dept-stats"><div><div class="dept-stat-label">Client</div><div class="dept-stat-val">'+fmt(Math.round(dt[d].cli))+'</div></div><div><div class="dept-stat-label">Capacity</div><div class="dept-stat-val">'+fmt(dt[d].cap)+'</div></div><div><div class="dept-stat-label">Holiday</div><div class="dept-stat-val">'+fmt(Math.round(dt[d].hol))+'</div></div><div><div class="dept-stat-label">Sick</div><div class="dept-stat-val">'+fmt(Math.round(dt[d].sck))+'</div></div></div></div>';
+    return '<div class="dept-card"><div class="dept-card-name">'+d+'</div><div class="dept-pct" style="color:'+c+'">'+fPct(p)+'</div><div class="big-bar"><div class="big-bar-fill" style="--bar-w:'+barW+'%;width:'+barW+'%;background:'+c+';animation-delay:'+dly+'"></div></div><div class="dept-stats"><div><div class="dept-stat-label">Client</div><div class="dept-stat-val">'+fmt(Math.round(dt[d].cli))+'</div></div><div><div class="dept-stat-label">Capacity</div><div class="dept-stat-val">'+fmt(dt[d].cap)+'</div></div><div><div class="dept-stat-label">Holiday</div><div class="dept-stat-val">'+fmt(Math.round(dt[d].hol))+'</div></div><div><div class="dept-stat-label">Sick</div><div class="dept-stat-val">'+fmt(Math.round(dt[d].sck))+'</div></div></div></div>';
   }).join('');
 }
 
