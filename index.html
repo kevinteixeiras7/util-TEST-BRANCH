@@ -9,7 +9,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;600;700;800&family=DM+Mono:wght@300;400;500&family=Barlow:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
 :root{--black:#1a1a2e;--surface:#22223a;--card:#2a2a45;--border:#3d3d5c;--orange:#FF4D00;--orange-dim:rgba(255,77,0,0.15);--white:#f0f0f0;--muted:#8888aa;--mid:#b0b0cc;}
-[data-theme="light"]{--black:#f0f0f5;--surface:#e4e4ee;--card:#ffffff;--border:#c8c8dc;--orange:#FF4D00;--orange-dim:rgba(255,77,0,0.08);--white:#1a1a2e;--muted:#6666aa;--mid:#444466;}
+[data-theme="light"]{--black:#F5F5F2;--surface:#ECECEA;--card:#FFFFFF;--border:#DCDCDA;--orange:#FF4D00;--orange-dim:rgba(255,77,0,0.07);--white:#111110;--muted:#88887E;--mid:#3D3D38;}
 *{margin:0;padding:0;box-sizing:border-box;}
 body{background:var(--black);color:var(--white);font-family:'Barlow',sans-serif;font-size:13px;line-height:1.5;min-height:100vh;transition:background .25s,color .25s;}
 #loading-screen{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;}
@@ -334,13 +334,19 @@ td.muted{color:var(--muted);font-size:11px;}
 @media(max-width:700px){.kpi-grid{grid-template-columns:repeat(2,1fr)}.dept-grid{grid-template-columns:repeat(2,1fr)}.hours-mix{grid-template-columns:repeat(2,1fr)}.cap-dept-summary{grid-template-columns:repeat(2,1fr)}.content{padding:20px}.topbar,.nav{padding-left:20px;padding-right:20px}.swings-grid{grid-template-columns:1fr}.client-swings-wrap{grid-template-columns:1fr}}
 
 /* ── Light mode fixes ───────────────────────────────────────────── */
-[data-theme="light"] .topbar,[data-theme="light"] .nav{background:#ffffff;}
+[data-theme="light"] .topbar,[data-theme="light"] .nav{background:#FFFFFF;}
+[data-theme="light"] .topbar{box-shadow:0 1px 0 var(--border),0 2px 8px rgba(0,0,0,.04);}
+[data-theme="light"] .nav{box-shadow:0 1px 0 var(--border);}
+[data-theme="light"] .card,[data-theme="light"] .kpi,[data-theme="light"] .dept-card,[data-theme="light"] .mix-cell,[data-theme="light"] .cap-dept-cell,[data-theme="light"] .swings-col,[data-theme="light"] .client-swings-col{box-shadow:0 1px 3px rgba(0,0,0,.05),0 0 0 0.5px rgba(0,0,0,.04);}
+[data-theme="light"] .modal-box{box-shadow:0 8px 32px rgba(0,0,0,.12);}
 [data-theme="light"] .badge.on-target{background:#EAF3DE;color:#27500A;}
 [data-theme="light"] .badge.building{background:#FAEEDA;color:#633806;}
 [data-theme="light"] .badge.low{background:#FCEBEB;color:#791F1F;}
 [data-theme="light"] .badge.error{background:#FCEBEB;color:#791F1F;}
+[data-theme="light"] .badge.major{background:rgba(255,77,0,.1);color:#C63A00;}
 [data-theme="light"] .comp-diff.up,[data-theme="light"] .swing-diff-badge.up{background:#EAF3DE;color:#27500A;}
 [data-theme="light"] .comp-diff.down,[data-theme="light"] .swing-diff-badge.down{background:#FCEBEB;color:#791F1F;}
+[data-theme="light"] .comp-diff.flat{color:var(--muted);}
 [data-theme="light"] .hist-change.up{color:#27500A;}
 [data-theme="light"] .hist-change.down{color:#791F1F;}
 [data-theme="light"] .roadmap-item{background:#E6F1FB;border-color:#B5D4F4;}
@@ -352,6 +358,21 @@ td.muted{color:var(--muted);font-size:11px;}
 [data-theme="light"] .nav-roadmap.active{border-bottom-color:#185FA5;}
 [data-theme="light"] .client-swing-hrs.up{color:#27500A;}
 [data-theme="light"] .client-swing-hrs.down{color:#791F1F;}
+[data-theme="light"] .cap-free span{background:rgba(39,80,10,.1);color:#27500A;}
+[data-theme="light"] .cap-partial span{background:rgba(99,56,6,.1);color:#633806;}
+[data-theme="light"] .cap-full span{background:rgba(0,0,0,.05);color:var(--muted);}
+[data-theme="light"] .period-badge{background:rgba(255,77,0,.08);border-color:rgba(255,77,0,.25);}
+[data-theme="light"] .filter-pill.dept-active{background:rgba(24,95,165,.1);border-color:rgba(24,95,165,.3);color:#185FA5;}
+[data-theme="light"] .filter-pill.active{background:rgba(255,77,0,.07);border-color:rgba(255,77,0,.25);}
+[data-theme="light"] .swing-client-chip{background:rgba(0,0,0,.04);border-color:rgba(0,0,0,.08);color:var(--mid);}
+[data-theme="light"] .swing-client-chip.new{background:rgba(39,80,10,.08);border-color:rgba(39,80,10,.2);color:#27500A;}
+[data-theme="light"] .swing-client-chip.lost{background:rgba(121,31,31,.06);border-color:rgba(121,31,31,.18);color:#791F1F;}
+[data-theme="light"] .tab-new{background:#C63A00;}
+[data-theme="light"] .hist-total-row td,[data-theme="light"] .dept-row td{background:#ECECEA;}
+[data-theme="light"] .util-bd{background:rgba(0,0,0,.02);}
+[data-theme="light"] .util-target-tick{background:rgba(40,40,35,.3);}
+[data-theme="light"] .big-bar-target{background:rgba(40,40,35,.25);}
+[data-theme="light"] tbody tr.total-row td{background:#ECECEA;}
 
 /* ── Target line ────────────────────────────────────────────────── */
 .util-bar{position:relative;}
@@ -465,9 +486,9 @@ td.muted{color:var(--muted);font-size:11px;}
     <button class="active" onclick="showTab('tab-dashboard',this)">Dashboard</button>
     <button onclick="showTab('tab-utilisation',this)">Utilisation</button>
     <button onclick="showTab('tab-capacity',this)">Capacity <span class="tab-new">NEW</span></button>
-    <button onclick="showTab('tab-skills',this)">Skills Matrix</button>
+    <button onclick="showTab('tab-skills',this)">Skills</button>
     <button onclick="showTab('tab-departments',this)">Departments</button>
-    <button onclick="showTab('tab-clients',this)">Client Mix</button>
+    <button onclick="showTab('tab-clients',this)">Clients</button>
     <button onclick="showTab('tab-history',this)">Trends <span class="tab-new">NEW</span></button>
     <button onclick="showTab('tab-efficiency',this)">Efficiency</button>
     <span class="nav-spacer"></span>
@@ -501,7 +522,7 @@ td.muted{color:var(--muted);font-size:11px;}
         <div class="filter-pills" id="status-pills">
           <button class="filter-pill active" data-status="all" onclick="setStatusFilter(this)">All</button>
           <button class="filter-pill" data-status="on-target" onclick="setStatusFilter(this)">On Target</button>
-          <button class="filter-pill" data-status="building" onclick="setStatusFilter(this)">Building</button>
+          <button class="filter-pill" data-status="building" onclick="setStatusFilter(this)">Medium</button>
           <button class="filter-pill" data-status="low" onclick="setStatusFilter(this)">Low</button>
         </div>
         <span class="util-filter-count" id="util-filter-count"></span>
@@ -650,9 +671,9 @@ const fmt  = n => typeof n==='number'?(n%1===0?n.toLocaleString():n.toFixed(1)):
 const fPct = n => (n*100).toFixed(1)+'%';
 const LS_TARGET = 's77_target';
 function getTarget(){ return (parseFloat(lsGet(LS_TARGET)) || 75) / 100; }
-function bcol(p){ var t=getTarget(); return p>=t?'#3ddc84':p>=(t*0.8)?'#f5a623':'#ff6b6b'; }
-function getSt(p){ var t=getTarget(); return p<0?'error':p>=t?'on-target':p>=(t*0.8)?'building':'low'; }
-function stBadge(s){return{'on-target':'<span class="badge on-target">&#x2713; On Target</span>','building':'<span class="badge building">&#x2197; Building</span>','error':'<span class="badge error">&#x26A0; Data Error</span>','low':'<span class="badge low">&#x26A0; Low</span>'}[s]||'<span class="badge low">&#x26A0; Low</span>';}
+function bcol(p){ return p>=0.85?'#3ddc84':p>=0.6?'#f5a623':'#ff6b6b'; }
+function getSt(p){ return p<0?'error':p>=0.85?'on-target':p>=0.6?'building':'low'; }
+function stBadge(s){return{'on-target':'<span class="badge on-target">&#x2713; On Target</span>','building':'<span class="badge building">&#x2197; Medium</span>','error':'<span class="badge error">&#x26A0; Data Error</span>','low':'<span class="badge low">&#x26A0; Low</span>'}[s]||'<span class="badge low">&#x26A0; Low</span>';}
 function uBar(p){
   var c=bcol(p);
   var tw=Math.min(getTarget()*100,100).toFixed(1);
