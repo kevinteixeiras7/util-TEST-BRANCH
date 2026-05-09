@@ -69,7 +69,7 @@ body{background:var(--black);color:var(--white);font-family:'Barlow',sans-serif;
 .brand-wrap{display:flex;flex-direction:column;gap:2px;line-height:1;}
 .brand-tagline{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);}
 .topbar-right{display:flex;align-items:center;gap:10px;}
-.period-stack{display:flex;flex-direction:column;align-items:flex-end;gap:1px;}
+.period-stack{display:flex;flex-direction:row;align-items:center;gap:8px;}
 .period-badge{font-family:'DM Mono',monospace;font-size:11px;background:var(--orange-dim);border:1px solid rgba(255,77,0,.3);color:var(--orange);padding:4px 12px;border-radius:2px;letter-spacing:.06em;text-transform:uppercase;}
 .updated-badge{font-family:'DM Mono',monospace;font-size:9px;color:var(--muted);letter-spacing:.04em;}
 .nav{display:flex;padding:0 40px;border-bottom:1px solid var(--border);overflow-x:auto;background:var(--black);transition:background .25s,border-color .25s;}
@@ -116,7 +116,7 @@ thead th:first-child,thead th.left{text-align:left;}
 tbody tr{border-bottom:1px solid rgba(128,128,128,.1);transition:background .15s;}
 tbody tr:hover{background:rgba(128,128,128,.06);}
 tbody tr.dept-row{background:var(--surface);}
-tbody tr.dept-row td{font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);padding:20px 14px 7px;border-bottom:none;box-shadow:inset 3px 0 0 var(--border);}
+tbody tr.dept-row td{font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);padding:20px 14px 7px 36px;border-bottom:none;box-shadow:inset 3px 0 0 var(--border);}
 tbody tr.total-row td{font-weight:600;background:var(--surface);}
 td{padding:10px 14px;color:var(--white);text-align:right;font-family:'DM Mono',monospace;font-size:12px;}
 td:first-child{text-align:left;font-family:'Barlow',sans-serif;font-size:13px;font-weight:500;}
@@ -131,15 +131,15 @@ td.muted{color:var(--muted);font-size:11px;}
 .badge.mid-v{background:rgba(245,166,35,.12);color:#f5a623;}
 .badge.minor{background:rgba(128,128,128,.1);color:var(--mid);}
 .util-bar-wrap{display:flex;align-items:center;gap:8px;justify-content:flex-end;}
-.util-bar{width:54px;height:3px;background:rgba(128,128,128,.15);border-radius:2px;overflow:hidden;}
-.util-bar-fill{height:100%;border-radius:2px;}
-.util-val{font-family:'DM Mono',monospace;font-size:12px;min-width:44px;text-align:right;}
+.util-bar{width:60px;min-width:60px;height:8px;background:rgba(128,128,128,.15);border-radius:3px;overflow:hidden;}
+.util-bar-fill{height:100%;border-radius:3px;}
+.util-val{font-family:'DM Mono',monospace;font-size:12px;width:52px;min-width:52px;text-align:right;font-variant-numeric:tabular-nums;}
 .util-person-row{cursor:pointer;}
 .util-person-row:hover td{background:rgba(128,128,128,.08);}
 .util-person-row td:first-child{padding-left:14px;}
-.util-name-btn{display:inline-flex;align-items:center;gap:9px;user-select:none;}
-.util-chevron{font-size:8px;color:var(--muted);transition:transform .2s ease;display:inline-block;line-height:1;margin-top:1px;}
-.util-chevron.open{transform:rotate(90deg);color:var(--orange);}
+.util-name-btn{display:inline-flex;align-items:center;position:relative;padding-left:20px;user-select:none;}
+.util-chevron{position:absolute;left:0;top:50%;transform:translateY(-50%);font-size:8px;color:var(--muted);transition:transform .2s ease,color .2s;line-height:1;}
+.util-chevron.open{transform:translateY(-50%) rotate(90deg);color:var(--orange);}
 .util-ot-row td:first-child::before{content:'';display:inline-block;width:3px;height:3px;border-radius:50%;background:#f5a623;margin-right:7px;vertical-align:middle;margin-bottom:1px;}
 .util-bd-row td{padding:0 !important;border-bottom:1px solid rgba(128,128,128,.1);}
 .util-bd-row:hover{background:none !important;}
@@ -334,11 +334,12 @@ td.muted{color:var(--muted);font-size:11px;}
 .client-swing-tag.new-tag{background:rgba(255,77,0,.12);color:var(--orange);}
 .client-swing-tag.lost-tag{background:rgba(128,128,128,.1);color:var(--muted);}
 
-/* ── Taller bars ──────────────────────────────────────── */
-.util-bar{height:8px;width:60px;}
-.util-bar-fill{transition:width .6s cubic-bezier(.4,0,.2,1);}
-.big-bar{height:6px;}
+/* ── Admin fixed position ─────────────────────────────── */
+.admin-fixed{position:fixed;bottom:20px;right:24px;z-index:50;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;background:var(--surface);border:1px solid var(--border);color:var(--muted);padding:7px 16px;cursor:pointer;transition:all .2s;border-radius:2px;box-shadow:0 2px 8px rgba(0,0,0,.3);}
+.admin-fixed:hover{border-color:var(--mid);color:var(--white);}
+[data-theme="light"] .admin-fixed{background:#FFFFFF;box-shadow:0 2px 8px rgba(0,0,0,.1);}
 /* ── Big bar fill animation ───────────────────────────── */
+.big-bar{height:6px;}
 @keyframes bigBarGrow{from{width:0}to{width:var(--bar-w)}}
 .big-bar-fill{animation:bigBarGrow .9s cubic-bezier(.4,0,.2,1) both;}
 /* ── KPI card entrance ────────────────────────────────── */
@@ -348,7 +349,6 @@ td.muted{color:var(--muted);font-size:11px;}
 .dept-card:hover{transform:translateY(-2px);}
 [data-theme="light"] .dept-card:hover{box-shadow:0 4px 12px rgba(0,0,0,.1);}
 /* ── Tooltip on util bar ──────────────────────────────── */
-.util-bar-wrap{position:relative;}
 .util-bar-wrap[data-tip]:hover::after{content:attr(data-tip);position:absolute;bottom:calc(100% + 7px);right:0;background:var(--card);border:1px solid var(--border);color:var(--white);font-family:'DM Mono',monospace;font-size:10px;padding:5px 9px;white-space:nowrap;z-index:50;pointer-events:none;letter-spacing:.04em;box-shadow:0 2px 8px rgba(0,0,0,.2);}
 /* ── Row entrance animation ───────────────────────────── */
 @keyframes utilRowIn{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:translateY(0)}}
@@ -464,7 +464,6 @@ tbody tr.util-person-row:hover td:first-child{box-shadow:inset 3px 0 0 var(--ora
 <div id="empty-screen">
   <div style="position:absolute;top:16px;right:20px;display:flex;gap:10px;align-items:center">
     <button class="theme-btn" id="theme-btn-empty" onclick="toggleTheme()">🌙</button>
-    <button class="btn-ghost" onclick="openAdminModal()">Admin</button>
   </div>
   <div class="empty-logo">SEVENTY<span>7</span></div>
   <div class="empty-title">Studio Utilisation Dashboard</div>
@@ -539,7 +538,6 @@ tbody tr.util-person-row:hover td:first-child{box-shadow:inset 3px 0 0 var(--ora
         <span class="updated-badge" id="updated-badge"></span>
       </div>
       <button class="theme-btn" id="theme-btn" onclick="toggleTheme()">🌙</button>
-      <button class="btn-ghost" onclick="openAdminModal()">Admin</button>
     </div>
   </header>
 
@@ -1847,5 +1845,7 @@ window.addEventListener('load',async function(){
   }
 });
 </script>
+<button class="admin-fixed" onclick="openAdminModal()">Admin</button>
+
 </body>
 </html>
