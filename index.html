@@ -366,7 +366,7 @@ td.muted{color:var(--muted);font-size:11px;}
 .conc-sub{font-size:12px;color:var(--muted);margin-top:4px;}
 .conc-badge{font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:700;letter-spacing:.12em;padding:5px 14px;border:1px solid;border-radius:2px;white-space:nowrap;flex-shrink:0;margin-top:2px;}
 .conc-bars{display:flex;flex-direction:column;gap:11px;margin-bottom:20px;}
-.conc-bar-row{display:grid;grid-template-columns:190px 1fr 58px 52px;align-items:center;gap:12px;}
+.conc-bar-row{display:grid;grid-template-columns:170px 1fr 58px 52px 70px;align-items:center;gap:12px;}
 .conc-bar-name{font-family:'Barlow',sans-serif;font-size:13px;font-weight:500;color:var(--white);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
 .conc-bar-track{height:6px;background:rgba(128,128,128,.12);border-radius:3px;overflow:hidden;}
 .conc-bar-fill{height:100%;border-radius:3px;transition:width .5s ease;}
@@ -467,8 +467,51 @@ input,textarea,select{cursor:text;}
 .spill.a{background:rgba(245,166,35,.14);color:#f5a623;}
 .spill.r{background:rgba(255,107,107,.14);color:#ff6b6b;}
 [data-theme="light"] .insight-cell{box-shadow:0 1px 3px rgba(0,0,0,.05);}
-/* ── Capacity bank holiday ────────────────────────────── */
-.cap-cell.cap-bh span{background:rgba(74,158,255,.1);color:#4a9eff;}
+/* ── Internal time breakdown ──────────────────────────── */
+.int-bd-wrap{background:var(--card);border:1px solid var(--border);padding:20px 24px;display:flex;flex-direction:column;gap:10px;}
+[data-theme="light"] .int-bd-wrap{box-shadow:0 1px 3px rgba(0,0,0,.05);}
+.int-bd-row{display:grid;grid-template-columns:110px 1fr 50px 46px;align-items:center;gap:12px;}
+.int-bd-cat{font-family:'Barlow',sans-serif;font-size:13px;font-weight:500;color:var(--white);}
+.int-bd-track{height:5px;background:rgba(128,128,128,.12);border-radius:3px;overflow:hidden;}
+.int-bd-fill{height:100%;background:var(--orange);border-radius:3px;opacity:.7;}
+.int-bd-hrs{font-family:'DM Mono',monospace;font-size:11px;color:var(--mid);text-align:right;}
+.int-bd-pct{font-family:'DM Mono',monospace;font-size:10px;color:var(--muted);text-align:right;}
+/* ── Phase split bar in drilldown ─────────────────────── */
+.phase-split-row{display:flex;align-items:center;gap:10px;padding:10px 12px;background:rgba(0,0,0,.1);border-top:1px solid rgba(128,128,128,.1);margin-top:4px;}
+.phase-split-bar{flex:1;height:6px;background:rgba(128,128,128,.12);border-radius:3px;overflow:hidden;display:flex;}
+.phase-pre{height:100%;background:#4a9eff;}
+.phase-post{height:100%;background:#c084fc;}
+/* ── Production tab ─────────────────────────────────────── */
+.prod-card{background:var(--card);padding:20px;border:none;}
+.prod-card-name{font-family:'Barlow Condensed',sans-serif;font-size:15px;font-weight:700;letter-spacing:.03em;color:#4a9eff;margin-bottom:3px;}
+.prod-card-title{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:12px;}
+.prod-card-hrs{font-family:'Barlow Condensed',sans-serif;font-size:30px;font-weight:700;line-height:1;color:var(--white);}
+.prod-card-hrs span{font-size:14px;color:var(--muted);font-weight:400;}
+.prod-phase-bar{height:4px;background:rgba(128,128,128,.12);border-radius:2px;overflow:hidden;display:flex;margin:10px 0;}
+.prod-phase-bar .pre{background:#4a9eff;}
+.prod-phase-bar .post{background:#c084fc;}
+.prod-split-stats{display:flex;gap:12px;}
+.prod-split-item{font-family:'DM Mono',monospace;font-size:10px;}
+.prod-split-label{font-size:9px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);}
+.prod-row{cursor:pointer;}
+.prod-row:hover td{background:rgba(128,128,128,.05);}
+.prod-chevron{font-size:8px;color:var(--muted);margin-right:6px;transition:transform .2s,color .2s;display:inline-block;}
+.prod-chevron.open{transform:rotate(90deg);color:var(--orange);}
+.prod-name-cell{color:#4a9eff;font-weight:500;}
+.prod-expand-row td{padding:0 !important;background:var(--surface);}
+.prod-jt-strip{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:var(--border);border:1px solid var(--border);margin-bottom:32px;}
+.prod-jt-card{background:var(--card);padding:18px 20px;}
+.prod-jt-name{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:8px;}
+.prod-jt-hrs{font-family:'Barlow Condensed',sans-serif;font-size:28px;font-weight:700;line-height:1;margin-bottom:6px;}
+.prod-jt-bar{height:3px;background:rgba(128,128,128,.1);border-radius:2px;overflow:hidden;margin-bottom:10px;}
+.prod-jt-bar-fill{height:100%;border-radius:2px;}
+.prod-jt-sub{display:flex;gap:10px;font-family:'DM Mono',monospace;font-size:10px;}
+.prod-unlock{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:340px;gap:12px;text-align:center;}
+.prod-unlock-icon{font-size:36px;opacity:.2;}
+.prod-unlock-title{font-family:'Barlow Condensed',sans-serif;font-size:22px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--mid);}
+.prod-unlock-sub{font-size:12px;color:var(--muted);max-width:280px;line-height:1.8;}
+.nav-prod{font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;background:none;border:none;color:var(--muted);padding:13px 18px;cursor:pointer;border-bottom:2px solid transparent;transition:all .2s;white-space:nowrap;opacity:.5;text-decoration:none;display:inline-flex;align-items:center;gap:5px;}
+.nav-prod:hover{color:var(--mid);opacity:.8;}
 /* ── Row hover left accent ────────────────────────────── */
 tbody tr.util-person-row:hover td:first-child{box-shadow:inset 3px 0 0 var(--orange);}
 /* ── Threshold legend ─────────────────────────────────── */
@@ -586,9 +629,11 @@ tbody tr.util-person-row:hover td:first-child{box-shadow:inset 3px 0 0 var(--ora
     <button onclick="showTab('tab-departments',this)">Departments</button>
     <button onclick="showTab('tab-clients',this)">Clients</button>
     <button onclick="showTab('tab-history',this)">Trends <span class="tab-new">NEW</span></button>
+    <button onclick="showTab('tab-production',this)">Production</button>
     <button onclick="showTab('tab-efficiency',this)">Efficiency</button>
     <span class="nav-spacer"></span>
     <button class="nav-roadmap" onclick="showTab('tab-roadmap',this)">Roadmap</button>
+    <a class="nav-prod" href="production.html" target="_blank">Production View ↗</a>
   </nav>
 
   <main class="content">
@@ -598,6 +643,7 @@ tbody tr.util-person-row:hover td:first-child{box-shadow:inset 3px 0 0 var(--ora
       <div class="insight-strip" id="insight-strip"></div>
       <div class="section-header"><div class="section-title">Department Overview</div><div class="section-sub" id="dept-overview-sub"></div></div>
       <div class="dept-grid" id="dept-cards"></div>
+      <div id="internal-breakdown" style="margin-top:32px;display:none"></div>
     </div>
 
     <div id="tab-utilisation" class="tab-section">
@@ -677,6 +723,16 @@ tbody tr.util-person-row:hover td:first-child{box-shadow:inset 3px 0 0 var(--ora
       <div id="client-content"></div>
     </div>
 
+    <div id="tab-production" class="tab-section">
+      <div class="kpi-grid" id="prod-kpi-grid"></div>
+      <div id="prod-jt-strip"></div>
+      <div class="section-header" style="margin-top:32px"><div class="section-title">Production Team</div><div class="section-sub" id="prod-team-sub"></div></div>
+      <div id="prod-team-cards" style="display:grid;grid-template-columns:repeat(6,1fr);gap:1px;background:var(--border);border:1px solid var(--border);margin-bottom:32px"></div>
+      <div class="section-header"><div class="section-title">Team Detail</div><div class="section-sub">Click a name to expand client breakdown</div></div>
+      <div class="table-wrap" style="margin-bottom:40px"><table><thead><tr>
+        <th class="left">Name</th><th>Client Hrs</th><th>Pre-Prod</th><th>Post-Prod</th><th>Internal</th><th>Holiday</th><th>Sick</th><th>Pre / Post Split</th>
+      </tr></thead><tbody id="prod-team-body"></tbody></table></div>
+    </div>
     <div id="tab-efficiency" class="tab-section">
       <div class="coming-soon-block">
         <div class="coming-soon-icon">⚙️</div>
@@ -753,12 +809,47 @@ const STAFF_ROSTER = [
 ];
 const DEPT_ORDER = ['Photography','Retouch','Videography','Styling','Art Direction'];
 const EXCLUDE    = ['· Internal','· Holiday','· Illness & absence'];
+const PRODUCERS = [
+  {name:'Emma Peak',         title:'Senior Producer'},
+  {name:'Charlotte Mcilroy', title:'Producer'},
+  {name:'Victoria Adkins',   title:'Producer'},
+  {name:'Inez Tully',        title:'Ecom Producer'},
+  {name:'Alessia Lawrence',  title:'Ecom Producer'},
+];
+const COORDINATORS = [{name:'Eleanor Hope-Ross', title:'Post-Production Coordinator'}];
+const ALL_PROD_TEAM = PRODUCERS.concat(COORDINATORS);
 
 const pct  = (n,d) => d===0?0:n/d;
 const fmt  = n => typeof n==='number'?(n%1===0?n.toLocaleString():n.toFixed(1)):n;
 const fPct = n => (n*100).toFixed(1)+'%';
 const LS_TARGET = 's77_target';
-function getTarget(){ return 0.75; }
+/* ── Phase / Job Type / Internal helpers ─────────────────────────── */
+function detectPhase(jn){
+  var j=(jn||'').toLowerCase();
+  if(j.includes('post')||j.includes('retouch')||j.includes('amend')||j.includes(' qa')||j.startsWith('qa')||j.includes('colour match')||j.includes('grade')||j.includes('edit'))return'post';
+  return'pre';
+}
+function detectJobType(jn){
+  var j=(jn||'').toLowerCase();
+  if(j.includes('elevated'))return'Elevated';
+  if(j.includes('campaign')||j.includes('lifestyle')||j.includes('brand shoot'))return'Campaign';
+  if(j.includes('ecom')||j.includes('e-com')||j.includes('packshot')||j.includes('model ecom'))return'Ecom';
+  if(j.includes('creative')||j.includes('art direct'))return'Creative';
+  return'Other';
+}
+function intCategory(jn){
+  var j=(jn||'').toLowerCase();
+  if(j.includes('meeting')||j.includes('calendar'))return'Meetings';
+  if(j.includes('admin'))return'Admin';
+  if(j.includes('training')||j.includes('upskill')||j.includes('development'))return'Training';
+  if(j.includes('studio assist'))return'Studio Assist';
+  if(j.includes('manager')||j.includes('management'))return'Management';
+  return'General';
+}
+var JT_COLORS={Campaign:'#4a9eff',Ecom:'#f5a623',Creative:'#c084fc',Elevated:'#3ddc84',Other:'var(--muted)'};
+var JT_BG={Campaign:'rgba(74,158,255,.12)',Ecom:'rgba(245,166,35,.12)',Creative:'rgba(192,132,252,.12)',Elevated:'rgba(61,220,132,.1)',Other:'rgba(128,128,128,.1)'};
+function jtBadge(jt){return'<span style="font-family:\'DM Mono\',monospace;font-size:9px;padding:2px 7px;background:'+JT_BG[jt]+';color:'+JT_COLORS[jt]+';border-radius:2px;white-space:nowrap">'+jt+'</span>';}
+
 function bcol(p){ return p>=0.85?'#3ddc84':p>=0.6?'#f5a623':'#ff6b6b'; }
 function getSt(p){ return p<0?'error':p>=0.85?'on-target':p>=0.6?'building':'low'; }
 function stBadge(s){return{'on-target':'<span class="badge on-target">&#x2713; On Target</span>','building':'<span class="badge building">&#x2197; Medium</span>','error':'<span class="badge error">&#x26A0; Data Error</span>','low':'<span class="badge low">&#x26A0; Low</span>'}[s]||'<span class="badge low">&#x26A0; Low</span>';}
@@ -852,7 +943,7 @@ async function processUtilFile(file){
       if([iE,iC,iT,iN].some(function(i){return i===-1;}))throw new Error('Missing required columns');
       const dr=rows.slice(hr+1).filter(function(r){return r[iE];});
       const sd={};
-      STAFF_ROSTER.forEach(function(s){sd[s.name]={dept:s.dept,cap:0,cli:0,hol:0,sck:0,int:0,bil:0,trn:0,breakdown:{}};});
+      STAFF_ROSTER.forEach(function(s){sd[s.name]={dept:s.dept,cap:0,cli:0,hol:0,sck:0,int:0,bil:0,trn:0,pre:0,post:0,breakdown:{}};});
       dr.forEach(function(row){
         const emp=String(row[iE]||'').trim(),cust=String(row[iC]||'').trim();
         const jn=iJN>-1?String(row[iJN]||'').trim():'';
@@ -862,15 +953,75 @@ async function processUtilFile(file){
         if(cust==='· Holiday')s.hol+=t;
         else if(cust==='· Illness & absence')s.sck+=t;
         else if(cust==='· Internal'){s.int+=t;if(jn==='Training & Upskilling')s.trn+=t;}
-        else{s.cli+=t;s.bil+=inv;}
+        else{
+          s.cli+=t;s.bil+=inv;
+          var phase=detectPhase(jn);
+          if(phase==='post')s.post+=t; else s.pre+=t;
+        }
         if(cust){s.breakdown[cust]=(s.breakdown[cust]||0)+t;}
       });
-      const ch={};
+      // Build clientHours AND clientMeta (phase + job type per client)
+      const ch={},cm={};
       dr.forEach(function(row){
-        const cust=String(row[iC]||'').trim(),t=parseFloat(row[iT])||0;
+        const cust=String(row[iC]||'').trim(),jn=iJN>-1?String(row[iJN]||'').trim():'';
+        const t=parseFloat(row[iT])||0;
         if(EXCLUDE.includes(cust)||!cust||cust.startsWith('Seventy7'))return;
         ch[cust]=(ch[cust]||0)+t;
+        if(!cm[cust])cm[cust]={pre:0,post:0,jts:{}};
+        var phase=detectPhase(jn),jt=detectJobType(jn);
+        if(phase==='post')cm[cust].post+=t; else cm[cust].pre+=t;
+        cm[cust].jts[jt]=(cm[cust].jts[jt]||0)+t;
       });
+      // Resolve dominant job type per client
+      Object.keys(cm).forEach(function(k){
+        var jts=cm[k].jts,best='Other',bestH=0;
+        Object.entries(jts).forEach(function(e){if(e[1]>bestH){bestH=e[1];best=e[0];}});
+        cm[k].jobType=best;
+        cm[k].pre=Math.round(cm[k].pre*10)/10;
+        cm[k].post=Math.round(cm[k].post*10)/10;
+      });
+      // Internal breakdown across all staff
+      var intBd={};
+      dr.forEach(function(row){
+        const cust=String(row[iC]||'').trim(),jn=iJN>-1?String(row[iJN]||'').trim():'';
+        const t=parseFloat(row[iT])||0;
+        const emp=String(row[iE]||'').trim();
+        if(!sd[emp]||cust!=='· Internal')return;
+        var cat=intCategory(jn);
+        intBd[cat]=(intBd[cat]||0)+t;
+      });
+      Object.keys(intBd).forEach(function(k){intBd[k]=Math.round(intBd[k]*10)/10;});
+
+      // ── Extract production team data from same file ───────────
+      var pTeam={},pClients={},pJTs={Campaign:{t:0,pre:0,post:0},Creative:{t:0,pre:0,post:0},Ecom:{t:0,pre:0,post:0},Elevated:{t:0,pre:0,post:0},Other:{t:0,pre:0,post:0}},pTotals={client:0,internal:0,holiday:0,sick:0};
+      ALL_PROD_TEAM.forEach(function(m){pTeam[m.name]={total:0,client:0,internal:0,holiday:0,sick:0,pre:0,post:0};pClients[m.name]={};});
+      dr.forEach(function(row){
+        var emp=String(row[iE]||'').trim(),cust=String(row[iC]||'').trim();
+        var jn=iJN>-1?String(row[iJN]||'').trim():'';
+        var t2=parseFloat(row[iT])||0;
+        var member=ALL_PROD_TEAM.find(function(m){return m.name.toLowerCase()===emp.toLowerCase();});
+        if(!member)return;
+        var pd=pTeam[member.name];pd.total+=t2;
+        if(cust==='· Holiday'){pd.holiday+=t2;pTotals.holiday+=t2;}
+        else if(cust==='· Illness & absence'){pd.sick+=t2;}
+        else if(cust==='· Internal'){pd.internal+=t2;pTotals.internal+=t2;}
+        else{
+          pd.client+=t2;pTotals.client+=t2;
+          var phase=detectPhase(jn),jt=detectJobType(jn);
+          if(phase==='post')pd.post+=t2;else pd.pre+=t2;
+          if(!pClients[member.name][cust])pClients[member.name][cust]={total:0,pre:0,post:0,jobType:jt,jts:{}};
+          var pc=pClients[member.name][cust];pc.total+=t2;
+          if(phase==='post')pc.post+=t2;else pc.pre+=t2;
+          pc.jts[jt]=(pc.jts[jt]||0)+t2;
+          pJTs[jt].t+=t2;if(phase==='post')pJTs[jt].post+=t2;else pJTs[jt].pre+=t2;
+        }
+      });
+      // Resolve dominant job type per producer-client pair and round
+      Object.values(pClients).forEach(function(cm){Object.values(cm).forEach(function(c){var best='Other',bh=0;Object.entries(c.jts||{}).forEach(function(e){if(e[1]>bh){bh=e[1];best=e[0];}});c.jobType=best;delete c.jts;c.total=Math.round(c.total*10)/10;c.pre=Math.round(c.pre*10)/10;c.post=Math.round(c.post*10)/10;});});
+      Object.values(pTeam).forEach(function(p){Object.keys(p).forEach(function(k){p[k]=Math.round(p[k]*10)/10;});});
+      Object.values(pJTs).forEach(function(j){j.t=Math.round(j.t*10)/10;j.pre=Math.round(j.pre*10)/10;j.post=Math.round(j.post*10)/10;});
+      ['client','internal','holiday','sick'].forEach(function(k){pTotals[k]=Math.round(pTotals[k]*10)/10;});
+      var productionData={producers:pTeam,producerClients:pClients,jobTypes:pJTs,totals:pTotals};
       const period=document.getElementById('period-input').value.trim()||'';
       if(!period)throw new Error('Please enter a period label (e.g. "April 2026")');
       Object.values(sd).forEach(function(s){
@@ -878,7 +1029,7 @@ async function processUtilFile(file){
         Object.keys(s.breakdown).forEach(function(k){s.breakdown[k]=Math.round(s.breakdown[k]*10)/10;});
       });
       Object.keys(ch).forEach(function(k){ch[k]=Math.round(ch[k]*10)/10;});
-      const newReport={period:period,staffData:sd,clientHours:ch,updatedAt:new Date().toISOString()};
+      const newReport={period:period,staffData:sd,clientHours:ch,clientMeta:cm,intBreakdown:intBd,productionData:productionData,updatedAt:new Date().toISOString()};
       statusEl.textContent='Saving...';statusEl.className='save-status saving';
       if(FB){
         try{
@@ -1041,18 +1192,22 @@ function showDashboard(payload){
 
 function buildAllTabs(payload,otPayload){
   const period=payload.period,staffData=payload.staffData,clientHours=payload.clientHours;
+  const clientMeta=payload.clientMeta||{};
+  const intBreakdown=payload.intBreakdown||{};
+  const productionData=payload.productionData||null;
   const otData=(otPayload&&otPayload.otData)?otPayload.otData:{};
   const dt={};
   DEPT_ORDER.forEach(function(d){dt[d]={cli:0,hol:0,sck:0,int:0,bil:0,cap:0};});
   Object.values(staffData).forEach(function(s){const d=dt[s.dept];if(!d)return;d.cli+=s.cli;d.hol+=s.hol;d.sck+=s.sck;d.int+=s.int;d.bil+=s.bil;d.cap+=s.cap;});
-  buildDashTab(staffData,dt,period);
+  buildDashTab(staffData,dt,period,intBreakdown);
   buildUtilTab(staffData,period,otData);
   buildDeptTab(dt,period);
-  buildClientTab(clientHours,period,staffData);
+  buildClientTab(clientHours,period,staffData,clientMeta);
+  buildProductionTab(productionData,period);
   buildHistoryTab();
 }
 
-function buildDashTab(staffData,dt,period){
+function buildDashTab(staffData,dt,period,intBreakdown){
   const totCap=DEPT_ORDER.reduce(function(a,d){return a+dt[d].cap;},0);
   const totCli=DEPT_ORDER.reduce(function(a,d){return a+dt[d].cli;},0);
   const totSck=DEPT_ORDER.reduce(function(a,d){return a+dt[d].sck;},0);
@@ -1071,11 +1226,17 @@ function buildDashTab(staffData,dt,period){
     '<div class="kpi"><div class="kpi-label">Training Investment</div><div class="kpi-value" data-countup="hrs" data-target="'+totTrn+'">0 <span style="font-size:20px">hrs</span></div><div class="kpi-sub">Training &amp; Upskilling hours</div></div>';
   animateKPIs();
 
-  // ── Insight strip ──────────────────────────────────────────
+  // ── Pre / Post KPI row ───────────────────────────────────
+  var totPre=0,totPost=0;
+  Object.values(staffData).forEach(function(s){totPre+=(s.pre||0);totPost+=(s.post||0);});
+  totPre=Math.round(totPre*10)/10;totPost=Math.round(totPost*10)/10;
+  var phaseTotal=totPre+totPost||1;
+  var prePct=(totPre/phaseTotal*100).toFixed(1),postPct=(totPost/phaseTotal*100).toFixed(1);
+
+  // ── Insight strip ────────────────────────────────────────
   var onT=0,med=0,low=0;
   STAFF_ROSTER.forEach(function(s){var d=staffData[s.name];if(!d||d.cap===0)return;var u=d.cli/d.cap;var st=getSt(u);if(st==='on-target')onT++;else if(st==='building')med++;else low++;});
   var topClient=null,topClientHrs=0;
-  // clientHours is not in dt scope - get from staffData breakdown
   var clientTotals={};
   STAFF_ROSTER.forEach(function(s){var d=staffData[s.name];if(!d)return;Object.entries(d.breakdown||{}).forEach(function(e){if(['· Holiday','· Illness & absence','· Internal'].includes(e[0]))return;clientTotals[e[0]]=(clientTotals[e[0]]||0)+e[1];});});
   Object.entries(clientTotals).forEach(function(e){if(e[1]>topClientHrs){topClientHrs=e[1];topClient=e[0];}});
@@ -1086,9 +1247,22 @@ function buildDashTab(staffData,dt,period){
   if(insightEl){
     insightEl.innerHTML=
       '<div class="insight-cell"><div class="insight-label">Staff Status</div><div class="status-pills"><span class="spill g">'+onT+' on target</span><span class="spill a">'+med+' medium</span><span class="spill r">'+low+' low</span></div></div>'+
-      '<div class="insight-cell"><div class="insight-label">Top Client</div><div class="insight-val">'+( topClient||'—')+'</div><div class="insight-sub">'+Math.round(topClientHrs)+'h logged this period</div></div>'+
+      '<div class="insight-cell"><div class="insight-label">Pre / Post Split</div><div style="display:flex;align-items:center;gap:10px;margin-top:4px"><div style="flex:1;height:6px;background:rgba(128,128,128,.12);border-radius:3px;overflow:hidden;display:flex"><div style="width:'+prePct+'%;background:#4a9eff;border-radius:3px 0 0 3px"></div><div style="width:'+postPct+'%;background:#c084fc;border-radius:0 3px 3px 0"></div></div></div><div style="display:flex;gap:12px;margin-top:6px"><span style="font-family:\'DM Mono\',monospace;font-size:10px;color:#4a9eff">&#9632; Pre '+prePct+'%</span><span style="font-family:\'DM Mono\',monospace;font-size:10px;color:#c084fc">&#9632; Post '+postPct+'%</span></div></div>'+
       '<div class="insight-cell"><div class="insight-label">Leading Dept</div><div class="insight-val">'+topDept+'</div><div class="insight-sub">'+topDeptPct+' utilisation</div></div>';
   }
+
+  // ── Internal time breakdown ──────────────────────────────
+  var intEl=document.getElementById('internal-breakdown');
+  if(intEl&&intBreakdown&&Object.keys(intBreakdown).length>0){
+    var intTotal=Object.values(intBreakdown).reduce(function(a,v){return a+v;},0)||1;
+    var intSorted=Object.entries(intBreakdown).sort(function(a,b){return b[1]-a[1];});
+    var intHtml=intSorted.map(function(e){
+      var w=(e[1]/intTotal*100).toFixed(1);
+      return '<div class="int-bd-row"><span class="int-bd-cat">'+e[0]+'</span><div class="int-bd-track"><div class="int-bd-fill" style="width:'+w+'%"></div></div><span class="int-bd-hrs">'+fmt(e[1])+'h</span><span class="int-bd-pct">'+w+'%</span></div>';
+    }).join('');
+    intEl.innerHTML='<div class="section-header"><div class="section-title">Internal Time</div><div class="section-sub">How non-client hours are spent · '+period+'</div></div><div class="int-bd-wrap">'+intHtml+'</div>';
+    intEl.style.display='block';
+  }else if(intEl){intEl.style.display='none';}
 
   document.getElementById('dept-overview-sub').textContent='Utilisation by studio department';
   document.getElementById('dept-cards').innerHTML=DEPT_ORDER.map(function(d,i){
@@ -1157,6 +1331,15 @@ function buildUtilTab(staffData,period,otData){
       if(bdSorted.length===0){
         rows+='<span style="color:var(--muted);font-size:11px;font-family:\'DM Mono\',monospace;display:block;padding:12px 0">No time entries found.</span>';
       }else{
+        // Pre / Post phase split bar
+        var dPre=d.pre||0,dPost=d.post||0,dPhaseTotal=dPre+dPost||1;
+        var preW=(dPre/dPhaseTotal*100).toFixed(1),postW=(dPost/dPhaseTotal*100).toFixed(1);
+        if(dPre>0||dPost>0){
+          rows+='<div class="phase-split-row"><span style="font-family:\'DM Mono\',monospace;font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);flex-shrink:0">Pre/Post</span>';
+          rows+='<div class="phase-split-bar"><div class="phase-pre" style="width:'+preW+'%"></div><div class="phase-post" style="width:'+postW+'%"></div></div>';
+          rows+='<span style="font-family:\'DM Mono\',monospace;font-size:10px;color:#4a9eff">'+fmt(dPre)+'h</span><span style="font-family:\'DM Mono\',monospace;font-size:10px;color:var(--muted)"> / </span><span style="font-family:\'DM Mono\',monospace;font-size:10px;color:#c084fc">'+fmt(dPost)+'h</span>';
+          rows+='</div>';
+        }
         rows+='<table class="util-bd-table"><thead><tr><th>Client / Category</th><th>Hrs Logged</th><th>% of Total Logged</th></tr></thead><tbody>';
         bdSorted.forEach(function(entry){
           const custName=entry[0],hrs=entry[1];
@@ -1586,6 +1769,156 @@ function renderTrendChart(allPeriods){
   });
 }
 
+function buildProductionTab(productionData, period){
+  var kpiEl=document.getElementById('prod-kpi-grid');
+  var jtEl=document.getElementById('prod-jt-strip');
+  var cardsEl=document.getElementById('prod-team-cards');
+  var bodyEl=document.getElementById('prod-team-body');
+  var subEl=document.getElementById('prod-team-sub');
+  if(!productionData){
+    var unlock='<div class="prod-unlock"><div class="prod-unlock-icon">🎬</div><div class="prod-unlock-title">Production Data</div><div class="prod-unlock-sub">Upload a new report to unlock the Production tab — producer and job type data will be extracted automatically from the same file.</div></div>';
+    if(kpiEl)kpiEl.style.display='none';
+    if(jtEl)jtEl.innerHTML=unlock;
+    if(cardsEl)cardsEl.style.display='none';
+    if(bodyEl)bodyEl.closest('.table-wrap').style.display='none';
+    return;
+  }
+  if(kpiEl)kpiEl.style.display='';
+  if(cardsEl)cardsEl.style.display='';
+  if(bodyEl)bodyEl.closest('.table-wrap').style.display='';
+  var p=productionData,t=p.totals;
+  var totPre=0,totPost=0;
+  Object.values(p.producers).forEach(function(m){totPre+=m.pre;totPost+=m.post;});
+  totPre=Math.round(totPre*10)/10;totPost=Math.round(totPost*10)/10;
+  var allCli=t.client||1;
+  var prePct=(totPre/allCli*100).toFixed(1);
+  var postPct=(totPost/allCli*100).toFixed(1);
+
+  // ── KPIs ──────────────────────────────────────────────────
+  if(kpiEl){
+    kpiEl.innerHTML=
+      '<div class="kpi"><div class="kpi-label">Production Client Hrs</div><div class="kpi-value" style="color:#4a9eff" data-countup="int" data-target="'+Math.round(t.client)+'">0</div><div class="kpi-sub">'+ALL_PROD_TEAM.length+' team members · '+period+'</div></div>'+
+      '<div class="kpi"><div class="kpi-label">Pre-Production</div><div class="kpi-value" style="color:#4a9eff" data-countup="int" data-target="'+Math.round(totPre)+'">0</div><div class="kpi-sub">'+prePct+'% of client hours</div></div>'+
+      '<div class="kpi"><div class="kpi-label">Post-Production</div><div class="kpi-value" style="color:#c084fc" data-countup="int" data-target="'+Math.round(totPost)+'">0</div><div class="kpi-sub">'+postPct+'% of client hours</div></div>'+
+      '<div class="kpi"><div class="kpi-label">Internal Time</div><div class="kpi-value" style="color:#f5a623" data-countup="int" data-target="'+Math.round(t.internal)+'">0</div><div class="kpi-sub">Meetings, admin, other</div></div>'+
+      '<div class="kpi"><div class="kpi-label">Holiday / Sick</div><div class="kpi-value" style="color:var(--mid);font-size:28px" data-countup="int" data-target="'+Math.round(t.holiday)+'">0</div><div class="kpi-sub">Holiday hours this period</div></div>';
+    animateKPIs();
+  }
+
+  // ── Job type strip ─────────────────────────────────────────
+  var jts=p.jobTypes,jtTypes=['Ecom','Campaign','Creative','Elevated','Other'];
+  var jtTotal=Object.values(jts).reduce(function(a,v){return a+v.t;},0)||1;
+  if(jtEl){
+    jtEl.className='prod-jt-strip';
+    jtEl.innerHTML=jtTypes.map(function(type){
+      var d=jts[type]||{t:0,pre:0,post:0};
+      var barW=(d.t/jtTotal*100).toFixed(1);
+      return '<div class="prod-jt-card"><div class="prod-jt-name">'+type+'</div>'+
+        '<div class="prod-jt-hrs" style="color:'+JT_COLORS[type]+'">'+fmt(d.t)+'<span style="font-size:14px;color:var(--muted);font-weight:400"> hrs</span></div>'+
+        '<div class="prod-jt-bar"><div class="prod-jt-bar-fill" style="width:'+barW+'%;background:'+JT_COLORS[type]+'"></div></div>'+
+        '<div class="prod-jt-sub"><span style="color:#4a9eff">Pre '+fmt(d.pre)+'h</span><span style="color:#c084fc">Post '+fmt(d.post)+'h</span></div></div>';
+    }).join('');
+  }
+
+  // ── Team cards ─────────────────────────────────────────────
+  if(subEl)subEl.textContent=PRODUCERS.length+' producers · 1 coordinator · '+period;
+  if(cardsEl){
+    cardsEl.innerHTML=ALL_PROD_TEAM.map(function(member){
+      var d=p.producers[member.name]||{total:0,client:0,internal:0,holiday:0,sick:0,pre:0,post:0};
+      var nameCol=COORDINATORS.some(function(c){return c.name===member.name;})?'#c084fc':'#4a9eff';
+      var cli=d.client||1;
+      var preW=(d.pre/cli*100).toFixed(1),postW=(d.post/cli*100).toFixed(1);
+      return '<div class="prod-card"><div class="prod-card-name" style="color:'+nameCol+'">'+member.name+'</div>'+
+        '<div class="prod-card-title">'+member.title+'</div>'+
+        '<div class="prod-card-hrs">'+fmt(d.client)+'<span> client hrs</span></div>'+
+        '<div class="prod-phase-bar"><div class="pre" style="width:'+preW+'%"></div><div class="post" style="width:'+postW+'%"></div></div>'+
+        '<div class="prod-split-stats">'+
+          '<div><div class="prod-split-label">Pre</div><div class="prod-split-item" style="color:#4a9eff">'+fmt(d.pre)+'h</div></div>'+
+          '<div><div class="prod-split-label">Post</div><div class="prod-split-item" style="color:#c084fc">'+fmt(d.post)+'h</div></div>'+
+          '<div><div class="prod-split-label">Internal</div><div class="prod-split-item" style="color:#f5a623">'+fmt(d.internal)+'h</div></div>'+
+        '</div></div>';
+    }).join('');
+  }
+
+  // ── Team detail table ──────────────────────────────────────
+  if(bodyEl){
+    window._studProdData=productionData;
+    var rows=ALL_PROD_TEAM.map(function(member){
+      var d=p.producers[member.name]||{total:0,client:0,internal:0,holiday:0,sick:0,pre:0,post:0};
+      var safeId=member.name.replace(/\s+/g,'-').replace(/[^a-zA-Z0-9-]/g,'');
+      var nameCol=COORDINATORS.some(function(c){return c.name===member.name;})?'#c084fc':'#4a9eff';
+      var prePct=d.client>0?(d.pre/d.client*100).toFixed(1):0;
+      var postPct=d.client>0?(d.post/d.client*100).toFixed(1):0;
+      var splitBar='<div class="phase-split-row" style="justify-content:flex-end;padding:0"><div class="phase-split-bar" style="width:80px"><div class="phase-pre" style="width:'+prePct+'%"></div><div class="phase-post" style="width:'+postPct+'%"></div></div><span style="font-family:\'DM Mono\',monospace;font-size:10px;color:#4a9eff;margin-left:8px">'+prePct+'%</span><span style="font-family:\'DM Mono\',monospace;font-size:10px;color:var(--muted)"> / </span><span style="font-family:\'DM Mono\',monospace;font-size:10px;color:#c084fc">'+postPct+'%</span></div>';
+      return '<tr class="prod-row" id="prodrow-'+safeId+'" onclick="toggleProdRow(\''+member.name+'\',\''+safeId+'\')">'+
+        '<td><span class="prod-chevron" id="prodchv-'+safeId+'">&#9658;</span><span class="prod-name-cell" style="color:'+nameCol+'">'+member.name+'</span>'+
+        '<div style="font-family:\'DM Mono\',monospace;font-size:9px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-left:18px;margin-top:2px">'+member.title+'</div></td>'+
+        '<td><span style="font-family:\'DM Mono\',monospace;font-size:12px;color:var(--white);background:rgba(74,158,255,.1);padding:2px 8px;border-radius:2px">'+fmt(d.client)+'</span></td>'+
+        '<td style="color:#4a9eff">'+(d.pre>0?fmt(d.pre):'—')+'</td>'+
+        '<td style="color:#c084fc">'+(d.post>0?fmt(d.post):'—')+'</td>'+
+        '<td style="color:#f5a623">'+(d.internal>0?fmt(d.internal):'—')+'</td>'+
+        '<td style="color:var(--muted)">'+(d.holiday>0?fmt(d.holiday):'—')+'</td>'+
+        '<td style="color:var(--muted)">'+(d.sick>0?fmt(d.sick):'—')+'</td>'+
+        '<td>'+splitBar+'</td>'+
+        '</tr>';
+    }).join('');
+    bodyEl.innerHTML=rows;
+  }
+}
+
+var _activeProdRow=null;
+function toggleProdRow(name,safeId){
+  var existing=document.getElementById('prodexpand-'+safeId);
+  if(_activeProdRow===name){
+    if(existing)existing.remove();
+    var chv=document.getElementById('prodchv-'+safeId);if(chv)chv.classList.remove('open');
+    _activeProdRow=null;return;
+  }
+  if(_activeProdRow){
+    var prevId=_activeProdRow.replace(/\s+/g,'-').replace(/[^a-zA-Z0-9-]/g,'');
+    var prev=document.getElementById('prodexpand-'+prevId);if(prev)prev.remove();
+    var prevChv=document.getElementById('prodchv-'+prevId);if(prevChv)prevChv.classList.remove('open');
+  }
+  _activeProdRow=name;
+  var chv=document.getElementById('prodchv-'+safeId);if(chv)chv.classList.add('open');
+  var pd=window._studProdData;
+  var pcClients=(pd&&pd.producerClients&&pd.producerClients[name])||{};
+  var sorted=Object.entries(pcClients).sort(function(a,b){return b[1].total-a[1].total;});
+  var maxHrs=sorted.length>0?sorted[0][1].total:1;
+  var inner;
+  if(sorted.length===0){
+    inner='<div style="padding:14px;font-family:\'DM Mono\',monospace;font-size:11px;color:var(--muted)">No client hours found for '+name+' this period.</div>';
+  }else{
+    inner='<table style="width:100%;border-collapse:collapse"><thead><tr>'+
+      '<th style="font-family:\'DM Mono\',monospace;font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding:8px 12px;text-align:left;border-bottom:1px solid var(--border)">#</th>'+
+      '<th style="font-family:\'DM Mono\',monospace;font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding:8px 12px;text-align:left;border-bottom:1px solid var(--border)">Client</th>'+
+      '<th style="font-family:\'DM Mono\',monospace;font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding:8px 12px;text-align:center;border-bottom:1px solid var(--border)">Job Type</th>'+
+      '<th style="font-family:\'DM Mono\',monospace;font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding:8px 12px;text-align:right;border-bottom:1px solid var(--border)">Total</th>'+
+      '<th style="font-family:\'DM Mono\',monospace;font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding:8px 12px;text-align:right;border-bottom:1px solid var(--border)">Pre</th>'+
+      '<th style="font-family:\'DM Mono\',monospace;font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding:8px 12px;text-align:right;border-bottom:1px solid var(--border)">Post</th>'+
+      '</tr></thead><tbody>'+
+      sorted.map(function(entry,i){
+        var client=entry[0],c=entry[1];
+        var barW=(c.total/maxHrs*100).toFixed(1);
+        return '<tr style="border-bottom:1px solid rgba(128,128,128,.06)">'+
+          '<td style="padding:8px 12px;font-family:\'DM Mono\',monospace;font-size:11px;color:var(--muted)">'+(i+1)+'</td>'+
+          '<td style="padding:8px 12px;font-size:13px;font-weight:500;color:var(--white)">'+client+'</td>'+
+          '<td style="padding:8px 12px;text-align:center">'+jtBadge(c.jobType)+'</td>'+
+          '<td style="padding:8px 12px;text-align:right"><div style="display:flex;align-items:center;justify-content:flex-end;gap:8px"><div style="width:60px;height:3px;background:rgba(128,128,128,.12);border-radius:2px;overflow:hidden"><div style="width:'+barW+'%;height:100%;background:#4a9eff;border-radius:2px"></div></div><span style="font-family:\'DM Mono\',monospace;font-size:12px;color:var(--white)">'+fmt(c.total)+'h</span></div></td>'+
+          '<td style="padding:8px 12px;text-align:right;font-family:\'DM Mono\',monospace;font-size:12px;color:#4a9eff">'+(c.pre>0?fmt(c.pre)+'h':'—')+'</td>'+
+          '<td style="padding:8px 12px;text-align:right;font-family:\'DM Mono\',monospace;font-size:12px;color:#c084fc">'+(c.post>0?fmt(c.post)+'h':'—')+'</td>'+
+          '</tr>';
+      }).join('')+
+      '</tbody></table>';
+  }
+  var row=document.getElementById('prodrow-'+safeId);
+  var expandRow=document.createElement('tr');
+  expandRow.id='prodexpand-'+safeId;
+  expandRow.className='prod-expand-row';
+  expandRow.innerHTML='<td colspan="8" style="padding:0 0 0 32px;background:var(--surface);border-bottom:1px solid var(--border)">'+inner+'</td>';
+  row.insertAdjacentElement('afterend',expandRow);
+}
+
 function buildDeptTab(dt,period){
   let rows=DEPT_ORDER.map(function(dept){const d=dt[dept],p=pct(d.cli,d.cap);return '<tr><td>'+dept+'</td><td>'+fmt(d.cli)+'</td><td>'+fmt(d.hol)+'</td><td>'+fmt(d.sck)+'</td><td>'+fmt(d.int)+'</td><td>'+fmt(d.cap)+'</td><td>'+uBar(p)+'</td><td>'+stBadge(getSt(p))+'</td></tr>';}).join('');
   const tot=DEPT_ORDER.reduce(function(a,d){return{cli:a.cli+dt[d].cli,hol:a.hol+dt[d].hol,sck:a.sck+dt[d].sck,int:a.int+dt[d].int,cap:a.cap+dt[d].cap};},{cli:0,hol:0,sck:0,int:0,cap:0});
@@ -1594,7 +1927,8 @@ function buildDeptTab(dt,period){
   document.getElementById('dept-sub').textContent='Hours allocation · '+period;
 }
 
-function buildClientTab(clientHours,period,staffData){
+function buildClientTab(clientHours,period,staffData,clientMeta){
+  clientMeta=clientMeta||{};
   var sorted=Object.entries(clientHours).sort(function(a,b){return b[1]-a[1];});
   var total=sorted.reduce(function(a,c){return a+c[1];},0);
   if(total===0){document.getElementById('client-content').innerHTML='<div class="hist-empty"><div class="hist-empty-icon">📋</div><div class="hist-empty-msg">No client data available.</div></div>';return;}
@@ -1627,10 +1961,12 @@ function buildClientTab(clientHours,period,staffData){
   html+='<div class="conc-bars">';
   topShow.forEach(function(entry){
     var name=entry[0],hrs=entry[1],p=hrs/total;
+    var jt=(clientMeta[name]&&clientMeta[name].jobType)||'Other';
     html+='<div class="conc-bar-row"><span class="conc-bar-name" title="'+name+'">'+name+'</span>';
     html+='<div class="conc-bar-track"><div class="conc-bar-fill" style="width:'+(hrs/maxHrs*100).toFixed(1)+'%;background:'+riskCol+'"></div></div>';
     html+='<span class="conc-bar-hrs">'+Math.round(hrs)+'h</span>';
-    html+='<span class="conc-bar-pct" style="color:'+riskCol+'">'+(p*100).toFixed(1)+'%</span></div>';
+    html+='<span class="conc-bar-pct" style="color:'+riskCol+'">'+(p*100).toFixed(1)+'%</span>';
+    html+='<span style="flex-shrink:0">'+jtBadge(jt)+'</span></div>';
   });
   html+='</div><hr class="conc-divider">';
   var top3Names=sorted.slice(0,3).map(function(e){return e[0];}).join(', ');
@@ -1678,12 +2014,23 @@ function buildClientTab(clientHours,period,staffData){
 
   // Ranked client table
   html+='<div class="section-header"><div class="section-title">All Clients</div><div class="section-sub">'+sorted.length+' active clients · '+period+'</div></div>';
-  html+='<div class="table-wrap"><table><thead><tr><th class="left">#</th><th class="left">Client</th><th>Hours</th><th>% of Total</th><th>Volume</th><th>Cumulative %</th></tr></thead><tbody>';
+  html+='<div class="table-wrap"><table><thead><tr><th class="left">#</th><th class="left">Client</th><th>Job Type</th><th>Hours</th><th>Pre</th><th>Post</th><th>% of Total</th><th>Volume</th><th>Cumulative %</th></tr></thead><tbody>';
   var cum=0;
   sorted.forEach(function(entry,i){
     var name=entry[0],hrs=entry[1],p=pct(hrs,total);cum+=p;
+    var meta=clientMeta[name]||{};
+    var jt=meta.jobType||'Other';
+    var pre=meta.pre||0,post=meta.post||0;
     var vol=p>=0.1?'<span class="badge major">&#x1F534; Major</span>':p>=0.05?'<span class="badge mid-v">&#x1F7E1; Mid</span>':'<span class="badge minor">&#x26AA; Minor</span>';
-    html+='<tr><td class="left" style="color:var(--muted);font-family:monospace;font-size:11px">'+(i+1)+'</td><td class="left">'+name+'</td><td>'+fmt(hrs)+'</td><td>'+uBar(p)+'</td><td>'+vol+'</td><td style="color:var(--muted)">'+fPct(cum)+'</td></tr>';
+    html+='<tr><td class="left" style="color:var(--muted);font-size:11px">'+(i+1)+'</td>';
+    html+='<td class="left">'+name+'</td>';
+    html+='<td style="text-align:center">'+jtBadge(jt)+'</td>';
+    html+='<td>'+fmt(hrs)+'</td>';
+    html+='<td style="color:#4a9eff">'+(pre>0?fmt(pre)+'h':'—')+'</td>';
+    html+='<td style="color:#c084fc">'+(post>0?fmt(post)+'h':'—')+'</td>';
+    html+='<td>'+uBar(p)+'</td>';
+    html+='<td>'+vol+'</td>';
+    html+='<td style="color:var(--muted)">'+fPct(cum)+'</td></tr>';
   });
   html+='</tbody></table></div>';
   document.getElementById('client-content').innerHTML=html;
