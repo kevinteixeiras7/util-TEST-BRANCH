@@ -85,8 +85,10 @@ body{background:var(--black);color:var(--white);font-family:'Barlow',sans-serif;
 .coming-soon-icon{font-size:48px;opacity:.25;}
 .coming-soon-title{font-family:'Barlow Condensed',sans-serif;font-size:28px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--mid);}
 .coming-soon-sub{font-size:13px;color:var(--muted);max-width:320px;line-height:1.8;}
-.site-footer{padding:16px 40px;border-top:1px solid var(--border);}
+.site-footer{padding:16px 40px;border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;}
 .footer-version{font-family:'DM Mono',monospace;font-size:10px;color:var(--muted);letter-spacing:.08em;}
+.footer-admin{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;background:none;border:1px solid var(--border);color:var(--muted);padding:5px 14px;cursor:pointer;transition:all .2s;border-radius:2px;}
+.footer-admin:hover{border-color:var(--mid);color:var(--white);}
 .section-header{display:flex;align-items:baseline;gap:16px;margin-bottom:22px;}
 .section-title{font-family:'Barlow Condensed',sans-serif;font-size:21px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;}
 .section-sub{font-size:12px;color:var(--muted);}
@@ -116,7 +118,7 @@ thead th:first-child,thead th.left{text-align:left;}
 tbody tr{border-bottom:1px solid rgba(128,128,128,.1);transition:background .15s;}
 tbody tr:hover{background:rgba(128,128,128,.06);}
 tbody tr.dept-row{background:var(--surface);}
-tbody tr.dept-row td{font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);padding:20px 14px 7px 36px;border-bottom:none;box-shadow:inset 3px 0 0 var(--border);}
+tbody tr.dept-row td{font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);padding:8px 14px 8px 36px;border-bottom:1px solid var(--border);border-top:1px solid var(--border);text-align:left;}
 tbody tr.total-row td{font-weight:600;background:var(--surface);}
 td{padding:10px 14px;color:var(--white);text-align:right;font-family:'DM Mono',monospace;font-size:12px;}
 td:first-child{text-align:left;font-family:'Barlow',sans-serif;font-size:13px;font-weight:500;}
@@ -140,7 +142,8 @@ td.muted{color:var(--muted);font-size:11px;}
 .util-name-btn{display:inline-flex;align-items:center;position:relative;padding-left:20px;user-select:none;}
 .util-chevron{position:absolute;left:0;top:50%;transform:translateY(-50%);font-size:8px;color:var(--muted);transition:transform .2s ease,color .2s;line-height:1;}
 .util-chevron.open{transform:translateY(-50%) rotate(90deg);color:var(--orange);}
-.util-ot-row td:first-child::before{content:'';display:inline-block;width:3px;height:3px;border-radius:50%;background:#f5a623;margin-right:7px;vertical-align:middle;margin-bottom:1px;}
+.util-ot-row td:first-child{position:relative;}
+.util-ot-row td:first-child::before{content:'';position:absolute;left:5px;top:50%;transform:translateY(-50%);display:block;width:4px;height:4px;border-radius:50%;background:#f5a623;}
 .util-bd-row td{padding:0 !important;border-bottom:1px solid rgba(128,128,128,.1);}
 .util-bd-row:hover{background:none !important;}
 .util-bd{padding:0 14px 16px 40px;background:rgba(0,0,0,.15);}
@@ -334,10 +337,6 @@ td.muted{color:var(--muted);font-size:11px;}
 .client-swing-tag.new-tag{background:rgba(255,77,0,.12);color:var(--orange);}
 .client-swing-tag.lost-tag{background:rgba(128,128,128,.1);color:var(--muted);}
 
-/* ── Admin fixed position ─────────────────────────────── */
-.admin-fixed{position:fixed;bottom:20px;right:24px;z-index:50;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;background:var(--surface);border:1px solid var(--border);color:var(--muted);padding:7px 16px;cursor:pointer;transition:all .2s;border-radius:2px;box-shadow:0 2px 8px rgba(0,0,0,.3);}
-.admin-fixed:hover{border-color:var(--mid);color:var(--white);}
-[data-theme="light"] .admin-fixed{background:#FFFFFF;box-shadow:0 2px 8px rgba(0,0,0,.1);}
 /* ── Big bar fill animation ───────────────────────────── */
 .big-bar{height:6px;}
 @keyframes bigBarGrow{from{width:0}to{width:var(--bar-w)}}
@@ -360,7 +359,45 @@ td.muted{color:var(--muted);font-size:11px;}
 /* ── Sparklines ───────────────────────────────────────── */
 .sparkline-cell{padding:8px 14px !important;vertical-align:middle;}
 
-@media(max-width:1100px){.kpi-grid{grid-template-columns:repeat(3,1fr)}.dept-grid{grid-template-columns:repeat(3,1fr)}.cap-dept-summary{grid-template-columns:repeat(3,1fr)}.swings-grid{grid-template-columns:1fr}.client-swings-wrap{grid-template-columns:1fr}}
+/* ── Concentration Risk ─────────────────────────────────── */
+.conc-panel{background:var(--card);border:1px solid var(--border);padding:24px 28px;margin-bottom:32px;}
+[data-theme="light"] .conc-panel{box-shadow:0 1px 3px rgba(0,0,0,.05);}
+.conc-header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:22px;gap:16px;}
+.conc-sub{font-size:12px;color:var(--muted);margin-top:4px;}
+.conc-badge{font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:700;letter-spacing:.12em;padding:5px 14px;border:1px solid;border-radius:2px;white-space:nowrap;flex-shrink:0;margin-top:2px;}
+.conc-bars{display:flex;flex-direction:column;gap:11px;margin-bottom:20px;}
+.conc-bar-row{display:grid;grid-template-columns:190px 1fr 58px 52px;align-items:center;gap:12px;}
+.conc-bar-name{font-family:'Barlow',sans-serif;font-size:13px;font-weight:500;color:var(--white);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.conc-bar-track{height:6px;background:rgba(128,128,128,.12);border-radius:3px;overflow:hidden;}
+.conc-bar-fill{height:100%;border-radius:3px;transition:width .5s ease;}
+.conc-bar-hrs{font-family:'DM Mono',monospace;font-size:11px;color:var(--muted);text-align:right;}
+.conc-bar-pct{font-family:'DM Mono',monospace;font-size:11px;font-weight:500;text-align:right;}
+.conc-divider{border:none;border-top:1px solid var(--border);margin:0 0 16px;}
+.conc-insight{display:flex;align-items:baseline;justify-content:space-between;gap:20px;flex-wrap:wrap;}
+.conc-insight-text{font-size:13px;color:var(--mid);line-height:1.7;}
+.conc-insight-action{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);white-space:nowrap;}
+/* ── Client × Dept Matrix ──────────────────────────────── */
+.matrix-wrap{overflow-x:auto;margin-bottom:40px;}
+.matrix-table{border-collapse:collapse;width:100%;}
+.matrix-table thead th{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding:10px 12px;border-bottom:1px solid var(--border);text-align:center;white-space:nowrap;}
+.matrix-table thead th:first-child{text-align:left;min-width:180px;}
+.matrix-table thead th.matrix-right{border-left:1px solid var(--border);}
+.matrix-row{border-bottom:1px solid rgba(128,128,128,.06);}
+.matrix-row:hover td{filter:brightness(1.12);}
+.matrix-name-cell{font-family:'Barlow',sans-serif;font-size:13px;font-weight:500;color:var(--white);padding:8px 12px;text-align:left;max-width:190px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.matrix-cell{padding:6px 8px;text-align:center;}
+.matrix-hrs{font-family:'DM Mono',monospace;font-size:11px;font-weight:500;color:var(--white);}
+.matrix-empty{font-family:'DM Mono',monospace;font-size:11px;color:var(--border);}
+.matrix-right-cell{font-family:'DM Mono',monospace;font-size:11px;font-weight:500;color:var(--mid);padding:8px 12px;text-align:center;border-left:1px solid var(--border);}
+.breadth-wrap{display:flex;flex-direction:column;align-items:center;gap:4px;}
+.breadth-pips{display:flex;gap:3px;}
+.breadth-pip{width:7px;height:7px;border-radius:50%;background:rgba(128,128,128,.15);}
+.breadth-pip.on{background:var(--orange);}
+.breadth-count{font-family:'DM Mono',monospace;font-size:9px;color:var(--muted);}
+.matrix-foot-row td{background:var(--surface) !important;font-family:'DM Mono',monospace;font-size:11px;font-weight:600;color:var(--mid);padding:9px 12px;border-top:1px solid var(--border);text-align:center;}
+.matrix-foot-row td:first-child{font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;text-align:left;}
+
+@media(max-width:1100px){.kpi-grid{grid-template-columns:repeat(3,1fr)}.dept-grid{grid-template-columns:repeat(3,1fr)}.cap-dept-summary{grid-template-columns:repeat(3,1fr)}.swings-grid{grid-template-columns:1fr}.client-swings-wrap{grid-template-columns:1fr}.conc-bar-row{grid-template-columns:140px 1fr 48px 44px}}
 @media(max-width:700px){.kpi-grid{grid-template-columns:repeat(2,1fr)}.dept-grid{grid-template-columns:repeat(2,1fr)}.hours-mix{grid-template-columns:repeat(2,1fr)}.cap-dept-summary{grid-template-columns:repeat(2,1fr)}.content{padding:20px}.topbar,.nav{padding-left:20px;padding-right:20px}.swings-grid{grid-template-columns:1fr}.client-swings-wrap{grid-template-columns:1fr}}
 
 /* ── Light mode fixes ───────────────────────────────────────────── */
@@ -417,7 +454,7 @@ p,span,div,td,th,h1,h2,h3,label{cursor:default;}
 button,.btn,.btn-ghost,.btn-primary,.nav button,.filter-pill,.theme-btn,.skills-sub-btn,.nav-roadmap,.modal-close,.history-delete-btn,.cap-reset-btn,.comp-period-select,.hist-period-dropdown,.drop-zone,.cap-drop-zone,.util-person-row,.cap-reset-btn{cursor:pointer;}
 input,textarea,select{cursor:text;}
 /* ── Sticky util table header ─────────────────────────── */
-#tab-utilisation thead th{position:sticky;top:63px;background:var(--black);z-index:10;}
+#tab-utilisation thead th{background:var(--black);}
 /* ── Insight strip ────────────────────────────────────── */
 .insight-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border);margin-bottom:28px;}
 .insight-cell{background:var(--card);padding:14px 20px;transition:background .25s;}
@@ -637,14 +674,7 @@ tbody tr.util-person-row:hover td:first-child{box-shadow:inset 3px 0 0 var(--ora
     </div>
 
     <div id="tab-clients" class="tab-section">
-      <div class="section-header"><div class="section-title">Client Mix</div><div class="section-sub" id="client-sub"></div></div>
-      <div class="table-wrap"><table>
-        <thead><tr>
-          <th class="left">#</th><th class="left">Client</th><th>Hours</th>
-          <th>% of Total</th><th>Volume</th><th>Cumulative %</th>
-        </tr></thead>
-        <tbody id="client-body"></tbody>
-      </table></div>
+      <div id="client-content"></div>
     </div>
 
     <div id="tab-efficiency" class="tab-section">
@@ -690,7 +720,7 @@ tbody tr.util-person-row:hover td:first-child{box-shadow:inset 3px 0 0 var(--ora
     </div>
 
   </main>
-  <footer class="site-footer"><span class="footer-version">v0.8.1</span></footer>
+  <footer class="site-footer"><span class="footer-version">v0.8.1</span><button class="footer-admin" onclick="openAdminModal()">Admin</button></footer>
 </div>
 
 <script>
@@ -1018,7 +1048,7 @@ function buildAllTabs(payload,otPayload){
   buildDashTab(staffData,dt,period);
   buildUtilTab(staffData,period,otData);
   buildDeptTab(dt,period);
-  buildClientTab(clientHours,period);
+  buildClientTab(clientHours,period,staffData);
   buildHistoryTab();
 }
 
@@ -1564,17 +1594,99 @@ function buildDeptTab(dt,period){
   document.getElementById('dept-sub').textContent='Hours allocation · '+period;
 }
 
-function buildClientTab(clientHours,period){
-  const sorted=Object.entries(clientHours).sort(function(a,b){return b[1]-a[1];});
-  const total=sorted.reduce(function(a,c){return a+c[1];},0);
-  let cum=0;
-  const rows=sorted.map(function(entry,i){
-    const name=entry[0],hrs=entry[1],p=pct(hrs,total);cum+=p;
-    const vol=p>=0.1?'<span class="badge major">&#x1F534; Major</span>':p>=0.05?'<span class="badge mid-v">&#x1F7E1; Mid</span>':'<span class="badge minor">&#x26AA; Minor</span>';
-    return '<tr><td class="left" style="color:var(--muted);font-family:\'DM Mono\',monospace;font-size:11px">'+(i+1)+'</td><td class="left">'+name+'</td><td>'+fmt(hrs)+'</td><td>'+uBar(p)+'</td><td>'+vol+'</td><td style="color:var(--muted)">'+fPct(cum)+'</td></tr>';
-  }).join('');
-  document.getElementById('client-body').innerHTML=rows;
-  document.getElementById('client-sub').textContent=sorted.length+' active clients · '+period;
+function buildClientTab(clientHours,period,staffData){
+  var sorted=Object.entries(clientHours).sort(function(a,b){return b[1]-a[1];});
+  var total=sorted.reduce(function(a,c){return a+c[1];},0);
+  if(total===0){document.getElementById('client-content').innerHTML='<div class="hist-empty"><div class="hist-empty-icon">📋</div><div class="hist-empty-msg">No client data available.</div></div>';return;}
+
+  // Build client-dept hours
+  var clientDeptHrs={};
+  STAFF_ROSTER.forEach(function(s){
+    var d=staffData&&staffData[s.name];
+    if(!d||!d.breakdown)return;
+    Object.entries(d.breakdown).forEach(function(e){
+      var client=e[0],hrs=e[1];
+      if(EXCLUDE.includes(client)||client.startsWith('Seventy7'))return;
+      if(!clientDeptHrs[client])clientDeptHrs[client]={};
+      clientDeptHrs[client][s.dept]=(clientDeptHrs[client][s.dept]||0)+hrs;
+    });
+  });
+
+  // Concentration Risk
+  var top3Hrs=sorted.slice(0,3).reduce(function(a,c){return a+c[1];},0);
+  var top3Pct=top3Hrs/total;
+  var riskLevel=top3Pct>0.6?'HIGH':top3Pct>0.4?'MEDIUM':'LOW';
+  var riskCol=top3Pct>0.6?'#ff6b6b':top3Pct>0.4?'#f5a623':'#3ddc84';
+  var riskBg=top3Pct>0.6?'rgba(255,107,107,.1)':top3Pct>0.4?'rgba(245,166,35,.1)':'rgba(61,220,132,.1)';
+  var topShow=sorted.slice(0,Math.min(5,sorted.length));
+  var maxHrs=topShow[0]?topShow[0][1]:1;
+
+  var html='<div class="conc-panel">';
+  html+='<div class="conc-header"><div><div class="section-title">Concentration Risk</div><div class="conc-sub">How dependent the studio is on its top clients · '+period+'</div></div>';
+  html+='<span class="conc-badge" style="background:'+riskBg+';color:'+riskCol+';border-color:'+riskCol+'">'+riskLevel+' RISK</span></div>';
+  html+='<div class="conc-bars">';
+  topShow.forEach(function(entry){
+    var name=entry[0],hrs=entry[1],p=hrs/total;
+    html+='<div class="conc-bar-row"><span class="conc-bar-name" title="'+name+'">'+name+'</span>';
+    html+='<div class="conc-bar-track"><div class="conc-bar-fill" style="width:'+(hrs/maxHrs*100).toFixed(1)+'%;background:'+riskCol+'"></div></div>';
+    html+='<span class="conc-bar-hrs">'+Math.round(hrs)+'h</span>';
+    html+='<span class="conc-bar-pct" style="color:'+riskCol+'">'+(p*100).toFixed(1)+'%</span></div>';
+  });
+  html+='</div><hr class="conc-divider">';
+  var top3Names=sorted.slice(0,3).map(function(e){return e[0];}).join(', ');
+  var actionText=riskLevel==='HIGH'?'Consider actively growing smaller clients to reduce dependency.':riskLevel==='MEDIUM'?'Moderate dependency — monitor top client relationships closely.':'Well diversified client base — low exposure to any single client.';
+  html+='<div class="conc-insight"><span class="conc-insight-text">Your top 3 clients <span style="color:var(--mid)">('+top3Names+')</span> account for <strong style="color:'+riskCol+';font-size:16px;font-family:var(--font-condensed,sans-serif)">'+(top3Pct*100).toFixed(1)+'%</strong> of all billable hours.</span>';
+  html+='<span class="conc-insight-action">'+actionText+'</span></div></div>';
+
+  // Client x Dept Matrix
+  var matrixClients=sorted.slice(0,Math.min(15,sorted.length));
+  var maxCell=0;
+  matrixClients.forEach(function(entry){
+    var cd=clientDeptHrs[entry[0]]||{};
+    DEPT_ORDER.forEach(function(d){var h=cd[d]||0;if(h>maxCell)maxCell=h;});
+  });
+
+  html+='<div class="section-header"><div class="section-title">Department Breakdown</div><div class="section-sub">Hours per client by studio department · breadth shows cross-studio usage</div></div>';
+  html+='<div class="matrix-wrap"><table class="matrix-table"><thead><tr><th>Client</th>';
+  DEPT_ORDER.forEach(function(d){html+='<th>'+d.replace('Art Direction','Art Dir')+'</th>';});
+  html+='<th class="matrix-right">Total</th><th class="matrix-right">Breadth</th></tr></thead><tbody>';
+  matrixClients.forEach(function(entry){
+    var client=entry[0],totalHrs=entry[1],cd=clientDeptHrs[client]||{};
+    var activeDepts=DEPT_ORDER.filter(function(d){return (cd[d]||0)>0;});
+    html+='<tr class="matrix-row"><td class="matrix-name-cell" title="'+client+'">'+client+'</td>';
+    DEPT_ORDER.forEach(function(dept){
+      var h=cd[dept]||0;
+      if(h>0){
+        var intensity=Math.max(0.07,Math.min(0.55,h/maxCell*0.6));
+        html+='<td class="matrix-cell" style="background:rgba(255,77,0,'+intensity.toFixed(2)+')"><span class="matrix-hrs">'+(h%1===0?h:h.toFixed(1))+'h</span></td>';
+      }else{
+        html+='<td class="matrix-cell"><span class="matrix-empty">—</span></td>';
+      }
+    });
+    var pips=DEPT_ORDER.map(function(d){return '<span class="breadth-pip'+((cd[d]||0)>0?' on':'')+'"></span>';}).join('');
+    html+='<td class="matrix-right-cell">'+Math.round(totalHrs)+'h</td>';
+    html+='<td class="matrix-right-cell"><div class="breadth-wrap"><div class="breadth-pips">'+pips+'</div><span class="breadth-count">'+activeDepts.length+'/5</span></div></td></tr>';
+  });
+  html+='<tr class="matrix-foot-row"><td>Studio Total</td>';
+  DEPT_ORDER.forEach(function(dept){
+    var deptTotal=0;
+    matrixClients.forEach(function(e){deptTotal+=(clientDeptHrs[e[0]]&&clientDeptHrs[e[0]][dept])||0;});
+    html+='<td>'+Math.round(deptTotal)+'h</td>';
+  });
+  html+='<td class="matrix-right-cell">'+Math.round(total)+'h</td><td></td></tr>';
+  html+='</tbody></table></div>';
+
+  // Ranked client table
+  html+='<div class="section-header"><div class="section-title">All Clients</div><div class="section-sub">'+sorted.length+' active clients · '+period+'</div></div>';
+  html+='<div class="table-wrap"><table><thead><tr><th class="left">#</th><th class="left">Client</th><th>Hours</th><th>% of Total</th><th>Volume</th><th>Cumulative %</th></tr></thead><tbody>';
+  var cum=0;
+  sorted.forEach(function(entry,i){
+    var name=entry[0],hrs=entry[1],p=pct(hrs,total);cum+=p;
+    var vol=p>=0.1?'<span class="badge major">&#x1F534; Major</span>':p>=0.05?'<span class="badge mid-v">&#x1F7E1; Mid</span>':'<span class="badge minor">&#x26AA; Minor</span>';
+    html+='<tr><td class="left" style="color:var(--muted);font-family:monospace;font-size:11px">'+(i+1)+'</td><td class="left">'+name+'</td><td>'+fmt(hrs)+'</td><td>'+uBar(p)+'</td><td>'+vol+'</td><td style="color:var(--muted)">'+fPct(cum)+'</td></tr>';
+  });
+  html+='</tbody></table></div>';
+  document.getElementById('client-content').innerHTML=html;
 }
 
 /* ── Utilisation filter ─────────────────────────────────────────── */
@@ -1845,7 +1957,6 @@ window.addEventListener('load',async function(){
   }
 });
 </script>
-<button class="admin-fixed" onclick="openAdminModal()">Admin</button>
 
 </body>
 </html>
