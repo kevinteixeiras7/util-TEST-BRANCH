@@ -424,58 +424,6 @@ td.muted{color:var(--muted);font-size:11px;}
 .matrix-foot-row td{background:var(--surface) !important;font-family:'DM Mono',monospace;font-size:11px;font-weight:600;color:var(--mid);padding:9px 12px;border-top:1px solid var(--border);text-align:center;}
 .matrix-foot-row td:first-child{font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;text-align:left;}
 
-
-
-/* ── Set Counts ─────────────────────────────────────────────────── */
-.set-card-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:var(--border);border:1px solid var(--border);margin-bottom:28px;}
-.set-card{background:var(--card);padding:22px 20px;transition:background .25s;}
-.set-label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:10px;}
-.set-value{font-family:'Barlow Condensed',sans-serif;font-size:34px;font-weight:700;line-height:1;}
-.set-sub{font-size:11px;color:var(--muted);margin-top:7px;}
-.set-layout{display:grid;grid-template-columns:1.2fr .8fr;gap:28px;margin-bottom:36px;}
-.set-panel{background:var(--card);border:1px solid var(--border);padding:24px 28px;}
-.set-bars{display:flex;flex-direction:column;gap:11px;}
-.set-bar-row{display:grid;grid-template-columns:150px 1fr 58px;align-items:center;gap:12px;}
-.set-bar-name{font-family:'Barlow',sans-serif;font-size:13px;font-weight:500;color:var(--white);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
-.set-bar-track{height:6px;background:rgba(128,128,128,.12);border-radius:3px;overflow:hidden;}
-.set-bar-fill{height:100%;background:var(--orange);border-radius:3px;opacity:.85;}
-.set-bar-val{font-family:'DM Mono',monospace;font-size:11px;text-align:right;color:var(--mid);}
-.set-mini-table{width:100%;border-collapse:collapse;}
-.set-mini-table th{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding:9px 10px;border-bottom:1px solid var(--border);text-align:right;}
-.set-mini-table th:first-child{text-align:left;}
-.set-mini-table td{padding:9px 10px;border-bottom:1px solid rgba(128,128,128,.08);font-family:'DM Mono',monospace;font-size:11px;text-align:right;}
-.set-mini-table td:first-child{text-align:left;font-family:'Barlow',sans-serif;font-size:12px;color:var(--white);}
-.set-split{height:7px;background:rgba(128,128,128,.12);border-radius:4px;overflow:hidden;display:flex;margin-top:12px;}
-.set-split-model{background:#4a9eff;height:100%;}
-.set-split-stills{background:var(--orange);height:100%;}
-.set-split-other{background:var(--muted);height:100%;opacity:.6;}
-.set-legend{display:flex;gap:16px;flex-wrap:wrap;margin-top:12px;}
-.set-legend-item{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);display:flex;align-items:center;gap:6px;}
-.set-dot{width:8px;height:8px;border-radius:50%;display:inline-block;}
-.dash-set-wrap{margin:0 0 34px;}
-.dash-set-wrap .set-card-grid{margin-bottom:0;grid-template-columns:repeat(4,1fr);}
-.set-empty{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:280px;gap:12px;text-align:center;}
-.set-empty-title{font-family:'Barlow Condensed',sans-serif;font-size:24px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--mid);}
-.set-empty-sub{font-size:12px;color:var(--muted);max-width:420px;line-height:1.8;}
-.set-upload-inline{max-width:560px;margin-top:24px;}
-[data-theme="light"] .set-panel,[data-theme="light"] .set-card,[data-theme="light"] .set-info-cell{box-shadow:0 1px 3px rgba(0,0,0,.05);}
-
-.set-info-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--border);border:1px solid var(--border);margin-bottom:32px;}
-.set-info-cell{background:var(--card);padding:18px 20px;}
-.set-info-title{font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--orange);margin-bottom:8px;}
-.set-info-text{font-size:12px;color:var(--mid);line-height:1.7;}
-.set-yoy{font-family:'DM Mono',monospace;font-size:10px;margin-top:7px;}
-.set-yoy.up{color:#3ddc84;}
-.set-yoy.down{color:#ff6b6b;}
-.set-yoy.flat{color:var(--muted);}
-.set-compare-table td:first-child{font-family:'Barlow',sans-serif;font-size:12px;}
-.set-compare-note{font-family:'DM Mono',monospace;font-size:10px;color:var(--muted);line-height:1.8;margin-top:12px;}
-.set-card .set-sub strong{color:var(--mid);font-weight:500;}
-@media(max-width:900px){.set-info-grid{grid-template-columns:1fr;}}
-
-@media(max-width:1100px){.set-card-grid{grid-template-columns:repeat(3,1fr)}.set-layout{grid-template-columns:1fr}.dash-set-wrap .set-card-grid{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:700px){.set-card-grid{grid-template-columns:repeat(2,1fr)}.set-bar-row{grid-template-columns:110px 1fr 48px}.dash-set-wrap .set-card-grid{grid-template-columns:1fr}}
-
 @media(max-width:1100px){.kpi-grid{grid-template-columns:repeat(3,1fr)}.dept-grid{grid-template-columns:repeat(3,1fr)}.cap-dept-summary{grid-template-columns:repeat(3,1fr)}.swings-grid{grid-template-columns:1fr}.client-swings-wrap{grid-template-columns:1fr}.conc-bar-row{grid-template-columns:140px 1fr 48px 44px}}
 @media(max-width:700px){.kpi-grid{grid-template-columns:repeat(2,1fr)}.dept-grid{grid-template-columns:repeat(2,1fr)}.hours-mix{grid-template-columns:repeat(2,1fr)}.cap-dept-summary{grid-template-columns:repeat(2,1fr)}.content{padding:20px}.topbar,.nav{padding-left:20px;padding-right:20px}.swings-grid{grid-template-columns:1fr}.client-swings-wrap{grid-template-columns:1fr}}
 
@@ -611,643 +559,9 @@ tbody tr.util-person-row:hover td:first-child{box-shadow:inset 3px 0 0 var(--ora
 .filter-sep{width:1px;height:20px;background:var(--border);flex-shrink:0;}
 .util-filter-count{font-family:'DM Mono',monospace;font-size:11px;color:var(--muted);margin-left:auto;white-space:nowrap;}
 .kpi-vs-target{font-size:11px;margin-top:5px;font-family:'DM Mono',monospace;}
-
-
-/* ── v0.8.7 UI polish layer ─────────────────────────────────────── */
-:root{--radius:8px;--shadow-soft:0 14px 40px rgba(0,0,0,.16);--shadow-card:0 8px 24px rgba(0,0,0,.12);--focus:0 0 0 3px rgba(255,77,0,.22);}
-[data-theme="light"]{--shadow-soft:0 14px 34px rgba(20,20,20,.08);--shadow-card:0 8px 22px rgba(20,20,20,.06);}
-.card-soft,.kpi,.dept-card,.set-card,.set-panel,.chart-wrap,.int-bd-wrap,.conc-panel,.table-wrap,.insight-cell{border-radius:var(--radius);}
-.kpi,.dept-card,.set-card,.set-panel,.chart-wrap,.insight-cell,.cap-dept-cell,.mix-cell,.table-wrap{box-shadow:var(--shadow-card);}
-.section-header{align-items:flex-end;justify-content:space-between;gap:14px;}
-.section-title{font-size:24px;letter-spacing:.055em;}
-.section-sub{max-width:620px;line-height:1.6;}
-.nav{gap:2px;scrollbar-width:thin;}
-.nav button,.nav-roadmap{border-radius:6px 6px 0 0;margin-top:4px;}
-.nav button.active,.nav-roadmap.active{background:linear-gradient(180deg,rgba(255,77,0,.14),rgba(255,77,0,0));}
-.nav-cat{display:flex;align-items:center;height:40px;margin-left:10px;padding-left:16px;}
-.global-filter-bar{display:flex;align-items:center;gap:10px;padding:10px 40px;border-bottom:1px solid var(--border);background:var(--surface);transition:background .25s,border-color .25s;}
-.global-filter-title{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-right:4px;}
-.global-control{background:var(--card);border:1px solid var(--border);color:var(--white);font-family:'DM Mono',monospace;font-size:11px;padding:7px 10px;outline:none;border-radius:4px;transition:border-color .2s,box-shadow .2s;background-clip:padding-box;}
-.global-control:focus{border-color:var(--orange);box-shadow:var(--focus);}
-.global-search{min-width:260px;}
-.global-filter-spacer{flex:1;}
-.export-btn{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.08em;text-transform:uppercase;background:transparent;border:1px solid var(--border);color:var(--muted);padding:7px 10px;border-radius:4px;cursor:pointer;transition:all .18s;white-space:nowrap;}
-.export-btn:hover{border-color:var(--orange);color:var(--orange);background:var(--orange-dim);transform:translateY(-1px);}
-.exec-hero{display:grid;grid-template-columns:1.3fr repeat(4,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;margin-bottom:30px;box-shadow:var(--shadow-soft);}
-.exec-main,.exec-card{background:var(--card);padding:24px;min-height:132px;}
-.exec-main{display:flex;flex-direction:column;justify-content:space-between;background:linear-gradient(180deg,rgba(255,77,0,.16),rgba(255,77,0,.03)),var(--card);}
-.exec-kicker{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--orange);margin-bottom:12px;}
-.exec-title{font-family:'Barlow Condensed',sans-serif;font-size:30px;line-height:1;font-weight:800;letter-spacing:.05em;text-transform:uppercase;margin-bottom:10px;}
-.exec-meta{font-family:'DM Mono',monospace;font-size:11px;color:var(--muted);line-height:1.7;}
-.exec-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:10px;display:flex;align-items:center;gap:6px;}
-.exec-value{font-family:'Barlow Condensed',sans-serif;font-size:34px;line-height:1;font-weight:800;letter-spacing:.02em;}
-.exec-value.accent{color:var(--orange);}
-.exec-sub{font-family:'DM Mono',monospace;font-size:10px;color:var(--muted);margin-top:8px;line-height:1.5;}
-.info-tip{display:inline-flex;align-items:center;justify-content:center;width:15px;height:15px;border-radius:50%;border:1px solid var(--border);color:var(--muted);font-family:'DM Mono',monospace;font-size:9px;line-height:1;cursor:help;vertical-align:middle;}
-.info-tip:hover{border-color:var(--orange);color:var(--orange);background:var(--orange-dim);}
-.kpi-label,.mix-label,.set-label,.chart-label{display:flex;align-items:center;gap:6px;}
-.kpi-grid,.dept-grid,.set-card-grid,.set-ytd-grid{border-radius:var(--radius);overflow:hidden;}
-.table-wrap{border:1px solid var(--border);background:var(--card);}
-.table-wrap table{border-collapse:separate;border-spacing:0;}
-.table-wrap thead th{position:sticky;top:0;background:var(--card);z-index:1;}
-.set-toolbar{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:0 0 20px;flex-wrap:wrap;}
-.set-toolbar .export-btn{padding:8px 12px;}
-.set-ytd-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border:1px solid var(--border);margin:24px 0 32px;}
-.set-ytd-card{background:var(--card);padding:20px;}
-.set-ytd-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:8px;display:flex;align-items:center;gap:6px;}
-.set-ytd-value{font-family:'Barlow Condensed',sans-serif;font-size:32px;line-height:1;font-weight:800;}
-.set-ytd-sub{font-family:'DM Mono',monospace;font-size:10px;color:var(--muted);margin-top:8px;}
-.empty-state,.set-empty,.coming-soon-block,.hist-empty{border:1px dashed var(--border);background:linear-gradient(180deg,rgba(255,255,255,.025),rgba(255,255,255,.01));border-radius:var(--radius);padding:44px 32px;}
-.empty-state-title,.set-empty-title,.coming-soon-title{font-family:'Barlow Condensed',sans-serif;font-size:24px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--mid);}
-.empty-state-sub,.set-empty-sub,.coming-soon-sub{font-size:13px;color:var(--muted);line-height:1.8;max-width:560px;}
-@keyframes softReveal{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
-.exec-hero,.kpi-grid,.dept-grid,.insight-strip,.set-card-grid,.set-ytd-grid,.set-panel,.table-wrap{animation:softReveal .35s ease both;}
-.btn,.btn-ghost,.theme-btn,.filter-pill,.skills-sub-btn,.nav button{will-change:transform;}
-.btn:hover,.filter-pill:hover,.skills-sub-btn:hover,.nav button:hover{transform:translateY(-1px);}
-@media(max-width:1180px){.exec-hero{grid-template-columns:1fr 1fr}.global-filter-bar{padding-left:24px;padding-right:24px;}.global-filter-spacer{display:none}.global-search{min-width:200px}.set-ytd-grid{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:760px){.exec-hero{grid-template-columns:1fr}.global-filter-bar{align-items:stretch;flex-direction:column}.global-control,.global-search,.export-btn{width:100%}.set-ytd-grid{grid-template-columns:1fr}}
-@media print{.sticky-header,.site-footer,.modal-overlay,.global-filter-bar,.cap-drop-zone,.set-upload-inline,.btn,.export-btn{display:none!important}body{background:#fff;color:#111}.content{padding:0}.tab-section:not(.active){display:none!important}.kpi,.dept-card,.set-card,.set-panel,.chart-wrap,.table-wrap{box-shadow:none!important;border:1px solid #ddd!important}.exec-hero{box-shadow:none!important}}
-
-
-
-/* ── v0.9.0 premium interaction layer ───────────────────────────── */
-:root{
-  --glass:rgba(33,33,58,.72);
-  --glass-strong:rgba(41,41,64,.84);
-  --glow-orange:0 0 34px rgba(255,77,0,.22);
-  --glow-blue:0 0 34px rgba(74,158,255,.16);
-  --ease-premium:cubic-bezier(.2,.8,.2,1);
-}
-[data-theme="light"]{
-  --glass:rgba(255,255,255,.78);
-  --glass-strong:rgba(255,255,255,.92);
-  --glow-orange:0 0 28px rgba(255,77,0,.12);
-  --glow-blue:0 0 28px rgba(24,95,165,.12);
-}
-html{scroll-behavior:smooth;}
-body{
-  position:relative;
-  overflow-x:hidden;
-  background:
-    radial-gradient(circle at 20% -10%,rgba(255,77,0,.14),transparent 32vw),
-    radial-gradient(circle at 84% 8%,rgba(74,158,255,.10),transparent 28vw),
-    radial-gradient(circle at 50% 115%,rgba(255,77,0,.08),transparent 40vw),
-    var(--black);
-}
-body::before{
-  content:'';
-  position:fixed;
-  inset:0;
-  pointer-events:none;
-  z-index:-2;
-  opacity:.42;
-  background-image:
-    linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),
-    linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);
-  background-size:44px 44px;
-  mask-image:linear-gradient(to bottom,rgba(0,0,0,.85),rgba(0,0,0,.15) 70%,transparent);
-}
-body::after{
-  content:'';
-  position:fixed;
-  width:420px;
-  height:420px;
-  right:-160px;
-  top:140px;
-  z-index:-1;
-  pointer-events:none;
-  border-radius:50%;
-  background:radial-gradient(circle,rgba(255,77,0,.18),transparent 64%);
-  filter:blur(18px);
-  animation:orbFloat 18s var(--ease-premium) infinite alternate;
-}
-@keyframes orbFloat{
-  from{transform:translate3d(0,0,0) scale(1);}
-  to{transform:translate3d(-90px,120px,0) scale(1.25);}
-}
-.scroll-progress{
-  position:fixed;
-  top:0;
-  left:0;
-  width:0%;
-  height:3px;
-  background:linear-gradient(90deg,var(--orange),#ff9b64,#4a9eff);
-  z-index:500;
-  box-shadow:var(--glow-orange);
-  transition:width .08s linear;
-}
-.sticky-header{
-  backdrop-filter:blur(18px) saturate(140%);
-  -webkit-backdrop-filter:blur(18px) saturate(140%);
-  background:linear-gradient(180deg,var(--glass-strong),var(--glass))!important;
-  border-bottom:1px solid rgba(255,255,255,.06);
-}
-.topbar{
-  padding-top:16px;
-  padding-bottom:12px;
-}
-.brand{
-  position:relative;
-  text-shadow:0 0 22px rgba(255,77,0,.12);
-}
-.brand::after{
-  content:'';
-  position:absolute;
-  left:0;
-  bottom:-8px;
-  width:46px;
-  height:2px;
-  border-radius:999px;
-  background:linear-gradient(90deg,var(--orange),transparent);
-}
-.nav{
-  gap:6px;
-  padding-top:8px;
-  padding-bottom:8px;
-  border-bottom:none!important;
-}
-.nav button,.nav-roadmap{
-  position:relative;
-  border:1px solid transparent!important;
-  border-radius:999px;
-  padding:8px 13px!important;
-  isolation:isolate;
-}
-.nav button::before,.nav-roadmap::before{
-  content:'';
-  position:absolute;
-  inset:0;
-  border-radius:999px;
-  background:var(--orange-dim);
-  opacity:0;
-  transform:scale(.92);
-  transition:opacity .18s var(--ease-premium),transform .18s var(--ease-premium);
-  z-index:-1;
-}
-.nav button:hover::before,.nav-roadmap:hover::before,.nav button.active::before,.nav-roadmap.active::before{
-  opacity:1;
-  transform:scale(1);
-}
-.nav button.active,.nav-roadmap.active{
-  box-shadow:inset 0 0 0 1px rgba(255,77,0,.24),var(--glow-orange);
-}
-.nav-cat{
-  border-left:none!important;
-  padding-left:14px!important;
-  display:flex;
-  align-items:center;
-  gap:8px;
-}
-.nav-cat::before{
-  content:'';
-  width:5px;
-  height:5px;
-  border-radius:50%;
-  background:var(--orange);
-  opacity:.62;
-}
-.global-filter-bar{
-  position:relative;
-  border-top:1px solid rgba(255,255,255,.05);
-  background:linear-gradient(90deg,rgba(255,77,0,.055),rgba(74,158,255,.035),transparent);
-}
-.global-control,.period-input,.pw-input,.hist-period-dropdown,.comp-period-select,.util-search{
-  border-radius:999px!important;
-  box-shadow:inset 0 0 0 1px rgba(255,255,255,.015);
-}
-.export-btn,.btn-ghost,.theme-btn,.footer-admin,.cap-reset-btn{
-  border-radius:999px!important;
-}
-.content{
-  max-width:1680px;
-  margin:0 auto;
-  padding-top:44px;
-}
-.tab-section{
-  transform-origin:50% 16px;
-}
-body.tab-changing .tab-section.active{
-  animation:tabPremiumIn .34s var(--ease-premium) both;
-}
-@keyframes tabPremiumIn{
-  from{opacity:0;transform:translateY(12px) scale(.992);filter:blur(2px);}
-  to{opacity:1;transform:none;filter:none;}
-}
-.kpi,.dept-card,.mix-cell,.set-card,.set-ytd-card,.exec-main,.exec-card,.chart-wrap,.set-panel,.conc-panel,.int-bd-wrap,.table-wrap,.cap-dept-cell,.swings-col,.client-swings-col,.prod-card,.prod-jt-card{
-  border-radius:14px!important;
-  background:
-    linear-gradient(180deg,rgba(255,255,255,.035),rgba(255,255,255,.012)),
-    var(--card)!important;
-  box-shadow:0 12px 40px rgba(0,0,0,.14), inset 0 1px 0 rgba(255,255,255,.035);
-}
-.kpi-grid,.dept-grid,.hours-mix,.set-card-grid,.set-ytd-grid,.cap-dept-summary,.prod-jt-strip,.insight-strip,.swings-grid,.client-swings-wrap{
-  gap:10px!important;
-  background:transparent!important;
-  border:none!important;
-  overflow:visible!important;
-}
-.kpi,.dept-card,.set-card,.set-ytd-card,.exec-card,.mix-cell{
-  position:relative;
-  overflow:hidden;
-  transition:transform .22s var(--ease-premium),box-shadow .22s var(--ease-premium),border-color .22s;
-}
-.kpi::before,.dept-card::before,.set-card::before,.exec-card::before,.set-ytd-card::before{
-  content:'';
-  position:absolute;
-  inset:-1px;
-  border-radius:inherit;
-  background:linear-gradient(135deg,rgba(255,77,0,.28),transparent 30%,rgba(74,158,255,.18));
-  opacity:0;
-  transition:opacity .22s var(--ease-premium);
-  pointer-events:none;
-}
-.kpi:hover,.dept-card:hover,.set-card:hover,.set-ytd-card:hover,.exec-card:hover{
-  transform:translateY(-4px);
-  box-shadow:0 20px 48px rgba(0,0,0,.24),var(--glow-orange);
-}
-.kpi:hover::before,.dept-card:hover::before,.set-card:hover::before,.exec-card:hover::before,.set-ytd-card:hover::before{opacity:.18;}
-.kpi-value,.exec-value,.set-value,.set-ytd-value,.dept-pct,.mix-val{
-  letter-spacing:.015em;
-}
-.table-wrap{
-  border-radius:16px;
-  overflow:hidden;
-  backdrop-filter:blur(8px);
-}
-tbody tr{
-  transition:background .16s var(--ease-premium),transform .16s var(--ease-premium);
-}
-tbody tr:hover{
-  background:rgba(255,77,0,.055)!important;
-}
-.util-person-row:hover td:first-child{
-  box-shadow:inset 4px 0 0 var(--orange)!important;
-}
-.chart-wrap{
-  border-radius:18px;
-  overflow:hidden;
-}
-.chart-wrap canvas{
-  filter:drop-shadow(0 12px 18px rgba(0,0,0,.16));
-}
-.s77-action-dock{
-  position:fixed;
-  right:22px;
-  bottom:24px;
-  z-index:260;
-  display:flex;
-  flex-direction:column;
-  gap:10px;
-  pointer-events:none;
-}
-.s77-dock-btn{
-  pointer-events:auto;
-  width:46px;
-  height:46px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  border-radius:16px;
-  border:1px solid rgba(255,255,255,.1);
-  background:var(--glass-strong);
-  color:var(--white);
-  box-shadow:0 16px 40px rgba(0,0,0,.26);
-  backdrop-filter:blur(18px) saturate(140%);
-  -webkit-backdrop-filter:blur(18px) saturate(140%);
-  font-family:'DM Mono',monospace;
-  font-size:15px;
-  cursor:pointer;
-  transition:transform .18s var(--ease-premium),box-shadow .18s var(--ease-premium),border-color .18s,color .18s;
-}
-.s77-dock-btn:hover{
-  transform:translateY(-3px) scale(1.04);
-  border-color:rgba(255,77,0,.45);
-  color:var(--orange);
-  box-shadow:0 18px 46px rgba(0,0,0,.34),var(--glow-orange);
-}
-.s77-dock-btn span{
-  position:absolute;
-  right:56px;
-  white-space:nowrap;
-  opacity:0;
-  pointer-events:none;
-  transform:translateX(8px);
-  transition:all .18s var(--ease-premium);
-  background:var(--glass-strong);
-  border:1px solid var(--border);
-  color:var(--mid);
-  border-radius:999px;
-  padding:6px 10px;
-  font-family:'DM Mono',monospace;
-  font-size:10px;
-  letter-spacing:.06em;
-  text-transform:uppercase;
-}
-.s77-dock-btn:hover span{opacity:1;transform:none;}
-.s77-tab-chip{
-  position:fixed;
-  left:50%;
-  bottom:24px;
-  z-index:220;
-  transform:translateX(-50%);
-  display:flex;
-  align-items:center;
-  gap:8px;
-  padding:10px 14px;
-  border-radius:999px;
-  border:1px solid rgba(255,255,255,.09);
-  background:var(--glass-strong);
-  box-shadow:0 14px 38px rgba(0,0,0,.20);
-  backdrop-filter:blur(18px) saturate(140%);
-  -webkit-backdrop-filter:blur(18px) saturate(140%);
-  font-family:'DM Mono',monospace;
-  font-size:10px;
-  letter-spacing:.1em;
-  text-transform:uppercase;
-  color:var(--mid);
-  pointer-events:none;
-}
-.s77-tab-chip::before{
-  content:'';
-  width:7px;
-  height:7px;
-  border-radius:50%;
-  background:var(--orange);
-  box-shadow:0 0 16px rgba(255,77,0,.8);
-}
-.s77-command-overlay{
-  position:fixed;
-  inset:0;
-  z-index:420;
-  display:none;
-  place-items:start center;
-  padding-top:9vh;
-  background:rgba(8,8,16,.62);
-  backdrop-filter:blur(12px);
-  -webkit-backdrop-filter:blur(12px);
-}
-.s77-command-overlay.open{
-  display:grid;
-  animation:paletteFade .18s var(--ease-premium) both;
-}
-@keyframes paletteFade{from{opacity:0}to{opacity:1}}
-.s77-command{
-  width:min(720px,calc(100vw - 32px));
-  border-radius:24px;
-  border:1px solid rgba(255,255,255,.1);
-  background:
-    radial-gradient(circle at 15% 0,rgba(255,77,0,.16),transparent 28%),
-    linear-gradient(180deg,var(--glass-strong),rgba(24,24,41,.96));
-  box-shadow:0 32px 90px rgba(0,0,0,.48),var(--glow-orange);
-  overflow:hidden;
-  transform:translateY(12px) scale(.98);
-  animation:paletteIn .22s var(--ease-premium) forwards;
-}
-[data-theme="light"] .s77-command{
-  background:
-    radial-gradient(circle at 15% 0,rgba(255,77,0,.10),transparent 28%),
-    linear-gradient(180deg,rgba(255,255,255,.98),rgba(245,245,242,.96));
-}
-@keyframes paletteIn{to{transform:none}}
-.s77-command-head{
-  display:flex;
-  align-items:center;
-  gap:12px;
-  padding:18px 20px;
-  border-bottom:1px solid rgba(255,255,255,.08);
-}
-.s77-command-icon{
-  width:34px;
-  height:34px;
-  border-radius:13px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  background:var(--orange-dim);
-  color:var(--orange);
-  box-shadow:var(--glow-orange);
-}
-.s77-command-input{
-  flex:1;
-  background:transparent;
-  border:none;
-  outline:none;
-  color:var(--white);
-  font-family:'Barlow Condensed',sans-serif;
-  font-size:24px;
-  letter-spacing:.03em;
-  text-transform:uppercase;
-}
-.s77-command-input::placeholder{color:var(--muted);}
-.s77-command-hint{
-  font-family:'DM Mono',monospace;
-  font-size:10px;
-  color:var(--muted);
-  border:1px solid var(--border);
-  border-radius:999px;
-  padding:5px 8px;
-}
-.s77-command-list{
-  max-height:430px;
-  overflow:auto;
-  padding:10px;
-}
-.s77-command-item{
-  display:grid;
-  grid-template-columns:38px 1fr auto;
-  align-items:center;
-  gap:12px;
-  padding:12px;
-  border-radius:16px;
-  cursor:pointer;
-  transition:background .14s var(--ease-premium),transform .14s var(--ease-premium);
-}
-.s77-command-item:hover,.s77-command-item.active{
-  background:rgba(255,77,0,.12);
-  transform:translateX(3px);
-}
-.s77-command-mark{
-  width:34px;
-  height:34px;
-  border-radius:12px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  background:rgba(255,255,255,.06);
-  color:var(--orange);
-  font-family:'DM Mono',monospace;
-  font-size:12px;
-}
-.s77-command-title{
-  font-family:'Barlow',sans-serif;
-  font-size:14px;
-  font-weight:500;
-  color:var(--white);
-}
-.s77-command-sub{
-  font-family:'DM Mono',monospace;
-  font-size:10px;
-  color:var(--muted);
-  margin-top:2px;
-}
-.s77-command-key{
-  font-family:'DM Mono',monospace;
-  font-size:9px;
-  letter-spacing:.08em;
-  text-transform:uppercase;
-  color:var(--muted);
-  border:1px solid var(--border);
-  border-radius:999px;
-  padding:5px 8px;
-}
-.s77-toast{
-  position:fixed;
-  left:50%;
-  top:22px;
-  z-index:520;
-  transform:translate(-50%,-20px);
-  opacity:0;
-  pointer-events:none;
-  max-width:min(520px,calc(100vw - 32px));
-  border-radius:999px;
-  border:1px solid rgba(255,255,255,.1);
-  background:var(--glass-strong);
-  backdrop-filter:blur(18px);
-  -webkit-backdrop-filter:blur(18px);
-  box-shadow:0 18px 48px rgba(0,0,0,.25);
-  padding:10px 16px;
-  font-family:'DM Mono',monospace;
-  font-size:11px;
-  color:var(--mid);
-  transition:all .24s var(--ease-premium);
-}
-.s77-toast.show{
-  transform:translate(-50%,0);
-  opacity:1;
-}
-body.s77-focus .sticky-header,
-body.s77-focus .site-footer,
-body.s77-focus .s77-tab-chip{
-  opacity:0;
-  pointer-events:none;
-  transform:translateY(-10px);
-  transition:all .24s var(--ease-premium);
-}
-body.s77-focus .content{
-  max-width:1480px;
-  padding-top:26px;
-}
-body.s77-dense .content{padding-top:24px;}
-body.s77-dense .kpi,
-body.s77-dense .dept-card,
-body.s77-dense .set-card,
-body.s77-dense .exec-main,
-body.s77-dense .exec-card{
-  padding:16px!important;
-}
-body.s77-dense td{padding-top:7px;padding-bottom:7px;}
-body.s77-spotlight .tab-section.active .kpi,
-body.s77-spotlight .tab-section.active .dept-card,
-body.s77-spotlight .tab-section.active .set-card,
-body.s77-spotlight .tab-section.active .exec-card,
-body.s77-spotlight .tab-section.active tr{
-  opacity:.44;
-  transition:opacity .18s var(--ease-premium),transform .18s var(--ease-premium),filter .18s var(--ease-premium);
-}
-body.s77-spotlight .tab-section.active .kpi:hover,
-body.s77-spotlight .tab-section.active .dept-card:hover,
-body.s77-spotlight .tab-section.active .set-card:hover,
-body.s77-spotlight .tab-section.active .exec-card:hover,
-body.s77-spotlight .tab-section.active tr:hover{
-  opacity:1;
-  filter:none;
-}
-.s77-stat-ribbon{
-  display:flex;
-  gap:8px;
-  flex-wrap:wrap;
-  margin:0 0 24px;
-}
-.s77-ribbon-pill{
-  display:inline-flex;
-  align-items:center;
-  gap:7px;
-  padding:8px 11px;
-  border-radius:999px;
-  background:var(--glass);
-  border:1px solid rgba(255,255,255,.07);
-  font-family:'DM Mono',monospace;
-  font-size:10px;
-  letter-spacing:.06em;
-  text-transform:uppercase;
-  color:var(--muted);
-}
-.s77-ribbon-pill strong{
-  color:var(--white);
-  font-weight:500;
-}
-.s77-ribbon-dot{
-  width:7px;
-  height:7px;
-  border-radius:50%;
-  background:var(--orange);
-  box-shadow:0 0 14px rgba(255,77,0,.75);
-}
-.drop-zone,.cap-drop-zone{
-  border-radius:22px!important;
-  position:relative;
-  overflow:hidden;
-  background:
-    linear-gradient(180deg,rgba(255,255,255,.035),rgba(255,255,255,.01)),
-    var(--card)!important;
-}
-.drop-zone::after,.cap-drop-zone::after{
-  content:'';
-  position:absolute;
-  inset:0;
-  background:linear-gradient(90deg,transparent,rgba(255,255,255,.08),transparent);
-  transform:translateX(-110%);
-  transition:transform .6s var(--ease-premium);
-}
-.drop-zone:hover::after,.cap-drop-zone:hover::after{transform:translateX(110%);}
-@media(max-width:900px){
-  .s77-tab-chip{display:none;}
-  .s77-action-dock{right:14px;bottom:14px;}
-  .s77-dock-btn{width:42px;height:42px;border-radius:14px;}
-  .thr-legend{display:none;}
-}
-@media(prefers-reduced-motion:reduce){
-  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important;}
-}
-
 </style>
 </head>
 <body>
-
-<div class="scroll-progress" id="s77-scroll-progress"></div>
-<div class="s77-toast" id="s77-toast">Ready</div>
-
-<div class="s77-command-overlay" id="s77-command-overlay" role="dialog" aria-modal="true" aria-label="Command palette">
-  <div class="s77-command">
-    <div class="s77-command-head">
-      <div class="s77-command-icon">⌘</div>
-      <input class="s77-command-input" id="s77-command-input" type="text" placeholder="Search tabs, people, exports or actions">
-      <div class="s77-command-hint">ESC</div>
-    </div>
-    <div class="s77-command-list" id="s77-command-list"></div>
-  </div>
-</div>
-
-<div class="s77-action-dock" aria-label="Quick actions">
-  <button class="s77-dock-btn" type="button" onclick="openCommandPalette()" aria-label="Open command palette">⌘<span>Command</span></button>
-  <button class="s77-dock-btn" type="button" onclick="toggleFocusMode()" aria-label="Toggle focus mode">◉<span>Focus</span></button>
-  <button class="s77-dock-btn" type="button" onclick="toggleDensityMode()" aria-label="Toggle density">≋<span>Density</span></button>
-  <button class="s77-dock-btn" type="button" onclick="toggleSpotlightMode()" aria-label="Toggle spotlight">✦<span>Spotlight</span></button>
-  <button class="s77-dock-btn" type="button" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">↑<span>Top</span></button>
-</div>
-
-<div class="s77-tab-chip" id="s77-tab-chip">Dashboard</div>
-
 
 <div id="loading-screen">
   <div class="loading-spinner"></div>
@@ -1337,49 +651,25 @@ body.s77-spotlight .tab-section.active tr:hover{
       </div>
     </header>
     <nav class="nav">
-      <span class="nav-cat">Overview</span>
       <button class="active" onclick="showTab('tab-dashboard',this)">Dashboard</button>
-      <button onclick="showTab('tab-history',this)">Trends</button>
-      <button onclick="showTab('tab-set-counts',this)">Set Counts</button>
-      <span class="nav-cat">People</span>
       <button onclick="showTab('tab-utilisation',this)">Utilisation</button>
       <button onclick="showTab('tab-departments',this)">Departments</button>
       <button onclick="showTab('tab-capacity',this)">Capacity</button>
       <button onclick="showTab('tab-skills',this)">Skills</button>
-      <span class="nav-cat">Commercial</span>
       <button onclick="showTab('tab-clients',this)">Clients</button>
+      <button onclick="showTab('tab-history',this)">Trends</button>
       <button onclick="showTab('tab-production',this)">Production</button>
       <button onclick="showTab('tab-efficiency',this)">Efficiency</button>
       <span class="nav-spacer"></span>
-      <span class="nav-cat">Admin</span>
       <button class="nav-roadmap" onclick="showTab('tab-roadmap',this)">Roadmap</button>
     </nav>
-    <div class="global-filter-bar" id="global-filter-bar">
-      <span class="global-filter-title">Global Filters</span>
-      <select class="global-control" id="global-dept-filter" onchange="applyGlobalFilters()">
-        <option value="all">All departments</option>
-        <option value="Photography">Photography</option>
-        <option value="Retouch">Retouch</option>
-        <option value="Videography">Videography</option>
-        <option value="Styling">Styling</option>
-        <option value="Art Direction">Art Direction</option>
-      </select>
-      <input class="global-control global-search" id="global-search-filter" type="text" placeholder="Search people, clients or sets" oninput="applyGlobalFilters()">
-      <button class="export-btn" onclick="resetGlobalFilters()">Clear</button>
-      <span class="global-filter-spacer"></span>
-      <button class="export-btn" onclick="exportCurrentUtilisationCsv()">Export utilisation CSV</button>
-      <button class="export-btn" onclick="exportSetCountsCsv()">Export set counts CSV</button>
-      <button class="export-btn" onclick="printDashboardReport()">PDF / print</button>
-    </div>
   </div>
 
   <main class="content">
 
     <div id="tab-dashboard" class="tab-section active">
-      <div id="exec-hero"></div>
       <div class="kpi-grid" id="kpi-grid"></div>
       <div class="insight-strip" id="insight-strip"></div>
-      <div id="dash-setcounts" class="dash-set-wrap" style="display:none"></div>
       <div class="section-header"><div class="section-title">Department Overview</div><div class="section-sub" id="dept-overview-sub"></div></div>
       <div class="dept-grid" id="dept-cards"></div>
       <div id="internal-breakdown" style="margin-top:32px;display:none"></div>
@@ -1426,7 +716,7 @@ body.s77-spotlight .tab-section.active tr:hover{
         <div class="cap-drop-zone" id="cap-drop-zone" onclick="document.getElementById('cap-file-input').click()">
           <div class="cap-drop-zone-icon">📅</div>
           <div class="cap-drop-zone-title">Drop Weekly Schedule here</div>
-          <div class="cap-drop-zone-sub"><code>Weekly Schedule</code> export from Workbook<br>Also calculates photography set counts automatically</div>
+          <div class="cap-drop-zone-sub"><code>Weekly Schedule</code> export from Workbook</div>
           <button class="btn btn-primary" style="font-size:12px;padding:10px 22px" onclick="event.stopPropagation();document.getElementById('cap-file-input').click()">Choose File</button>
         </div>
         <div class="upload-error" id="cap-upload-error"></div>
@@ -1453,21 +743,12 @@ body.s77-spotlight .tab-section.active tr:hover{
       <div id="client-content"></div>
     </div>
 
-
-    <div id="tab-set-counts" class="tab-section">
-      <div class="section-header">
-        <div class="section-title">Set Counts</div>
-        <div class="section-sub">Auto-counted from the Weekly Schedule export</div>
-      </div>
-      <div id="set-counts-content"></div>
-    </div>
-
     <div id="tab-production" class="tab-section"></div>
     <div id="tab-efficiency" class="tab-section">
       <div class="coming-soon-block">
         <div class="coming-soon-icon">⚙️</div>
-        <div class="coming-soon-title">Efficiency reporting not built yet</div>
-        <div class="coming-soon-sub">This area will show billable vs non-billable efficiency once the relevant source data is connected.</div>
+        <div class="coming-soon-title">Coming Soon</div>
+        <div class="coming-soon-sub">Billable efficiency reporting is in the works.</div>
       </div>
     </div>
 
@@ -1475,7 +756,7 @@ body.s77-spotlight .tab-section.active tr:hover{
       <div id="hist-content">
         <div class="hist-empty">
           <div class="hist-empty-icon">📅</div>
-          <div class="hist-empty-msg">Upload another monthly report to unlock trends and period comparison.</div>
+          <div class="hist-empty-msg">No historical data yet — upload a second month to see trends.</div>
         </div>
       </div>
     </div>
@@ -1487,16 +768,7 @@ body.s77-spotlight .tab-section.active tr:hover{
       </div>
       <div class="roadmap-wrap">
         <div class="roadmap-version">
-          <div class="roadmap-ver-header"><div class="roadmap-ver-tag">v0.9.0</div><div class="roadmap-ver-line"></div></div>
-          <div class="roadmap-items">
-            <div class="roadmap-item"><div class="roadmap-dot"></div><div class="roadmap-item-text">Premium interactive shell with animated background, glass navigation, command palette and floating quick-action dock.</div></div>
-            <div class="roadmap-item"><div class="roadmap-dot"></div><div class="roadmap-item-text">Focus, density and spotlight modes for meeting views, fast scanning and deep-dive review.</div></div>
-            <div class="roadmap-item"><div class="roadmap-dot"></div><div class="roadmap-item-text">Scroll progress, smoother tab transitions, upgraded card hover states and refined table interactions.</div></div>
-          </div>
-        </div>
-
-        <div class="roadmap-version">
-          <div class="roadmap-ver-header"><div class="roadmap-ver-tag">v0.8.7</div><div class="roadmap-ver-line"></div></div>
+          <div class="roadmap-ver-header"><div class="roadmap-ver-tag">v0.8.4</div><div class="roadmap-ver-line"></div></div>
           <div class="roadmap-items">
             <div class="roadmap-item"><div class="roadmap-dot"></div><div class="roadmap-item-text">Radial progress rings on department cards replacing flat bars.</div></div>
             <div class="roadmap-item"><div class="roadmap-dot"></div><div class="roadmap-item-text">Interactive cross-tab navigation — click a department to filter Utilisation automatically.</div></div>
@@ -1509,7 +781,7 @@ body.s77-spotlight .tab-section.active tr:hover{
     </div>
 
   </main>
-  <footer class="site-footer"><span class="footer-version">v0.9.0 · premium experience</span><button class="footer-admin" onclick="openAdminModal()">Admin</button></footer>
+  <footer class="site-footer"><span class="footer-version">v0.8.3</span><button class="footer-admin" onclick="openAdminModal()">Admin</button></footer>
 </div><!-- /dashboard-screen -->
 
 <script>
@@ -1522,16 +794,12 @@ const FB_CURRENT  = FB ? FIREBASE_DB_URL+'/report/current.json'  : '';
 const FB_ARCHIVE  = FB ? FIREBASE_DB_URL+'/report/archive.json'  : '';
 const FB_CAPACITY = FB ? FIREBASE_DB_URL+'/report/capacity.json' : '';
 const FB_OVERTIME = FB ? FIREBASE_DB_URL+'/report/overtime.json' : '';
-const FB_SETCOUNTS = FB ? FIREBASE_DB_URL+'/report/setcounts.json' : '';
 const FB_W_CURRENT= FB ? FIREBASE_DB_URL+'/report/current.json'  : '';
 
 const LS_CURRENT  = 's77_current_v3';
 const LS_ARCHIVE  = 's77_archive_v3';
 const LS_CAPACITY = 's77_capacity_v3';
 const LS_OVERTIME = 's77_overtime_v1';
-const LS_SETCOUNTS = 's77_setcounts_v1';
-const SET_BASELINE_2425 = {"label":"FY 24/25","source":"Set Count Tracking.xlsx / FY 24-25","months":[{"monthIndex":1,"monthLabel":"Dec 24","monthName":"Dec","quarter":"Q1","totalExclAmazonMs":67,"totalExclAmazon":83,"totalSets":83,"forecastedSets":83,"shootDays":19,"avgSetsPerShootDay":4.37,"sales":0,"averageSetPrice":0,"stillLifeEcom":35,"modelEcom":21,"modelEcomStillsVid":1,"stillLifeCreative":0,"stillLifeCreativeVideoStills":7,"modelCreativeStills":2,"modelCreativeStillsVid":0,"campaign":0,"testShoots":0,"video360":0,"msLive":1,"msHome":16,"amazon":0,"modelSets":24,"stillsSets":42,"otherSets":17},{"monthIndex":2,"monthLabel":"Jan 25","monthName":"Jan","quarter":"Q1","totalExclAmazonMs":105.5,"totalExclAmazon":122.5,"totalSets":122.5,"forecastedSets":122.5,"shootDays":22,"avgSetsPerShootDay":5.57,"sales":0,"averageSetPrice":0,"stillLifeEcom":55,"modelEcom":37.5,"modelEcomStillsVid":0,"stillLifeCreative":3,"stillLifeCreativeVideoStills":2,"modelCreativeStills":2,"modelCreativeStillsVid":0,"campaign":1,"testShoots":1,"video360":0,"msLive":4,"msHome":17,"amazon":0,"modelSets":39.5,"stillsSets":60,"otherSets":23},{"monthIndex":3,"monthLabel":"Feb 25","monthName":"Feb","quarter":"Q1","totalExclAmazonMs":117.5,"totalExclAmazon":132.5,"totalSets":132.5,"forecastedSets":131,"shootDays":20,"avgSetsPerShootDay":6.62,"sales":0,"averageSetPrice":0,"stillLifeEcom":64.5,"modelEcom":39,"modelEcomStillsVid":0,"stillLifeCreative":8,"stillLifeCreativeVideoStills":0,"modelCreativeStills":0,"modelCreativeStillsVid":0,"campaign":0,"testShoots":0,"video360":1,"msLive":5,"msHome":15,"amazon":0,"modelSets":39,"stillsSets":72.5,"otherSets":21},{"monthIndex":4,"monthLabel":"Mar 25","monthName":"Mar","quarter":"Q2","totalExclAmazonMs":96.5,"totalExclAmazon":124.5,"totalSets":124.5,"forecastedSets":120,"shootDays":21,"avgSetsPerShootDay":5.93,"sales":0,"averageSetPrice":0,"stillLifeEcom":51,"modelEcom":25,"modelEcomStillsVid":1,"stillLifeCreative":8,"stillLifeCreativeVideoStills":1,"modelCreativeStills":0,"modelCreativeStillsVid":1.5,"campaign":2,"testShoots":0,"video360":0,"msLive":7,"msHome":28,"amazon":0,"modelSets":27.5,"stillsSets":60,"otherSets":37},{"monthIndex":5,"monthLabel":"Apr 25","monthName":"Apr","quarter":"Q2","totalExclAmazonMs":99,"totalExclAmazon":113,"totalSets":116,"forecastedSets":109,"shootDays":20,"avgSetsPerShootDay":5.8,"sales":0,"averageSetPrice":0,"stillLifeEcom":56,"modelEcom":26,"modelEcomStillsVid":1,"stillLifeCreative":1,"stillLifeCreativeVideoStills":3,"modelCreativeStills":0,"modelCreativeStillsVid":2,"campaign":2,"testShoots":0,"video360":1,"msLive":7,"msHome":14,"amazon":3,"modelSets":29,"stillsSets":60,"otherSets":27},{"monthIndex":6,"monthLabel":"May 25","monthName":"May","quarter":"Q2","totalExclAmazonMs":99.5,"totalExclAmazon":112,"totalSets":121,"forecastedSets":119.5,"shootDays":20,"avgSetsPerShootDay":6.05,"sales":0,"averageSetPrice":0,"stillLifeEcom":60.5,"modelEcom":26.5,"modelEcomStillsVid":1,"stillLifeCreative":2,"stillLifeCreativeVideoStills":2,"modelCreativeStills":1,"modelCreativeStillsVid":4,"campaign":0,"testShoots":0,"video360":0.5,"msLive":2,"msHome":12.5,"amazon":9,"modelSets":32.5,"stillsSets":64.5,"otherSets":24},{"monthIndex":7,"monthLabel":"Jun 25","monthName":"Jun","quarter":"Q3","totalExclAmazonMs":98.5,"totalExclAmazon":108.5,"totalSets":118.5,"forecastedSets":114,"shootDays":21,"avgSetsPerShootDay":5.64,"sales":0,"averageSetPrice":0,"stillLifeEcom":56.5,"modelEcom":33,"modelEcomStillsVid":6,"stillLifeCreative":1,"stillLifeCreativeVideoStills":0,"modelCreativeStills":0,"modelCreativeStillsVid":0,"campaign":0,"testShoots":2,"video360":0,"msLive":0,"msHome":10,"amazon":10,"modelSets":39,"stillsSets":57.5,"otherSets":22},{"monthIndex":8,"monthLabel":"Jul 25","monthName":"Jul","quarter":"Q3","totalExclAmazonMs":107,"totalExclAmazon":124,"totalSets":157,"forecastedSets":103,"shootDays":23,"avgSetsPerShootDay":6.83,"sales":0,"averageSetPrice":0,"stillLifeEcom":50.5,"modelEcom":40,"modelEcomStillsVid":3,"stillLifeCreative":1,"stillLifeCreativeVideoStills":1,"modelCreativeStills":2,"modelCreativeStillsVid":0,"campaign":5.5,"testShoots":0,"video360":4,"msLive":0,"msHome":17,"amazon":33,"modelSets":45,"stillsSets":52.5,"otherSets":59.5},{"monthIndex":9,"monthLabel":"Aug 25","monthName":"Aug","quarter":"Q3","totalExclAmazonMs":72.5,"totalExclAmazon":94.5,"totalSets":116.5,"forecastedSets":96,"shootDays":20,"avgSetsPerShootDay":5.83,"sales":0,"averageSetPrice":0,"stillLifeEcom":44.5,"modelEcom":24,"modelEcomStillsVid":0,"stillLifeCreative":2,"stillLifeCreativeVideoStills":2,"modelCreativeStills":0,"modelCreativeStillsVid":0,"campaign":0,"testShoots":0,"video360":0,"msLive":0,"msHome":22,"amazon":22,"modelSets":24,"stillsSets":48.5,"otherSets":44},{"monthIndex":10,"monthLabel":"Sep 25","monthName":"Sep","quarter":"Q4","totalExclAmazonMs":96.5,"totalExclAmazon":123.5,"totalSets":160.5,"forecastedSets":163.5,"shootDays":22,"avgSetsPerShootDay":7.3,"sales":0,"averageSetPrice":0,"stillLifeEcom":53.5,"modelEcom":28,"modelEcomStillsVid":2,"stillLifeCreative":5,"stillLifeCreativeVideoStills":0,"modelCreativeStills":2,"modelCreativeStillsVid":2,"campaign":2,"testShoots":2,"video360":0,"msLive":0,"msHome":27,"amazon":37,"modelSets":34,"stillsSets":58.5,"otherSets":68},{"monthIndex":11,"monthLabel":"Oct 25","monthName":"Oct","quarter":"Q4","totalExclAmazonMs":102,"totalExclAmazon":119,"totalSets":157,"forecastedSets":120,"shootDays":23,"avgSetsPerShootDay":6.83,"sales":0,"averageSetPrice":0,"stillLifeEcom":52,"modelEcom":38,"modelEcomStillsVid":2,"stillLifeCreative":2,"stillLifeCreativeVideoStills":1,"modelCreativeStills":0,"modelCreativeStillsVid":0,"campaign":4,"testShoots":1,"video360":2,"msLive":0,"msHome":17,"amazon":38,"modelSets":40,"stillsSets":55,"otherSets":62},{"monthIndex":12,"monthLabel":"Nov 25","monthName":"Nov","quarter":"Q4","totalExclAmazonMs":109,"totalExclAmazon":119,"totalSets":156,"forecastedSets":118,"shootDays":20,"avgSetsPerShootDay":7.8,"sales":0,"averageSetPrice":0,"stillLifeEcom":83.5,"modelEcom":20,"modelEcomStillsVid":0,"stillLifeCreative":1,"stillLifeCreativeVideoStills":0,"modelCreativeStills":1,"modelCreativeStillsVid":0,"campaign":0,"testShoots":1.5,"video360":2,"msLive":0,"msHome":10,"amazon":37,"modelSets":21,"stillsSets":84.5,"otherSets":50.5}],"weeks":[{"fiscalWeek":1,"weekLabel":"WK1: 2-6 Dec","monthIndex":1,"monthLabel":"Dec 24","forecastedSets":30,"totalSets":30,"shootDays":5,"avgSetsPerDay":6,"sales":0,"averageSetPrice":0,"stillLifeEcom":17,"modelEcom":5,"modelEcomStillsVid":1,"stillLifeCreative":0,"stillLifeCreativeVideoStills":0,"modelCreativeStills":2,"modelCreativeStillsVid":0,"campaign":0,"testShoots":0,"video360":0,"msLive":1,"msHome":4,"amazon":0,"modelSets":8,"stillsSets":17,"otherSets":5},{"fiscalWeek":2,"weekLabel":"WK2: 9-13 Dec","monthIndex":1,"monthLabel":"Dec 24","forecastedSets":34,"totalSets":34,"shootDays":5,"avgSetsPerDay":6.8,"sales":0,"averageSetPrice":0,"stillLifeEcom":10,"modelEcom":7,"modelEcomStillsVid":0,"stillLifeCreative":0,"stillLifeCreativeVideoStills":5,"modelCreativeStills":0,"modelCreativeStillsVid":0,"campaign":0,"testShoots":0,"video360":0,"msLive":0,"msHome":12,"amazon":0,"modelSets":7,"stillsSets":15,"otherSets":12},{"fiscalWeek":3,"weekLabel":"WK3: 16-20 Dec","monthIndex":1,"monthLabel":"Dec 24","forecastedSets":19,"totalSets":19,"shootDays":5,"avgSetsPerDay":3.8,"sales":0,"averageSetPrice":0,"stillLifeEcom":8,"modelEcom":9,"modelEcomStillsVid":0,"stillLifeCreative":0,"stillLifeCreativeVideoStills":2,"modelCreativeStills":0,"modelCreativeStillsVid":0,"campaign":0,"testShoots":0,"video360":0,"msLive":0,"msHome":0,"amazon":0,"modelSets":9,"stillsSets":10,"otherSets":0},{"fiscalWeek":4,"weekLabel":"WK4: 23-27 Dec","monthIndex":1,"monthLabel":"Dec 24","forecastedSets":0,"totalSets":0,"shootDays":2,"avgSetsPerDay":0,"sales":0,"averageSetPrice":0,"stillLifeEcom":0,"modelEcom":0,"modelEcomStillsVid":0,"stillLifeCreative":0,"stillLifeCreativeVideoStills":0,"modelCreativeStills":0,"modelCreativeStillsVid":0,"campaign":0,"testShoots":0,"video360":0,"msLive":0,"msHome":0,"amazon":0,"modelSets":0,"stillsSets":0,"otherSets":0},{"fiscalWeek":5,"weekLabel":"WK5: 30-31 Dec","monthIndex":1,"monthLabel":"Dec 24","forecastedSets":0,"totalSets":0,"shootDays":2,"avgSetsPerDay":0,"sales":0,"averageSetPrice":0,"stillLifeEcom":0,"modelEcom":0,"modelEcomStillsVid":0,"stillLifeCreative":0,"stillLifeCreativeVideoStills":0,"modelCreativeStills":0,"modelCreativeStillsVid":0,"campaign":0,"testShoots":0,"video360":0,"msLive":0,"msHome":0,"amazon":0,"modelSets":0,"stillsSets":0,"otherSets":0},{"fiscalWeek":5,"weekLabel":"WK5: 1-3 Jan","monthIndex":2,"monthLabel":"Jan 25","forecastedSets":3,"totalSets":3,"shootDays":2,"avgSetsPerDay":1.5,"sales":0,"averageSetPrice":0,"stillLifeEcom":3,"modelEcom":0,"modelEcomStillsVid":0,"stillLifeCreative":0,"stillLifeCreativeVideoStills":0,"modelCreativeStills":0,"modelCreativeStillsVid":0,"campaign":0,"testShoots":0,"video360":0,"msLive":0,"msHome":0,"amazon":0,"modelSets":0,"stillsSets":3,"otherSets":0},{"fiscalWeek":6,"weekLabel":"WK6: 6-10 Jan","monthIndex":2,"monthLabel":"Jan 25","forecastedSets":25,"totalSets":25,"shootDays":5,"avgSetsPerDay":5,"sales":0,"averageSetPrice":0,"stillLifeEcom":19.5,"modelEcom":4.5,"modelEcomStillsVid":0,"stillLifeCreative":0,"stillLifeCreativeVideoStills":0,"modelCreativeStills":0,"modelCreativeStillsVid":0,"campaign":0,"testShoots":0,"video360":0,"msLive":1,"msHome":0,"amazon":0,"modelSets":4.5,"stillsSets":19.5,"otherSets":1},{"fiscalWeek":7,"weekLabel":"WK7: 13-17 Jan","monthIndex":2,"monthLabel":"Jan 25","forecastedSets":30.5,"totalSets":30.5,"shootDays":5,"avgSetsPerDay":6.1,"sales":0,"averageSetPrice":0,"stillLifeEcom":13,"modelEcom":8.5,"modelEcomStillsVid":0,"stillLifeCreative":0,"stillLifeCreativeVideoStills":2,"modelCreativeStills":0,"modelCreativeStillsVid":0,"campaign":0,"testShoots":1,"video360":0,"msLive":0,"msHome":6,"amazon":0,"modelSets":8.5,"stillsSets":15,"otherSets":7},{"fiscalWeek":8,"weekLabel":"WK8: 20-24 Jan","monthIndex":2,"monthLabel":"Jan 25","forecastedSets":23.5,"totalSets":23.5,"shootDays":5,"avgSetsPerDay":4.7,"sales":0,"averageSetPrice":0,"stillLifeEcom":5.5,"modelEcom":8,"modelEcomStillsVid":0,"stillLifeCreative":3,"stillLifeCreativeVideoStills":0,"modelCreativeStills":1,"modelCreativeStillsVid":0,"campaign":1,"testShoots":0,"video360":0,"msLive":2,"msHome":3,"amazon":0,"modelSets":9,"stillsSets":8.5,"otherSets":6},{"fiscalWeek":9,"weekLabel":"WK9: 27-31 Jan","monthIndex":2,"monthLabel":"Jan 25","forecastedSets":40.5,"totalSets":40.5,"shootDays":5,"avgSetsPerDay":8.1,"sales":0,"averageSetPrice":0,"stillLifeEcom":14,"modelEcom":16.5,"modelEcomStillsVid":0,"stillLifeCreative":0,"stillLifeCreativeVideoStills":0,"modelCreativeStills":1,"modelCreativeStillsVid":0,"campaign":0,"testShoots":0,"video360":0,"msLive":1,"msHome":8,"amazon":0,"modelSets":17.5,"stillsSets":14,"otherSets":9},{"fiscalWeek":10,"weekLabel":"WK10: 3-7 Feb","monthIndex":3,"monthLabel":"Feb 25","forecastedSets":42,"totalSets":42,"shootDays":5,"avgSetsPerDay":8.4,"sales":0,"averageSetPrice":0,"stillLifeEcom":18,"modelEcom":15,"modelEcomStillsVid":0,"stillLifeCreative":0,"stillLifeCreativeVideoStills":0,"modelCreativeStills":0,"modelCreativeStillsVid":0,"campaign":0,"testShoots":0,"video360":0,"msLive":2,"msHome":7,"amazon":0,"modelSets":15,"stillsSets":18,"otherSets":9},{"fiscalWeek":11,"weekLabel":"WK11: 10-14 Feb","monthIndex":3,"monthLabel":"Feb 25","forecastedSets":34,"totalSets":34,"shootDays":5,"avgSetsPerDay":6.8,"sales":0,"averageSetPrice":0,"stillLifeEcom":15,"modelEcom":5,"modelEcomStillsVid":0,"stillLifeCreative":5,"stillLifeCreativeVideoStills":0,"modelCreativeStills":0,"modelCreativeStillsVid":0,"campaign":0,"testShoots":0,"video360":1,"msLive":1,"msHome":7,"amazon":0,"modelSets":5,"stillsSets":20,"otherSets":9},{"fiscalWeek":12,"weekLabel":"WK12: 17-21 Feb","monthIndex":3,"monthLabel":"Feb 25","forecastedSets":31.5,"totalSets":31.5,"shootDays":5,"avgSetsPerDay":6.3,"sales":0,"averageSetPrice":0,"stillLifeEcom":15.5,"modelEcom":12,"modelEcomStillsVid":0,"stillLifeCreative":3,"stillLifeCreativeVideoStills":0,"modelCreativeStills":0,"modelCreativeStillsVid":0,"campaign":0,"testShoots":0,"video360":0,"msLive":1,"msHome":0,"amazon":0,"modelSets":12,"stillsSets":18.5,"otherSets":1},{"fiscalWeek":13,"weekLabel":"WK13: 24-28 Feb","monthIndex":3,"monthLabel":"Feb 25","forecastedSets":23.5,"totalSets":25,"shootDays":5,"avgSetsPerDay":5,"sales":0,"averageSetPrice":0,"stillLifeEcom":16,"modelEcom":7,"modelEcomStillsVid":0,"stillLifeCreative":0,"stillLifeCreativeVideoStills":0,"modelCreativeStills":0,"modelCreativeStillsVid":0,"campaign":0,"testShoots":0,"video360":0,"msLive":1,"msHome":1,"amazon":0,"modelSets":7,"stillsSets":16,"otherSets":2},{"fiscalWeek":14,"weekLabel":"WK14: 3-7 Mar","monthIndex":4,"monthLabel":"Mar 25","forecastedSets":31,"totalSets":33,"shootDays":5,"avgSetsPerDay":6.6,"sales":0,"averageSetPrice":0,"stillLifeEcom":13,"modelEcom":6,"modelEcomStillsVid":1,"stillLifeCreative":1,"stillLifeCreativeVideoStills":0,"modelCreativeStills":0,"modelCreativeStillsVid":1,"campaign":0,"testShoots":0,"video360":0,"msLive":1,"msHome":10,"amazon":0,"modelSets":8,"stillsSets":14,"otherSets":11},{"fiscalWeek":15,"weekLabel":"WK15: 10-14 Mar","monthIndex":4,"monthLabel":"Mar 25","forecastedSets":34.5,"totalSets":35.5,"shootDays":5,"avgSetsPerDay":7.1,"sales":0,"averageSetPrice":0,"stillLifeEcom":14,"modelEcom":8.5,"modelEcomStillsVid":0,"stillLifeCreative":1,"stillLifeCreativeVideoStills":1,"modelCreativeStills":0,"modelCreativeStillsVid":0,"campaign":0,"testShoots":0,"video360":0,"msLive":2,"msHome":9,"amazon":0,"modelSets":8.5,"stillsSets":16,"otherSets":11},{"fiscalWeek":16,"weekLabel":"WK16: 17-21 Mar","monthIndex":4,"monthLabel":"Mar 25","forecastedSets":26,"totalSets":25,"shootDays":5,"avgSetsPerDay":5,"sales":0,"averageSetPrice":0,"stillLifeEcom":9,"modelEcom":6,"modelEcomStillsVid":0,"stillLifeCreative":4,"stillLifeCreativeVideoStills":0,"modelCreativeStills":0,"modelCreativeStillsVid":0,"campaign":1,"testShoots":0,"video360":0,"msLive":2,"msHome":3,"amazon":0,"modelSets":6,"stillsSets":13,"otherSets":6},{"fiscalWeek":17,"weekLabel":"WK17: 24-28 Mar","monthIndex":4,"monthLabel":"Mar 25","forecastedSets":28.5,"totalSets":30,"shootDays":5,"avgSetsPerDay":6,"sales":0,"averageSetPrice":0,"stillLifeEcom":15,"modelEcom":4.5,"modelEcomStillsVid":0,"stillLifeCreative":2,"stillLifeCreativeVideoStills":0,"modelCreativeStills":0,"modelCreativeStillsVid":0.5,"campaign":1,"testShoots":0,"video360":0,"msLive":2,"msHome":5,"amazon":0,"modelSets":5,"stillsSets":17,"otherSets":8},{"fiscalWeek":18,"weekLabel":"WK18: 31 Mar","monthIndex":4,"monthLabel":"Mar 25","forecastedSets":0,"totalSets":1,"shootDays":1,"avgSetsPerDay":1,"sales":0,"averageSetPrice":0,"stillLifeEcom":0,"modelEcom":0,"modelEcomStillsVid":0,"stillLifeCreative":0,"stillLifeCreativeVideoStills":0,"modelCreativeStills":0,"modelCreativeStillsVid":0,"campaign":0,"testShoots":0,"video360":0,"msLive":0,"msHome":1,"amazon":0,"modelSets":0,"stillsSets":0,"otherSets":1},{"fiscalWeek":18,"weekLabel":"WK18: 1-4 Apr","monthIndex":5,"monthLabel":"Apr 25","forecastedSets":21,"totalSets":21.5,"shootDays":4,"avgSetsPerDay":5.38,"sales":0,"averageSetPrice":0,"stillLifeEcom":7.5,"modelEcom":5,"modelEcomStillsVid":1,"stillLifeCreative":1,"stillLifeCreativeVideoStills":0,"modelCreativeStills":0,"modelCreativeStillsVid":1,"campaign":0,"testShoots":0,"video360":1,"msLive":1,"msHome":4,"amazon":0,"modelSets":7,"stillsSets":8.5,"otherSets":6},{"fiscalWeek":19,"weekLabel":"WK19: 7-11 Apr","monthIndex":5,"monthLabel":"Apr 25","forecastedSets":24,"totalSets":21.5,"shootDays":5,"avgSetsPerDay":4.3,"sales":0,"averageSetPrice":0,"stillLifeEcom":14.5,"modelEcom":4,"modelEcomStillsVid":0,"stillLifeCreative":0,"stillLifeCreativeVideoStills":0,"modelCreativeStills":0,"modelCreativeStillsVid":0,"campaign":0,"testShoots":0,"video360":0,"msLive":1,"msHome":2,"amazon":0,"modelSets":4,"stillsSets":14.5,"otherSets":3},{"fiscalWeek":20,"weekLabel":"WK20: 14-18 Apr","monthIndex":5,"monthLabel":"Apr 25","forecastedSets":25,"totalSets":27,"shootDays":4,"avgSetsPerDay":6.75,"sales":0,"averageSetPrice":0,"stillLifeEcom":8,"modelEcom":8,"modelEcomStillsVid":0,"stillLifeCreative":0,"stillLifeCreativeVideoStills":3,"modelCreativeStills":0,"modelCreativeStillsVid":0,"campaign":2,"testShoots":0,"video360":0,"msLive":2,"msHome":4,"amazon":0,"modelSets":8,"stillsSets":11,"otherSets":8},{"fiscalWeek":21,"weekLabel":"WK21: 21-25 Apr","monthIndex":5,"monthLabel":"Apr 25","forecastedSets":23,"totalSets":28,"shootDays":4,"avgSetsPerDay":7,"sales":0,"averageSetPrice":0,"stillLifeEcom":18,"modelEcom":3,"modelEcomStillsVid":0,"stillLifeCreative":0,"stillLifeCreativeVideoStills":0,"modelCreativeStills":0,"modelCreativeStillsVid":0,"campaign":0,"testShoots":0,"video360":0,"msLive":1,"msHome":4,"amazon":2,"modelSets":3,"stillsSets":18,"otherSets":7},{"fiscalWeek":22,"weekLabel":"WK22: 28-30 Apr","monthIndex":5,"monthLabel":"Apr 25","forecastedSets":16,"totalSets":18,"shootDays":3,"avgSetsPerDay":6,"sales":0,"averageSetPrice":0,"stillLifeEcom":8,"modelEcom":6,"modelEcomStillsVid":0,"stillLifeCreative":0,"stillLifeCreativeVideoStills":0,"modelCreativeStills":0,"modelCreativeStillsVid":1,"campaign":0,"testShoots":0,"video360":0,"msLive":2,"msHome":0,"amazon":1,"modelSets":7,"stillsSets":8,"otherSets":3},{"fiscalWeek":22,"weekLabel":"WK22: 1-2 May","monthIndex":6,"monthLabel":"May 25","forecastedSets":14,"totalSets":10,"shootDays":2,"avgSetsPerDay":5,"sales":0,"averageSetPrice":0,"stillLifeEcom":4,"modelEcom":5,"modelEcomStillsVid":0,"stillLifeCreative":0,"stillLifeCreativeVideoStills":0,"modelCreativeStills":0,"modelCreativeStillsVid":0,"campaign":0,"testShoots":0,"video360":0,"msLive":1,"msHome":0,"amazon":0,"modelSets":5,"stillsSets":4,"otherSets":1},{"fiscalWeek":23,"weekLabel":"WK23: 5-9 May","monthIndex":6,"monthLabel":"May 25","forecastedSets":22.5,"totalSets":26,"shootDays":4,"avgSetsPerDay":6.5,"sales":0,"averageSetPrice":0,"stillLifeEcom":14,"modelEcom":4.5,"modelEcomStillsVid":0,"stillLifeCreative":0,"stillLifeCreativeVideoStills":0,"modelCreativeStills":1,"modelCreativeStillsVid":4,"campaign":0,"testShoots":0,"video360":0,"msLive":1,"msHome":1.5,"amazon":0,"modelSets":9.5,"stillsSets":14,"otherSets":2.5},{"fiscalWeek":24,"weekLabel":"WK24: 12-16 May","monthIndex":6,"monthLabel":"May 25","forecastedSets":33,"totalSets":30,"shootDays":5,"avgSetsPerDay":6,"sales":0,"averageSetPrice":0,"stillLifeEcom":17.5,"modelEcom":7,"modelEcomStillsVid":0,"stillLifeCreative":0,"stillLifeCreativeVideoStills":2,"modelCreativeStills":0,"modelCreativeStillsVid":0,"campaign":0,"testShoots":0,"video360":0.5,"msLive":0,"msHome":3,"amazon":0,"modelSets":7,"stillsSets":19.5,"otherSets":3.5},{"fiscalWeek":25,"weekLabel":"WK25: 19-23 May","monthIndex":6,"monthLabel":"May 25","forecastedSets":31,"totalSets":33,"shootDays":5,"avgSetsPerDay":6.6,"sales":0,"averageSetPrice":0,"stillLifeEcom":14,"modelEcom":5,"modelEcomStillsVid":0,"stillLifeCreative":2,"stillLifeCreativeVideoStills":0,"modelCreativeStills":0,"modelCreativeStillsVid":0,"campaign":0,"testShoots":0,"video360":0,"msLive":0,"msHome":5,"amazon":7,"modelSets":5,"stillsSets":16,"otherSets":12},{"fiscalWeek":26,"weekLabel":"WK26: 26-30 May","monthIndex":6,"monthLabel":"May 25","forecastedSets":19,"totalSets":22,"shootDays":4,"avgSetsPerDay":5.5,"sales":0,"averageSetPrice":0,"stillLifeEcom":11,"modelEcom":5,"modelEcomStillsVid":1,"stillLifeCreative":0,"stillLifeCreativeVideoStills":0,"modelCreativeStills":0,"modelCreativeStillsVid":0,"campaign":0,"testShoots":0,"video360":0,"msLive":0,"msHome":3,"amazon":2,"modelSets":6,"stillsSets":11,"otherSets":5},{"fiscalWeek":27,"weekLabel":"WK27: 2-6 Jun","monthIndex":7,"monthLabel":"Jun 25","forecastedSets":25,"totalSets":25,"shootDays":5,"avgSetsPerDay":5,"sales":0,"averageSetPrice":0,"stillLifeEcom":11,"modelEcom":9,"modelEcomStillsVid":2,"stillLifeCreative":0,"stillLifeCreativeVideoStills":0,"modelCreativeStills":0,"modelCreativeStillsVid":0,"campaign":0,"testShoots":0,"video360":0,"msLive":0,"msHome":3,"amazon":0,"modelSets":11,"stillsSets":11,"otherSets":3},{"fiscalWeek":27,"weekLabel":"WK27: 9-13 Jun","monthIndex":7,"monthLabel":"Jun 25","forecastedSets":28.5,"totalSets":31,"shootDays":5,"avgSetsPerDay":6.2,"sales":0,"averageSetPrice":0,"stillLifeEcom":20,"modelEcom":9,"modelEcomStillsVid":1,"stillLifeCreative":0,"stillLifeCreativeVideoStills":0,"modelCreativeStills":0,"modelCreativeStillsVid":0,"campaign":0,"testShoots":0,"video360":0,"msLive":0,"msHome":0,"amazon":1,"modelSets":10,"stillsSets":20,"otherSets":1},{"fiscalWeek":27,"weekLabel":"WK27: 16-20 Jun","monthIndex":7,"monthLabel":"Jun 25","forecastedSets":31.5,"totalSets":27.5,"shootDays":5,"avgSetsPerDay":5.5,"sales":0,"averageSetPrice":0,"stillLifeEcom":13.5,"modelEcom":4,"modelEcomStillsVid":0,"stillLifeCreative":0,"stillLifeCreativeVideoStills":0,"modelCreativeStills":0,"modelCreativeStillsVid":0,"campaign":0,"testShoots":2,"video360":0,"msLive":0,"msHome":4,"amazon":4,"modelSets":4,"stillsSets":13.5,"otherSets":10},{"fiscalWeek":27,"weekLabel":"WK27: 23-27 Jun","monthIndex":7,"monthLabel":"Jun 25","forecastedSets":27,"totalSets":33,"shootDays":5,"avgSetsPerDay":6.6,"sales":0,"averageSetPrice":0,"stillLifeEcom":12,"modelEcom":9,"modelEcomStillsVid":3,"stillLifeCreative":1,"stillLifeCreativeVideoStills":0,"modelCreativeStills":0,"modelCreativeStillsVid":0,"campaign":0,"testShoots":0,"video360":0,"msLive":0,"msHome":3,"amazon":5,"modelSets":12,"stillsSets":13,"otherSets":8},{"fiscalWeek":28,"weekLabel":"WK28: 30 Jun","monthIndex":7,"monthLabel":"Jun 25","forecastedSets":2,"totalSets":2,"shootDays":1,"avgSetsPerDay":2,"sales":0,"averageSetPrice":0,"stillLifeEcom":0,"modelEcom":2,"modelEcomStillsVid":0,"stillLifeCreative":0,"stillLifeCreativeVideoStills":0,"modelCreativeStills":0,"modelCreativeStillsVid":0,"campaign":0,"testShoots":0,"video360":0,"msLive":0,"msHome":0,"amazon":0,"modelSets":2,"stillsSets":0,"otherSets":0},{"fiscalWeek":28,"weekLabel":"WK28: 1-4 Jul","monthIndex":8,"monthLabel":"Jul 25","forecastedSets":15.5,"totalSets":20,"shootDays":4,"avgSetsPerDay":5,"sales":0,"averageSetPrice":0,"stillLifeEcom":6,"modelEcom":9,"modelEcomStillsVid":0,"stillLifeCreative":0,"stillLifeCreativeVideoStills":0,"modelCreativeStills":0,"modelCreativeStillsVid":0,"campaign":0,"testShoots":0,"video360":0,"msLive":0,"msHome":0,"amazon":5,"modelSets":9,"stillsSets":6,"otherSets":5},{"fiscalWeek":29,"weekLabel":"WK29: 7-11 Jul","monthIndex":8,"monthLabel":"Jul 25","forecastedSets":32,"totalSets":38,"shootDays":5,"avgSetsPerDay":7.6,"sales":0,"averageSetPrice":0,"stillLifeEcom":13.5,"modelEcom":6,"modelEcomStillsVid":1,"stillLifeCreative":0,"stillLifeCreativeVideoStills":0,"modelCreativeStills":0,"modelCreativeStillsVid":0,"campaign":4.5,"testShoots":0,"video360":2,"msLive":0,"msHome":6,"amazon":5,"modelSets":7,"stillsSets":13.5,"otherSets":17.5},{"fiscalWeek":30,"weekLabel":"WK30: 14-18 Jul","monthIndex":8,"monthLabel":"Jul 25","forecastedSets":0,"totalSets":38.5,"shootDays":5,"avgSetsPerDay":7.7,"sales":0,"averageSetPrice":0,"stillLifeEcom":15.5,"modelEcom":8,"modelEcomStillsVid":1,"stillLifeCreative":1,"stillLifeCreativeVideoStills":0,"modelCreativeStills":0,"modelCreativeStillsVid":0,"campaign":0,"testShoots":0,"video360":0,"msLive":0,"msHome":4,"amazon":9,"modelSets":9,"stillsSets":16.5,"otherSets":13},{"fiscalWeek":31,"weekLabel":"WK31: 21-25 Jul","monthIndex":8,"monthLabel":"Jul 25","forecastedSets":33,"totalSets":36,"shootDays":5,"avgSetsPerDay":7.2,"sales":0,"averageSetPrice":0,"stillLifeEcom":8,"modelEcom":11,"modelEcomStillsVid":1,"stillLifeCreative":0,"stillLifeCreativeVideoStills":1,"modelCreativeStills":1,"modelCreativeStillsVid":0,"campaign":1,"testShoots":0,"video360":2,"msLive":0,"msHome":7,"amazon":4,"modelSets":13,"stillsSets":9,"otherSets":14},{"fiscalWeek":32,"weekLabel":"WK32: 28-31 Jul","monthIndex":8,"monthLabel":"Jul 25","forecastedSets":22.5,"totalSets":24.5,"shootDays":4,"avgSetsPerDay":6.12,"sales":0,"averageSetPrice":0,"stillLifeEcom":7.5,"modelEcom":6,"modelEcomStillsVid":0,"stillLifeCreative":0,"stillLifeCreativeVideoStills":0,"modelCreativeStills":1,"modelCreativeStillsVid":0,"campaign":0,"testShoots":0,"video360":0,"msLive":0,"msHome":0,"amazon":10,"modelSets":7,"stillsSets":7.5,"otherSets":10},{"fiscalWeek":32,"weekLabel":"WK32: 1 Aug","monthIndex":9,"monthLabel":"Aug 25","forecastedSets":0,"totalSets":5,"shootDays":1,"avgSetsPerDay":5,"sales":0,"averageSetPrice":0,"stillLifeEcom":3,"modelEcom":1,"modelEcomStillsVid":0,"stillLifeCreative":0,"stillLifeCreativeVideoStills":0,"modelCreativeStills":0,"modelCreativeStillsVid":0,"campaign":0,"testShoots":0,"video360":0,"msLive":0,"msHome":0,"amazon":1,"modelSets":1,"stillsSets":3,"otherSets":1},{"fiscalWeek":33,"weekLabel":"WK33: 4-8 Aug","monthIndex":9,"monthLabel":"Aug 25","forecastedSets":12,"totalSets":27,"shootDays":5,"avgSetsPerDay":5.4,"sales":0,"averageSetPrice":0,"stillLifeEcom":11,"modelEcom":3,"modelEcomStillsVid":0,"stillLifeCreative":0,"stillLifeCreativeVideoStills":0,"modelCreativeStills":0,"modelCreativeStillsVid":0,"campaign":0,"testShoots":0,"video360":0,"msLive":0,"msHome":6,"amazon":7,"modelSets":3,"stillsSets":11,"otherSets":13},{"fiscalWeek":34,"weekLabel":"WK34: 11-15 Aug","monthIndex":9,"monthLabel":"Aug 25","forecastedSets":35,"totalSets":34.5,"shootDays":5,"avgSetsPerDay":6.9,"sales":0,"averageSetPrice":0,"stillLifeEcom":13.5,"modelEcom":7,"modelEcomStillsVid":0,"stillLifeCreative":0,"stillLifeCreativeVideoStills":1,"modelCreativeStills":0,"modelCreativeStillsVid":0,"campaign":0,"testShoots":0,"video360":0,"msLive":0,"msHome":8,"amazon":5,"modelSets":7,"stillsSets":14.5,"otherSets":13},{"fiscalWeek":35,"weekLabel":"WK35: 18-22 Aug","monthIndex":9,"monthLabel":"Aug 25","forecastedSets":24,"totalSets":25,"shootDays":5,"avgSetsPerDay":5,"sales":0,"averageSetPrice":0,"stillLifeEcom":9,"modelEcom":5,"modelEcomStillsVid":0,"stillLifeCreative":1,"stillLifeCreativeVideoStills":1,"modelCreativeStills":0,"modelCreativeStillsVid":0,"campaign":0,"testShoots":0,"video360":0,"msLive":0,"msHome":4,"amazon":5,"modelSets":5,"stillsSets":11,"otherSets":9},{"fiscalWeek":36,"weekLabel":"WK36: 25-29 Aug","monthIndex":9,"monthLabel":"Aug 25","forecastedSets":25,"totalSets":25,"shootDays":4,"avgSetsPerDay":6.25,"sales":0,"averageSetPrice":0,"stillLifeEcom":8,"modelEcom":8,"modelEcomStillsVid":0,"stillLifeCreative":1,"stillLifeCreativeVideoStills":0,"modelCreativeStills":0,"modelCreativeStillsVid":0,"campaign":0,"testShoots":0,"video360":0,"msLive":0,"msHome":4,"amazon":4,"modelSets":8,"stillsSets":9,"otherSets":8},{"fiscalWeek":37,"weekLabel":"WK37: 1-5 Sep","monthIndex":10,"monthLabel":"Sep 25","forecastedSets":39,"totalSets":40,"shootDays":5,"avgSetsPerDay":8,"sales":0,"averageSetPrice":0,"stillLifeEcom":10,"modelEcom":13,"modelEcomStillsVid":1,"stillLifeCreative":3,"stillLifeCreativeVideoStills":0,"modelCreativeStills":0,"modelCreativeStillsVid":1,"campaign":0,"testShoots":0,"video360":0,"msLive":0,"msHome":5,"amazon":7,"modelSets":15,"stillsSets":13,"otherSets":12},{"fiscalWeek":38,"weekLabel":"WK38: 8-12 Sep","monthIndex":10,"monthLabel":"Sep 25","forecastedSets":41,"totalSets":37,"shootDays":5,"avgSetsPerDay":7.4,"sales":0,"averageSetPrice":0,"stillLifeEcom":12,"modelEcom":7,"modelEcomStillsVid":0,"stillLifeCreative":0,"stillLifeCreativeVideoStills":0,"modelCreativeStills":2,"modelCreativeStillsVid":0,"campaign":2,"testShoots":1,"video360":0,"msLive":0,"msHome":4,"amazon":9,"modelSets":9,"stillsSets":12,"otherSets":16},{"fiscalWeek":39,"weekLabel":"WK39: 15-19 Sep","monthIndex":10,"monthLabel":"Sep 25","forecastedSets":37,"totalSets":34,"shootDays":5,"avgSetsPerDay":6.8,"sales":0,"averageSetPrice":0,"stillLifeEcom":11,"modelEcom":4,"modelEcomStillsVid":0,"stillLifeCreative":1,"stillLifeCreativeVideoStills":0,"modelCreativeStills":0,"modelCreativeStillsVid":1,"campaign":0,"testShoots":0,"video360":0,"msLive":0,"msHome":8,"amazon":9,"modelSets":5,"stillsSets":12,"otherSets":17},{"fiscalWeek":40,"weekLabel":"WK40: 22-26 Sep","monthIndex":10,"monthLabel":"Sep 25","forecastedSets":35.5,"totalSets":35.5,"shootDays":5,"avgSetsPerDay":7.1,"sales":0,"averageSetPrice":0,"stillLifeEcom":14.5,"modelEcom":3,"modelEcomStillsVid":0,"stillLifeCreative":1,"stillLifeCreativeVideoStills":0,"modelCreativeStills":0,"modelCreativeStillsVid":0,"campaign":0,"testShoots":0,"video360":0,"msLive":0,"msHome":8,"amazon":9,"modelSets":3,"stillsSets":15.5,"otherSets":17},{"fiscalWeek":41,"weekLabel":"WK41: 29-30 Sep","monthIndex":10,"monthLabel":"Sep 25","forecastedSets":11,"totalSets":14,"shootDays":2,"avgSetsPerDay":7,"sales":0,"averageSetPrice":0,"stillLifeEcom":6,"modelEcom":1,"modelEcomStillsVid":1,"stillLifeCreative":0,"stillLifeCreativeVideoStills":0,"modelCreativeStills":0,"modelCreativeStillsVid":0,"campaign":0,"testShoots":1,"video360":0,"msLive":0,"msHome":2,"amazon":3,"modelSets":2,"stillsSets":6,"otherSets":6},{"fiscalWeek":41,"weekLabel":"WK41: 1-3 Oct","monthIndex":11,"monthLabel":"Oct 25","forecastedSets":28.5,"totalSets":24.5,"shootDays":3,"avgSetsPerDay":8.17,"sales":0,"averageSetPrice":0,"stillLifeEcom":5.5,"modelEcom":7,"modelEcomStillsVid":1,"stillLifeCreative":0,"stillLifeCreativeVideoStills":0,"modelCreativeStills":0,"modelCreativeStillsVid":0,"campaign":0,"testShoots":1,"video360":0,"msLive":0,"msHome":5,"amazon":5,"modelSets":8,"stillsSets":5.5,"otherSets":11},{"fiscalWeek":42,"weekLabel":"WK42: 6-10 Oct","monthIndex":11,"monthLabel":"Oct 25","forecastedSets":28.5,"totalSets":35.5,"shootDays":5,"avgSetsPerDay":7.1,"sales":0,"averageSetPrice":0,"stillLifeEcom":7,"modelEcom":11.5,"modelEcomStillsVid":0,"stillLifeCreative":0,"stillLifeCreativeVideoStills":0,"modelCreativeStills":0,"modelCreativeStillsVid":0,"campaign":1,"testShoots":0,"video360":2,"msLive":0,"msHome":6,"amazon":8,"modelSets":11.5,"stillsSets":7,"otherSets":17},{"fiscalWeek":43,"weekLabel":"WK43: 13-17 Oct","monthIndex":11,"monthLabel":"Oct 25","forecastedSets":30,"totalSets":29,"shootDays":5,"avgSetsPerDay":5.8,"sales":0,"averageSetPrice":0,"stillLifeEcom":9.5,"modelEcom":5.5,"modelEcomStillsVid":1,"stillLifeCreative":1,"stillLifeCreativeVideoStills":0,"modelCreativeStills":0,"modelCreativeStillsVid":0,"campaign":3,"testShoots":0,"video360":0,"msLive":0,"msHome":3,"amazon":6,"modelSets":6.5,"stillsSets":10.5,"otherSets":12},{"fiscalWeek":44,"weekLabel":"WK44: 20-24 Oct","monthIndex":11,"monthLabel":"Oct 25","forecastedSets":33,"totalSets":36,"shootDays":5,"avgSetsPerDay":7.2,"sales":0,"averageSetPrice":0,"stillLifeEcom":17,"modelEcom":7,"modelEcomStillsVid":0,"stillLifeCreative":1,"stillLifeCreativeVideoStills":1,"modelCreativeStills":0,"modelCreativeStillsVid":0,"campaign":0,"testShoots":0,"video360":0,"msLive":0,"msHome":2,"amazon":8,"modelSets":7,"stillsSets":19,"otherSets":10},{"fiscalWeek":45,"weekLabel":"WK45: 27-31 Oct","monthIndex":11,"monthLabel":"Oct 25","forecastedSets":0,"totalSets":32,"shootDays":5,"avgSetsPerDay":6.4,"sales":0,"averageSetPrice":0,"stillLifeEcom":13,"modelEcom":7,"modelEcomStillsVid":0,"stillLifeCreative":0,"stillLifeCreativeVideoStills":0,"modelCreativeStills":0,"modelCreativeStillsVid":0,"campaign":0,"testShoots":0,"video360":0,"msLive":0,"msHome":1,"amazon":11,"modelSets":7,"stillsSets":13,"otherSets":12},{"fiscalWeek":46,"weekLabel":"WK46: 3-7 Nov","monthIndex":12,"monthLabel":"Nov 25","forecastedSets":41.5,"totalSets":38,"shootDays":5,"avgSetsPerDay":7.6,"sales":0,"averageSetPrice":0,"stillLifeEcom":22.5,"modelEcom":3,"modelEcomStillsVid":0,"stillLifeCreative":0,"stillLifeCreativeVideoStills":0,"modelCreativeStills":1,"modelCreativeStillsVid":0,"campaign":0,"testShoots":1.5,"video360":0,"msLive":0,"msHome":2,"amazon":8,"modelSets":4,"stillsSets":22.5,"otherSets":11.5},{"fiscalWeek":47,"weekLabel":"WK47: 10-14 Nov","monthIndex":12,"monthLabel":"Nov 25","forecastedSets":36,"totalSets":42,"shootDays":5,"avgSetsPerDay":8.4,"sales":0,"averageSetPrice":0,"stillLifeEcom":27,"modelEcom":5,"modelEcomStillsVid":0,"stillLifeCreative":0,"stillLifeCreativeVideoStills":0,"modelCreativeStills":0,"modelCreativeStillsVid":0,"campaign":0,"testShoots":0,"video360":1,"msLive":0,"msHome":0,"amazon":9,"modelSets":5,"stillsSets":27,"otherSets":10},{"fiscalWeek":48,"weekLabel":"WK48: 17-21 Nov","monthIndex":12,"monthLabel":"Nov 25","forecastedSets":40.5,"totalSets":41.5,"shootDays":5,"avgSetsPerDay":8.3,"sales":0,"averageSetPrice":0,"stillLifeEcom":20.5,"modelEcom":6,"modelEcomStillsVid":0,"stillLifeCreative":1,"stillLifeCreativeVideoStills":0,"modelCreativeStills":0,"modelCreativeStillsVid":0,"campaign":0,"testShoots":0,"video360":1,"msLive":0,"msHome":3,"amazon":10,"modelSets":6,"stillsSets":21.5,"otherSets":14},{"fiscalWeek":49,"weekLabel":"WK49: 24-28 Nov","monthIndex":12,"monthLabel":"Nov 25","forecastedSets":0,"totalSets":34.5,"shootDays":5,"avgSetsPerDay":6.9,"sales":0,"averageSetPrice":0,"stillLifeEcom":13.5,"modelEcom":6,"modelEcomStillsVid":0,"stillLifeCreative":0,"stillLifeCreativeVideoStills":0,"modelCreativeStills":0,"modelCreativeStillsVid":0,"campaign":0,"testShoots":0,"video360":0,"msLive":0,"msHome":5,"amazon":10,"modelSets":6,"stillsSets":13.5,"otherSets":15}],"totals":{"totalSets":1565,"totalExclAmazon":1376,"totalExclAmazonMs":1170.5,"forecastedSets":1399.5,"shootDays":251,"modelSets":394.5,"stillsSets":715.5,"amazon":189,"ms":231.5}};
-
 
 const STAFF_ROSTER = [
   {name:'Ben Edwards',dept:'Photography'},{name:'Anko',dept:'Photography'},
@@ -1858,176 +1126,16 @@ async function processOtFile(file){
   reader.readAsBinaryString(file);
 }
 
+const capDz=document.getElementById('cap-drop-zone');
+capDz.addEventListener('dragover',function(e){e.preventDefault();capDz.classList.add('drag');});
+capDz.addEventListener('dragleave',function(){capDz.classList.remove('drag');});
+capDz.addEventListener('drop',function(e){e.preventDefault();capDz.classList.remove('drag');const f=e.dataTransfer.files[0];if(f)processCapFile(f);});
+function handleCapFile(e){const f=e.target.files[0];if(f)processCapFile(f);}
 
-function setupFileDrop(zoneId, callback){
-  const dz=document.getElementById(zoneId);
-  if(!dz)return;
-  dz.addEventListener('dragover',function(e){e.preventDefault();dz.classList.add('drag');});
-  dz.addEventListener('dragleave',function(){dz.classList.remove('drag');});
-  dz.addEventListener('drop',function(e){e.preventDefault();dz.classList.remove('drag');const f=e.dataTransfer.files[0];if(f)callback(f);});
-}
-setupFileDrop('cap-drop-zone',function(f){processCapFile(f,'cap');});
-setupFileDrop('set-drop-zone',function(f){processCapFile(f,'set');});
-function handleCapFile(e){const f=e.target.files[0];if(f)processCapFile(f,'cap');}
-function handleSetFile(e){const f=e.target.files[0];if(f)processCapFile(f,'set');}
-
-function cleanScheduleText(v){return String(v||'').replace(/[\u200E\u200F]/g,'').trim();}
-function excelSerialToUTCDate(serial){return new Date((serial-25569)*86400*1000);}
-function setWeekKey(serial){
-  var d=excelSerialToUTCDate(serial);
-  return d.getUTCFullYear()+'-'+String(d.getUTCMonth()+1).padStart(2,'0')+'-'+String(d.getUTCDate()).padStart(2,'0');
-}
-function setMonthKeyFromSerial(serial){
-  var d=excelSerialToUTCDate(serial);
-  return d.getUTCFullYear()+'-'+String(d.getUTCMonth()+1).padStart(2,'0');
-}
-function setMonthLabelFromSerial(serial){
-  var d=excelSerialToUTCDate(serial);
-  return d.toLocaleDateString('en-GB',{month:'long',year:'numeric',timeZone:'UTC'});
-}
-function setWeekLabel(serial){
-  var months=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-  var d=excelSerialToUTCDate(serial),e=excelSerialToUTCDate(serial+4);
-  return d.getUTCDate()+'-'+e.getUTCDate()+' '+months[d.getUTCMonth()]+' '+d.getUTCFullYear();
-}
-
-function setFiscalYearStartUTC(d){
-  var y=d.getUTCMonth()===11?d.getUTCFullYear():d.getUTCFullYear()-1;
-  var start=new Date(Date.UTC(y,11,1));
-  while(start.getUTCDay()!==1)start.setUTCDate(start.getUTCDate()+1);
-  return start;
-}
-function setFiscalWeekFromSerial(serial){
-  var d=excelSerialToUTCDate(serial),start=setFiscalYearStartUTC(d);
-  var days=Math.floor((Date.UTC(d.getUTCFullYear(),d.getUTCMonth(),d.getUTCDate())-Date.UTC(start.getUTCFullYear(),start.getUTCMonth(),start.getUTCDate()))/86400000);
-  return Math.max(1,Math.floor(days/7)+1);
-}
-function setFiscalMonthIndexFromSerial(serial){
-  var d=excelSerialToUTCDate(serial);
-  return ((d.getUTCMonth()+1)+1)%12+1; /* Dec = 1, Jan = 2, ... Nov = 12 */
-}
-function setFiscalYearLabelFromSerial(serial){
-  var d=excelSerialToUTCDate(serial);
-  var y=d.getUTCMonth()===11?d.getUTCFullYear():d.getUTCFullYear()-1;
-  return String(y).slice(-2)+'/'+String(y+1).slice(-2);
-}
-function setBaselineWeek(fiscalWeek){
-  return (SET_BASELINE_2425.weeks||[]).filter(function(w){return w.fiscalWeek===fiscalWeek;})[0]||null;
-}
-function setBaselineMonth(monthIndex){
-  return (SET_BASELINE_2425.months||[]).filter(function(m){return m.monthIndex===monthIndex;})[0]||null;
-}
-function setDeltaClass(diff){return diff>0?'up':diff<0?'down':'flat';}
-function fmtSignedSet(n){
-  n=parseFloat(n)||0;
-  var sign=n>0?'+':n<0?'':'';
-  return sign+fmtSet(n);
-}
-function setDeltaText(current,baseline){
-  current=parseFloat(current)||0;baseline=parseFloat(baseline)||0;
-  if(!baseline)return 'No 24/25 baseline';
-  var diff=current-baseline;
-  var pct=(diff/baseline)*100;
-  var sign=diff>0?'+':diff<0?'':'';
-  return sign+fmtSet(diff)+' sets ('+sign+pct.toFixed(1)+'%) vs 24/25';
-}
-function setDeltaHtml(current,baseline){
-  var diff=(parseFloat(current)||0)-(parseFloat(baseline)||0);
-  return '<div class="set-yoy '+setDeltaClass(diff)+'">'+setDeltaText(current,baseline)+'</div>';
-}
-function isAmazonClient(client){return /amazon/i.test(String(client||''));}
-function isMSClient(client){return /(m&s|marks\s*&?\s*spencer|marks and spencer|m and s)/i.test(String(client||''));}
-
-function hoursToSetCount(h){
-  h=parseFloat(h)||0;
-  if(h<3)return 0;
-  if(h<6)return 0.5;
-  return Math.round((h/7.5)*2)/2;
-}
-function detectSetType(task,job){
-  var s=(String(task||'')+' '+String(job||'')).toLowerCase();
-  if(s.includes('model')||s.includes('portrait'))return 'Model';
-  if(s.includes('still'))return 'Stills';
-  return 'Other';
-}
-function isPhotoSetRow(name,title,task,client){
-  var n=String(name||'').toLowerCase(),t=String(title||'').toLowerCase(),tn=String(task||'').toLowerCase(),c=String(client||'').trim();
-  if(!c||c.charAt(0)==='·'||c.toLowerCase().includes('internal'))return false;
-  if(tn.includes('assist')&&!tn.includes('stills - photography')&&!tn.includes('model - photography'))return false;
-  return t.includes('photographer')||n.includes('freelance photography')||/(stills|model).*photography/.test(tn)||(tn.includes('photography')&&!tn.includes('assist'));
-}
-function bumpSetBucket(obj,type,sets){
-  obj.totalSets=Math.round(((obj.totalSets||0)+sets)*10)/10;
-  if(type==='Model')obj.modelSets=Math.round(((obj.modelSets||0)+sets)*10)/10;
-  else if(type==='Stills')obj.stillsSets=Math.round(((obj.stillsSets||0)+sets)*10)/10;
-  else obj.otherSets=Math.round(((obj.otherSets||0)+sets)*10)/10;
-}
-function newSetBucket(extra){return Object.assign({totalSets:0,modelSets:0,stillsSets:0,otherSets:0},extra||{});}
-function extractSetCounts(rows,hr,weekStartSerial){
-  const hd=rows[hr];
-  function col(h){return hd.indexOf(h);}
-  const iN=col('ResNavn'),iC=col('CustomerName'),iTN=col('Tname'),iTitle=col('Title'),iJob=col('JobName'),iJ=col('JT1'),iTot=col('JTTOT');
-  if(iN===-1||iC===-1||iTN===-1||iJ===-1)return null;
-  const dayNames=['Mon','Tue','Wed','Thu','Fri','Sat','Sun'];
-  const dayRows=dayNames.map(function(d,i){return newSetBucket({dayIndex:i,dayName:d,label:d,totalHours:0});});
-  const people={},clients={},detailRows=[];
-  const summary=newSetBucket({weekStartSerial:weekStartSerial,weekKey:setWeekKey(weekStartSerial),weekLabel:setWeekLabel(weekStartSerial),monthKey:setMonthKeyFromSerial(weekStartSerial),monthLabel:setMonthLabelFromSerial(weekStartSerial),fiscalWeek:setFiscalWeekFromSerial(weekStartSerial),fiscalMonthIndex:setFiscalMonthIndexFromSerial(weekStartSerial),fiscalYear:setFiscalYearLabelFromSerial(weekStartSerial),shootDays:0,avgSetsPerDay:0,activePhotographers:0,amazonSets:0,msSets:0,totalExclAmazon:0,totalExclAmazonMs:0,uploadedAt:new Date().toISOString()});
-  rows.slice(hr+1).forEach(function(row){
-    const name=cleanScheduleText(row[iN]);
-    const title=iTitle>-1?cleanScheduleText(row[iTitle]):'';
-    const task=cleanScheduleText(row[iTN]);
-    const client=cleanScheduleText(row[iC]);
-    const job=iJob>-1?cleanScheduleText(row[iJob]):'';
-    if(!isPhotoSetRow(name,title,task,client))return;
-    var daily=[];
-    for(let d=0;d<7;d++)daily.push(parseFloat(row[iJ+d])||0);
-    if(!daily.some(function(h){return h>0;})&&iTot>-1)daily[0]=parseFloat(row[iTot])||0;
-    daily.forEach(function(hrs,d){
-      const sets=hoursToSetCount(hrs);
-      if(!sets)return;
-      const type=detectSetType(task,job);
-      if(!people[name])people[name]=newSetBucket({name:name});
-      if(!clients[client])clients[client]=newSetBucket({name:client});
-      bumpSetBucket(summary,type,sets);
-      bumpSetBucket(people[name],type,sets);
-      bumpSetBucket(clients[client],type,sets);
-      bumpSetBucket(dayRows[d],type,sets);
-      if(isAmazonClient(client))summary.amazonSets=Math.round(((summary.amazonSets||0)+sets)*10)/10;
-      if(isMSClient(client))summary.msSets=Math.round(((summary.msSets||0)+sets)*10)/10;
-      dayRows[d].totalHours=Math.round((dayRows[d].totalHours+hrs)*10)/10;
-      detailRows.push({name:name,client:client,jobName:job,task:task,type:type,day:dayNames[d],hours:hrs,sets:sets});
-    });
-  });
-  summary.shootDays=dayRows.filter(function(d){return d.totalSets>0;}).length;
-  summary.avgSetsPerDay=summary.shootDays?Math.round((summary.totalSets/summary.shootDays)*10)/10:0;
-  summary.totalExclAmazon=Math.round((summary.totalSets-(summary.amazonSets||0))*10)/10;
-  summary.totalExclAmazonMs=Math.round((summary.totalSets-(summary.amazonSets||0)-(summary.msSets||0))*10)/10;
-  summary.activePhotographers=Object.keys(people).length;
-  summary.people=Object.values(people).sort(function(a,b){return b.totalSets-a.totalSets;});
-  summary.clients=Object.values(clients).sort(function(a,b){return b.totalSets-a.totalSets;});
-  summary.days=dayRows;
-  summary.rows=detailRows.sort(function(a,b){return (a.day+a.name).localeCompare(b.day+b.name);});
-  return summary;
-}
-async function saveSetCounts(setData){
-  if(!setData)return lsGet(LS_SETCOUNTS)||{};
-  let hist=lsGet(LS_SETCOUNTS)||{};
-  if(FB){
-    const remote=await fbGet(FB_SETCOUNTS);
-    if(remote&&typeof remote==='object')hist=remote;
-  }
-  hist[setData.weekKey]=setData;
-  if(FB)await fbPut(FB_SETCOUNTS,hist);
-  lsSet(LS_SETCOUNTS,hist);
-  return hist;
-}
-
-async function processCapFile(file,source){
-  source=source||'cap';
-  const isSet=source==='set';
-  const errEl=document.getElementById(isSet?'set-upload-error':'cap-upload-error')||document.getElementById('cap-upload-error');
-  const statusEl=document.getElementById(isSet?'set-save-status':'cap-save-status')||document.getElementById('cap-save-status');
-  if(errEl)errEl.style.display='none';if(statusEl)statusEl.className='save-status';
+async function processCapFile(file){
+  const errEl=document.getElementById('cap-upload-error');
+  const statusEl=document.getElementById('cap-save-status');
+  errEl.style.display='none';statusEl.className='save-status';
   const reader=new FileReader();
   reader.onload=async function(e){
     try{
@@ -2043,11 +1151,11 @@ async function processCapFile(file,source){
       if(iN===-1||iS===-1||iJ===-1)throw new Error('Missing columns (ResNavn, Start, JT1)');
       const dr=rows.slice(hr+1).filter(function(r){return r[iN];});
       let wss=null;
-      for(let i=0;i<dr.length;i++){const st=parseFloat(dr[i][iS]);if(st>40000){wss=st;break;}}
+      for(let i=0;i<dr.length;i++){const s=parseFloat(dr[i][iS]);if(s>40000){wss=s;break;}}
       if(!wss)throw new Error('Could not determine week start date');
       const ph={};
       dr.forEach(function(row){
-        const name=cleanScheduleText(row[iN]);if(!name)return;
+        const name=String(row[iN]||'').trim();if(!name)return;
         if(!ph[name])ph[name]=[0,0,0,0,0];
         for(let d=0;d<5;d++)ph[name][d]+=parseFloat(row[iJ+d])||0;
       });
@@ -2056,24 +1164,17 @@ async function processCapFile(file,source){
         if(!h){const k=Object.keys(ph).find(function(k){return k.toLowerCase()===s.name.toLowerCase();});h=k?ph[k]:null;}
         return{name:s.name,dept:s.dept,hours:h||[0,0,0,0,0]};
       });
-      const setCounts=extractSetCounts(rows,hr,wss);
-      const capData={weekStartSerial:wss,staffAvail:staffAvail,setCounts:setCounts,uploadedAt:new Date().toISOString()};
-      if(statusEl){statusEl.textContent='Saving...';statusEl.className='save-status saving';}
+      const capData={weekStartSerial:wss,staffAvail:staffAvail,uploadedAt:new Date().toISOString()};
+      statusEl.textContent='Saving...';statusEl.className='save-status saving';
       if(FB){
         try{
           await fbPut(FB_CAPACITY,capData);
-          await saveSetCounts(setCounts);
-          if(statusEl){statusEl.textContent=isSet?'Saved - set counts and capacity updated':'Saved - capacity and set counts updated live for all viewers';statusEl.className='save-status saved';}
-        }catch(err){if(statusEl){statusEl.textContent='Save failed: '+err.message;statusEl.className='save-status failed';}}
-      }else{
-        await saveSetCounts(setCounts);
-        if(statusEl){statusEl.textContent='Saved locally';statusEl.className='save-status saved';}
-      }
+          statusEl.textContent='Saved - capacity grid updated live for all viewers';statusEl.className='save-status saved';
+        }catch(err){statusEl.textContent='Save failed: '+err.message;statusEl.className='save-status failed';}
+      }else{statusEl.textContent='Saved locally';statusEl.className='save-status saved';}
       lsSet(LS_CAPACITY,capData);
       renderCapGrid(capData);
-      buildSetCountsTab();
-      renderDashboardSetCounts();
-    }catch(err){if(errEl){errEl.textContent='Error: '+err.message;errEl.style.display='block';}}
+    }catch(err){errEl.textContent='Error: '+err.message;errEl.style.display='block';}
   };
   reader.readAsBinaryString(file);
 }
@@ -2092,9 +1193,6 @@ function showDashboard(payload){
   }
   const cap=lsGet(LS_CAPACITY);
   if(cap)renderCapGrid(cap);
-  buildSetCountsTab();
-  renderDashboardSetCounts();
-  setTimeout(applyGlobalFilters,0);
 }
 
 function buildAllTabs(payload,otPayload){
@@ -2112,8 +1210,6 @@ function buildAllTabs(payload,otPayload){
   buildClientTab(clientHours,period,staffData,clientMeta);
   buildProductionTab(productionData,period);
   buildHistoryTab();
-  buildSetCountsTab();
-  renderDashboardSetCounts();
 }
 
 function buildDashTab(staffData,dt,period,intBreakdown){
@@ -2127,26 +1223,10 @@ function buildDashTab(staffData,dt,period,intBreakdown){
   const gapSign=gap>=0?'+':'';
   const gapCol=gap>=0?'#3ddc84':'#ff6b6b';
   const gapHtml='<div class="kpi-vs-target" style="color:'+gapCol+'">'+gapSign+gap.toFixed(1)+'pp vs 85% target</div>';
-  var latestSet=latestSetCounts();
-  var weekBase=latestSet?setBaselineWeek(latestSet.fiscalWeek||setFiscalWeekFromSerial(latestSet.weekStartSerial)):null;
-  var setDiffTxt='--';
-  var setSub='Upload a Weekly Schedule to compare';
-  if(latestSet&&weekBase){var setDiff=latestSet.totalSets-weekBase.totalSets;setDiffTxt=fmtSignedSet(setDiff);setSub='vs '+weekBase.weekLabel+' in 24/25';}
-  else if(latestSet){setDiffTxt=fmtSet(latestSet.totalSets);setSub='sets this uploaded week';}
-  var execEl=document.getElementById('exec-hero');
-  if(execEl){
-    execEl.innerHTML='<div class="exec-hero">'
-      +'<div class="exec-main"><div><div class="exec-kicker">Executive Snapshot</div><div class="exec-title">'+period+'</div><div class="exec-meta">A cleaner weekly view across utilisation, capacity, client demand and set counts.</div></div><div class="exec-meta">Target utilisation: 85% · Departments: '+DEPT_ORDER.length+' · Staff: '+STAFF_ROSTER.length+'</div></div>'
-      +'<div class="exec-card"><div class="exec-label">Utilisation <span class="info-tip" title="Client hours divided by total capacity for the period.">?</span></div><div class="exec-value accent">'+fPct(uP)+'</div><div class="exec-sub">'+gapSign+gap.toFixed(1)+'pp vs target</div></div>'
-      +'<div class="exec-card"><div class="exec-label">Client Hours <span class="info-tip" title="Total scheduled client work across all departments.">?</span></div><div class="exec-value">'+fmt(Math.round(totCli))+'</div><div class="exec-sub">of '+fmt(totCap)+'h capacity</div></div>'
-      +'<div class="exec-card"><div class="exec-label">Available Capacity <span class="info-tip" title="Capacity remaining after client hours, holiday, sick and internal time are considered.">?</span></div><div class="exec-value">'+fmt(Math.max(0,Math.round(totCap-totCli)))+'</div><div class="exec-sub">hours before non-client time</div></div>'
-      +'<div class="exec-card"><div class="exec-label">Set Variance <span class="info-tip" title="Current uploaded set-count week compared with the matching 24/25 fiscal week.">?</span></div><div class="exec-value '+(latestSet?'accent':'')+'">'+setDiffTxt+'</div><div class="exec-sub">'+setSub+'</div></div>'
-      +'</div>';
-  }
   document.getElementById('kpi-grid').innerHTML=
-    '<div class="kpi"><div class="kpi-label">Studio Utilisation <span class="info-tip" title="Client hours divided by total capacity.">?</span></div><div class="kpi-value accent" data-countup="pct" data-target="'+(uP*100).toFixed(1)+'">0.0%</div>'+gapHtml+'</div>'+
-    '<div class="kpi"><div class="kpi-label">Total Client Hours <span class="info-tip" title="Total client-booked hours across all departments.">?</span></div><div class="kpi-value" data-countup="int" data-target="'+Math.round(totCli)+'">0</div><div class="kpi-sub">Across all departments</div></div>'+
-    '<div class="kpi"><div class="kpi-label">Total Capacity <span class="info-tip" title="Total available staff capacity in the uploaded period.">?</span></div><div class="kpi-value" data-countup="int" data-target="'+totCap+'">0</div><div class="kpi-sub">'+STAFF_ROSTER.length+' staff · '+period+'</div></div>'+
+    '<div class="kpi"><div class="kpi-label">Studio Utilisation</div><div class="kpi-value accent" data-countup="pct" data-target="'+(uP*100).toFixed(1)+'">0.0%</div>'+gapHtml+'</div>'+
+    '<div class="kpi"><div class="kpi-label">Total Client Hours</div><div class="kpi-value" data-countup="int" data-target="'+Math.round(totCli)+'">0</div><div class="kpi-sub">Across all departments</div></div>'+
+    '<div class="kpi"><div class="kpi-label">Total Capacity</div><div class="kpi-value" data-countup="int" data-target="'+totCap+'">0</div><div class="kpi-sub">'+STAFF_ROSTER.length+' staff · '+period+'</div></div>'+
     '<div class="kpi"><div class="kpi-label">Sick Leave</div><div class="kpi-value" data-countup="hrs" data-target="'+Math.round(totSck)+'">0 <span style="font-size:20px">hrs</span></div><div class="kpi-sub">'+fPct(pct(totSck,totCap))+' of capacity</div></div>'+
     '<div class="kpi"><div class="kpi-label">Training Investment</div><div class="kpi-value" data-countup="hrs" data-target="'+totTrn+'">0 <span style="font-size:20px">hrs</span></div><div class="kpi-sub">Training &amp; Upskilling hours</div></div>';
   animateKPIs();
@@ -2520,134 +1600,6 @@ function redrawCompGrid() {
   archiveEntries.forEach(function(e){if(e[1]&&e[1].staffData&&!seenL.has(e[1].period)){allPeriods.push({key:e[0],data:e[1],isCurrent:false});seenL.add(e[1].period);}});
   var wrap = document.getElementById('comp-rows-wrap');
   if (wrap) wrap.innerHTML = renderCompRows(allPeriods[0].data, null, allPeriods, prevKey);
-}
-
-
-/* ── Set Counts Tab ─────────────────────────────────────────────── */
-var _setMonthChart=null;
-function getSetCountsHistory(){
-  var hist=lsGet(LS_SETCOUNTS)||{};
-  var cap=lsGet(LS_CAPACITY);
-  if(cap&&cap.setCounts&&cap.setCounts.weekKey&&!hist[cap.setCounts.weekKey])hist[cap.setCounts.weekKey]=cap.setCounts;
-  return hist;
-}
-function sortedSetCountWeeks(){
-  var hist=getSetCountsHistory();
-  return Object.values(hist).filter(function(w){return w&&w.weekKey;}).sort(function(a,b){return (b.weekStartSerial||0)-(a.weekStartSerial||0);});
-}
-function latestSetCounts(){var weeks=sortedSetCountWeeks();return weeks.length?weeks[0]:null;}
-function fmtSet(n){n=parseFloat(n)||0;return n%1===0?n.toFixed(0):n.toFixed(1);}
-function pctSet(part,total){return total?((part/total)*100).toFixed(1)+'%':'0.0%';}
-function buildSetMonthlyRollups(){
-  var months={};
-  sortedSetCountWeeks().slice().reverse().forEach(function(w){
-    var key=w.monthKey||setMonthKeyFromSerial(w.weekStartSerial),label=w.monthLabel||setMonthLabelFromSerial(w.weekStartSerial);
-    if(!months[key])months[key]=newSetBucket({monthKey:key,monthLabel:label,weeks:0,shootDays:0,amazonSets:0,msSets:0,totalExclAmazon:0,totalExclAmazonMs:0,fiscalMonthIndex:w.fiscalMonthIndex||setFiscalMonthIndexFromSerial(w.weekStartSerial),activePhotographersSet:{}});
-    var m=months[key];
-    m.weeks+=1;m.shootDays+=(w.shootDays||0);
-    bumpSetBucket(m,'Model',w.modelSets||0);bumpSetBucket(m,'Stills',w.stillsSets||0);bumpSetBucket(m,'Other',w.otherSets||0);
-    m.amazonSets=Math.round(((m.amazonSets||0)+(w.amazonSets||0))*10)/10;
-    m.msSets=Math.round(((m.msSets||0)+(w.msSets||0))*10)/10;
-    (w.people||[]).forEach(function(p){if(p.totalSets>0)m.activePhotographersSet[p.name]=true;});
-  });
-  return Object.values(months).map(function(m){
-    m.activePhotographers=Object.keys(m.activePhotographersSet||{}).length;delete m.activePhotographersSet;
-    m.avgSetsPerShootDay=m.shootDays?Math.round((m.totalSets/m.shootDays)*10)/10:0;
-    m.totalExclAmazon=Math.round((m.totalSets-(m.amazonSets||0))*10)/10;
-    m.totalExclAmazonMs=Math.round((m.totalSets-(m.amazonSets||0)-(m.msSets||0))*10)/10;
-    m.baseline=setBaselineMonth(m.fiscalMonthIndex);
-    return m;
-  }).sort(function(a,b){return a.monthKey.localeCompare(b.monthKey);});
-}
-function setUploadBlock(){
-  return '<div class="set-upload-inline"><div class="cap-drop-zone" id="set-drop-zone" onclick="document.getElementById(\'set-file-input\').click()"><div class="cap-drop-zone-icon">📅</div><div class="cap-drop-zone-title">Drop Weekly Schedule here</div><div class="cap-drop-zone-sub"><code>Weekly Schedule</code> export from Workbook<br>Counts full-day sets as 1, half-day as 0.5, with 24/25 comparison</div><button class="btn btn-primary" style="font-size:12px;padding:10px 22px" onclick="event.stopPropagation();document.getElementById(\'set-file-input\').click()">Choose File</button></div><div class="upload-error" id="set-upload-error"></div><div class="save-status" id="set-save-status"></div><input type="file" id="set-file-input" accept=".xlsx,.xls" style="display:none" onchange="handleSetFile(event)"></div>';
-}
-function renderDashboardSetCounts(){
-  var el=document.getElementById('dash-setcounts');if(!el)return;
-  var latest=latestSetCounts();
-  if(!latest){el.style.display='none';el.innerHTML='';return;}
-  var months=buildSetMonthlyRollups();
-  var month=months.filter(function(m){return m.monthKey===latest.monthKey;})[0]||latest;
-  var weekBase=setBaselineWeek(latest.fiscalWeek||setFiscalWeekFromSerial(latest.weekStartSerial));
-  var monthBase=setBaselineMonth(month.fiscalMonthIndex||latest.fiscalMonthIndex||setFiscalMonthIndexFromSerial(latest.weekStartSerial));
-  el.style.display='block';
-  el.innerHTML='<div class="section-header" style="margin-bottom:16px"><div class="section-title">Set Count Snapshot</div><div class="section-sub">Week of '+latest.weekLabel+' · FY '+(latest.fiscalYear||setFiscalYearLabelFromSerial(latest.weekStartSerial))+'</div></div>'+
-    '<div class="set-card-grid">'+
-    '<div class="set-card"><div class="set-label">Sets This Week</div><div class="set-value accent">'+fmtSet(latest.totalSets)+'</div><div class="set-sub">'+latest.activePhotographers+' photographers</div>'+(weekBase?setDeltaHtml(latest.totalSets,weekBase.totalSets):'')+'</div>'+
-    '<div class="set-card"><div class="set-label">24/25 Same Week</div><div class="set-value">'+(weekBase?fmtSet(weekBase.totalSets):'--')+'</div><div class="set-sub">'+(weekBase?weekBase.weekLabel:'No baseline')+'</div></div>'+
-    '<div class="set-card"><div class="set-label">Sets This Month</div><div class="set-value">'+fmtSet(month.totalSets)+'</div><div class="set-sub">'+(month.monthLabel||latest.monthLabel)+'</div>'+(monthBase?setDeltaHtml(month.totalSets,monthBase.totalSets):'')+'</div>'+
-    '<div class="set-card"><div class="set-label">Model / Stills Split</div><div class="set-value">'+pctSet(latest.modelSets,latest.totalSets)+'</div><div class="set-sub">'+fmtSet(latest.modelSets)+' model · '+fmtSet(latest.stillsSets)+' stills</div></div>'+
-    '</div>';
-}
-function buildSetCountsTab(){
-  var cont=document.getElementById('set-counts-content');if(!cont)return;
-  var weeks=sortedSetCountWeeks();
-  if(!weeks.length){
-    var baseRows=(SET_BASELINE_2425.months||[]).map(function(m){return '<tr><td>'+m.monthLabel+'</td><td>'+fmtSet(m.totalSets)+'</td><td>'+fmtSet(m.forecastedSets)+'</td><td>'+fmtSet(m.shootDays)+'</td><td>'+fmtSet(m.avgSetsPerShootDay)+'</td><td>'+fmtSet(m.modelSets)+'</td><td>'+fmtSet(m.stillsSets)+'</td><td>'+fmtSet((m.msLive||0)+(m.msHome||0))+'</td><td>'+fmtSet(m.amazon||0)+'</td></tr>';}).join('');
-    cont.innerHTML='<div class="set-empty" style="min-height:180px"><div class="set-empty-title">24/25 Baseline Added</div><div class="set-empty-sub">Upload the Weekly Schedule export to unlock current set counts, then compare them against the embedded 24/25 tracker.</div>'+setUploadBlock()+'</div>'+
-      '<div class="section-header" style="margin-top:34px"><div class="section-title">24/25 Baseline</div><div class="section-sub">Imported from Set Count Tracking.xlsx</div></div>'+
-      '<div class="table-wrap"><table><thead><tr><th class="left">Month</th><th>Total Sets</th><th>Forecast</th><th>Shoot Days</th><th>Avg / Day</th><th>Model</th><th>Stills</th><th>M&S</th><th>Amazon</th></tr></thead><tbody>'+baseRows+'</tbody></table></div>';
-    setupFileDrop('set-drop-zone',function(f){processCapFile(f,'set');});
-    return;
-  }
-  var latest=weeks[0];
-  var months=buildSetMonthlyRollups();
-  var currentMonth=months.filter(function(m){return m.monthKey===latest.monthKey;})[0]||latest;
-  var weekBase=setBaselineWeek(latest.fiscalWeek||setFiscalWeekFromSerial(latest.weekStartSerial));
-  var monthBase=setBaselineMonth(currentMonth.fiscalMonthIndex||latest.fiscalMonthIndex||setFiscalMonthIndexFromSerial(latest.weekStartSerial));
-  var maxPerson=Math.max.apply(null,(latest.people||[]).map(function(p){return p.totalSets;}).concat([1]));
-  var maxClient=Math.max.apply(null,(latest.clients||[]).map(function(c){return c.totalSets;}).concat([1]));
-  var ytdTotal=0,ytdModel=0,ytdStills=0,ytdShootDays=0,ytdBaseTotal=0,ytdBaseMonths=0;
-  months.forEach(function(m){ytdTotal+=m.totalSets||0;ytdModel+=m.modelSets||0;ytdStills+=m.stillsSets||0;ytdShootDays+=m.shootDays||0;var b=m.baseline||setBaselineMonth(m.fiscalMonthIndex);if(b){ytdBaseTotal+=b.totalSets||0;ytdBaseMonths++;}});
-  var ytdAvg=ytdShootDays?ytdTotal/ytdShootDays:0;
-  var ytdDiff=ytdBaseMonths?ytdTotal-ytdBaseTotal:0;
-  var html='<div class="set-toolbar"><div class="cap-meta" style="margin-bottom:0"><div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap"><div class="cap-week-badge">Week of '+latest.weekLabel+'</div><span style="font-family:\'DM Mono\',monospace;font-size:10px;color:var(--muted)">FY '+(latest.fiscalYear||setFiscalYearLabelFromSerial(latest.weekStartSerial))+' · Last upload '+(latest.uploadedAt?niceDate(latest.uploadedAt):'')+'</span></div>'+setUploadBlock()+'</div><div style="display:flex;gap:8px;flex-wrap:wrap"><button class="export-btn" onclick="exportSetCountsCsv()">Export set counts CSV</button><button class="export-btn" onclick="printDashboardReport()">PDF / print</button></div></div>';
-  html+='<div class="set-card-grid">';
-  html+='<div class="set-card"><div class="set-label">Weekly Total</div><div class="set-value accent">'+fmtSet(latest.totalSets)+'</div><div class="set-sub">All photography sets</div>'+(weekBase?setDeltaHtml(latest.totalSets,weekBase.totalSets):'')+'</div>';
-  html+='<div class="set-card"><div class="set-label">24/25 Same Week</div><div class="set-value">'+(weekBase?fmtSet(weekBase.totalSets):'--')+'</div><div class="set-sub">'+(weekBase?weekBase.weekLabel:'No baseline found')+'</div></div>';
-  html+='<div class="set-card"><div class="set-label">Month Total</div><div class="set-value">'+fmtSet(currentMonth.totalSets)+'</div><div class="set-sub">'+(currentMonth.monthLabel||latest.monthLabel)+'</div>'+(monthBase?setDeltaHtml(currentMonth.totalSets,monthBase.totalSets):'')+'</div>';
-  html+='<div class="set-card"><div class="set-label">24/25 Same Month</div><div class="set-value">'+(monthBase?fmtSet(monthBase.totalSets):'--')+'</div><div class="set-sub">'+(monthBase?monthBase.monthLabel:'No baseline found')+'</div></div>';
-  html+='<div class="set-card"><div class="set-label">Avg Sets / Day</div><div class="set-value">'+fmtSet(latest.avgSetsPerDay)+'</div><div class="set-sub">Current week'+(weekBase?' · LY '+fmtSet(weekBase.avgSetsPerDay):'')+'</div></div>';
-  html+='</div>';
-  html+='<div class="set-ytd-grid"><div class="set-ytd-card"><div class="set-ytd-label">Uploaded YTD Sets <span class="info-tip" title="Total sets across all uploaded weekly schedules in this dashboard.">?</span></div><div class="set-ytd-value accent">'+fmtSet(ytdTotal)+'</div><div class="set-ytd-sub">'+months.length+' month(s) uploaded</div></div><div class="set-ytd-card"><div class="set-ytd-label">YTD vs 24/25</div><div class="set-ytd-value">'+(ytdBaseMonths?fmtSignedSet(ytdDiff):'--')+'</div><div class="set-ytd-sub">Baseline '+(ytdBaseMonths?fmtSet(ytdBaseTotal):'not available')+'</div></div><div class="set-ytd-card"><div class="set-ytd-label">Model / Stills YTD</div><div class="set-ytd-value">'+pctSet(ytdModel,ytdTotal)+'</div><div class="set-ytd-sub">'+fmtSet(ytdModel)+' model · '+fmtSet(ytdStills)+' stills</div></div><div class="set-ytd-card"><div class="set-ytd-label">Avg Sets / Shoot Day</div><div class="set-ytd-value">'+fmtSet(ytdAvg)+'</div><div class="set-ytd-sub">Based on uploaded weeks</div></div></div>';
-  html+='<div class="set-info-grid"><div class="set-info-cell"><div class="set-info-title">What the tracker now carries over</div><div class="set-info-text">Weekly forecast, actual weekly sets, shoot days, average sets per day, model/stills split, campaign/creative/test/360 categories, M&S, Amazon, sales value, average set price, and notes from the reshoots/issues log.</div></div><div class="set-info-cell"><div class="set-info-title">How comparison works</div><div class="set-info-text">Current uploads are compared to the matching fiscal week and fiscal month in the 24/25 tracker. Totals use the all-in monthly set count so M&S and Amazon are included unless the excluded views are shown.</div></div></div>';
-  html+='<div class="set-panel" style="margin-bottom:32px"><div class="chart-label">Model vs Stills Split</div><div class="set-split"><div class="set-split-model" style="width:'+(latest.totalSets?latest.modelSets/latest.totalSets*100:0).toFixed(1)+'%"></div><div class="set-split-stills" style="width:'+(latest.totalSets?latest.stillsSets/latest.totalSets*100:0).toFixed(1)+'%"></div><div class="set-split-other" style="width:'+(latest.totalSets?latest.otherSets/latest.totalSets*100:0).toFixed(1)+'%"></div></div><div class="set-legend"><span class="set-legend-item"><span class="set-dot" style="background:#4a9eff"></span>Model '+pctSet(latest.modelSets,latest.totalSets)+'</span><span class="set-legend-item"><span class="set-dot" style="background:var(--orange)"></span>Stills '+pctSet(latest.stillsSets,latest.totalSets)+'</span>'+(latest.otherSets?'<span class="set-legend-item"><span class="set-dot" style="background:var(--muted)"></span>Other '+pctSet(latest.otherSets,latest.totalSets)+'</span>':'')+'</div></div>';
-  html+='<div class="set-layout"><div class="set-panel"><div class="chart-label">Photographer Breakdown</div><div class="set-bars">';
-  (latest.people||[]).forEach(function(p){html+='<div class="set-bar-row"><span class="set-bar-name" title="'+p.name+'">'+p.name+'</span><div class="set-bar-track"><div class="set-bar-fill" style="width:'+(p.totalSets/maxPerson*100).toFixed(1)+'%"></div></div><span class="set-bar-val">'+fmtSet(p.totalSets)+'</span></div>';});
-  html+='</div></div><div class="set-panel"><div class="chart-label">Daily Breakdown</div><table class="set-mini-table"><thead><tr><th>Day</th><th>Total</th><th>Model</th><th>Stills</th></tr></thead><tbody>';
-  (latest.days||[]).forEach(function(d){if(d.totalSets>0)html+='<tr><td>'+d.dayName+'</td><td>'+fmtSet(d.totalSets)+'</td><td>'+fmtSet(d.modelSets)+'</td><td>'+fmtSet(d.stillsSets)+'</td></tr>';});
-  html+='</tbody></table></div></div>';
-  html+='<div class="set-layout"><div class="set-panel"><div class="chart-label">Client Breakdown</div><div class="set-bars">';
-  (latest.clients||[]).slice(0,12).forEach(function(c){html+='<div class="set-bar-row"><span class="set-bar-name" title="'+c.name+'">'+c.name+'</span><div class="set-bar-track"><div class="set-bar-fill" style="width:'+(c.totalSets/maxClient*100).toFixed(1)+'%"></div></div><span class="set-bar-val">'+fmtSet(c.totalSets)+'</span></div>';});
-  html+='</div></div><div class="set-panel"><div class="chart-label">Monthly Totals vs 24/25</div><canvas id="set-month-chart" height="190"></canvas></div></div>';
-  html+='<div class="set-panel" style="margin-bottom:36px"><div class="chart-label">Current Period vs 24/25 Baseline</div><table class="set-mini-table set-compare-table"><thead><tr><th>Metric</th><th>Current</th><th>24/25</th><th>Variance</th></tr></thead><tbody>';
-  html+='<tr><td>Week total sets</td><td>'+fmtSet(latest.totalSets)+'</td><td>'+(weekBase?fmtSet(weekBase.totalSets):'--')+'</td><td>'+(weekBase?fmtSignedSet(latest.totalSets-weekBase.totalSets):'--')+'</td></tr>';
-  html+='<tr><td>Week forecasted sets</td><td>--</td><td>'+(weekBase?fmtSet(weekBase.forecastedSets):'--')+'</td><td>--</td></tr>';
-  html+='<tr><td>Week shoot days</td><td>'+fmtSet(latest.shootDays)+'</td><td>'+(weekBase?fmtSet(weekBase.shootDays):'--')+'</td><td>'+(weekBase?fmtSignedSet(latest.shootDays-weekBase.shootDays):'--')+'</td></tr>';
-  html+='<tr><td>Month total sets</td><td>'+fmtSet(currentMonth.totalSets)+'</td><td>'+(monthBase?fmtSet(monthBase.totalSets):'--')+'</td><td>'+(monthBase?fmtSignedSet(currentMonth.totalSets-monthBase.totalSets):'--')+'</td></tr>';
-  html+='<tr><td>Month average sets / shoot day</td><td>'+fmtSet(currentMonth.avgSetsPerShootDay)+'</td><td>'+(monthBase?fmtSet(monthBase.avgSetsPerShootDay):'--')+'</td><td>'+(monthBase?fmtSignedSet(currentMonth.avgSetsPerShootDay-monthBase.avgSetsPerShootDay):'--')+'</td></tr>';
-  html+='</tbody></table><div class="set-compare-note">The 24/25 baseline is embedded from the uploaded Set Count Tracking workbook. Sales and average set price are held for reference, but not calculated from Weekly Schedule uploads.</div></div>';
-  html+='<div class="section-header" style="margin-top:44px"><div class="section-title">Monthly Rollup</div><div class="section-sub">Uploaded weekly schedules grouped by month, with 24/25 comparison</div></div>';
-  html+='<div class="table-wrap"><table><thead><tr><th class="left">Month</th><th>Weeks Uploaded</th><th>Total Sets</th><th>24/25 Baseline</th><th>Variance</th><th>Variance %</th><th>Model</th><th>Stills</th><th>Avg / Shoot Day</th></tr></thead><tbody>';
-  months.slice().reverse().forEach(function(m){var b=m.baseline||setBaselineMonth(m.fiscalMonthIndex);var diff=b?m.totalSets-b.totalSets:0;html+='<tr><td>'+m.monthLabel+'</td><td>'+m.weeks+'</td><td>'+fmtSet(m.totalSets)+'</td><td>'+(b?fmtSet(b.totalSets):'--')+'</td><td><span class="set-yoy '+setDeltaClass(diff)+'">'+(b?fmtSignedSet(diff):'--')+'</span></td><td>'+(b?((diff/b.totalSets)*100).toFixed(1)+'%':'--')+'</td><td>'+fmtSet(m.modelSets)+'</td><td>'+fmtSet(m.stillsSets)+'</td><td>'+fmtSet(m.avgSetsPerShootDay)+'</td></tr>';});
-  html+='</tbody></table></div>';
-  cont.innerHTML=html;
-  setupFileDrop('set-drop-zone',function(f){processCapFile(f,'set');});
-  setTimeout(function(){renderSetMonthChart(months);},0);
-}
-function renderSetMonthChart(months){
-  var canvas=document.getElementById('set-month-chart');
-  if(!canvas||!window.Chart)return;
-  if(_setMonthChart){_setMonthChart.destroy();}
-  var th=chartTheme();
-  var labels=months.map(function(m){return m.monthLabel;});
-  var baseline=months.map(function(m){var b=m.baseline||setBaselineMonth(m.fiscalMonthIndex);return b?b.totalSets:null;});
-  _setMonthChart=new Chart(canvas,{type:'bar',data:{labels:labels,datasets:[
-    {label:'Current Total',data:months.map(function(m){return m.totalSets;}),backgroundColor:'rgba(255,77,0,.75)',borderColor:'#FF4D00',borderWidth:1,borderRadius:3,borderSkipped:false},
-    {label:'24/25 Baseline',type:'line',data:baseline,borderColor:'rgba(61,220,132,.85)',backgroundColor:'rgba(61,220,132,.12)',borderWidth:2,pointRadius:3,tension:.25,spanGaps:true},
-    {label:'Model',data:months.map(function(m){return m.modelSets;}),backgroundColor:'rgba(74,158,255,.45)',borderColor:'#4a9eff',borderWidth:1,borderRadius:3,borderSkipped:false},
-    {label:'Stills',data:months.map(function(m){return m.stillsSets;}),backgroundColor:'rgba(255,77,0,.25)',borderColor:'#FF4D00',borderWidth:1,borderRadius:3,borderSkipped:false}
-  ]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{labels:{color:th.text,font:{family:"'DM Mono', monospace",size:10}}},tooltip:{callbacks:{label:function(ctx){return ctx.dataset.label+': '+fmtSet(ctx.raw)+' sets';}}}},scales:{x:{grid:{color:th.grid},ticks:{color:th.text,font:{family:"'Barlow Condensed', sans-serif",size:12,weight:'600'}}},y:{beginAtZero:true,grid:{color:th.grid},ticks:{color:th.text,font:{family:"'DM Mono', monospace",size:10}},border:{display:false}}}}});
 }
 
 /* ── Trends Tab ─────────────────────────────────────────────────── */
@@ -3296,18 +2248,6 @@ function filterUtilTable() {
   }
 }
 
-
-/* ── Global filters and export tools ────────────────────────────── */
-function csvCell(v){v=(v===undefined||v===null)?'':String(v);return /[",\n]/.test(v)?'"'+v.replace(/"/g,'""')+'"':v;}
-function downloadTextFile(filename,text,mime){var blob=new Blob([text],{type:mime||'text/plain;charset=utf-8'});var url=URL.createObjectURL(blob);var a=document.createElement('a');a.href=url;a.download=filename;document.body.appendChild(a);a.click();a.remove();setTimeout(function(){URL.revokeObjectURL(url);},500);}
-function exportCurrentUtilisationCsv(){var payload=lsGet(LS_CURRENT);if(!payload||!payload.staffData){alert('No utilisation report loaded yet.');return;}var rows=[['Name','Department','Capacity','Client Hours','Holiday','Sick','Internal','Training','Billable','Utilisation %']];STAFF_ROSTER.forEach(function(s){var d=payload.staffData[s.name];if(!d)return;rows.push([s.name,s.dept,fmt(d.cap),fmt(d.cli),fmt(d.hol),fmt(d.sck),fmt(d.int),fmt(d.trn||0),fmt(d.bil),((d.cap?d.cli/d.cap:0)*100).toFixed(1)]);});downloadTextFile('seventy7-utilisation-'+(payload.period||'current').replace(/\s+/g,'-').toLowerCase()+'.csv',rows.map(function(r){return r.map(csvCell).join(',');}).join('\n'),'text/csv;charset=utf-8');}
-function exportSetCountsCsv(){var weeks=sortedSetCountWeeks();if(!weeks.length){alert('No current set count uploads yet.');return;}var rows=[['Week','Fiscal Year','Fiscal Week','Month','Total Sets','Model Sets','Stills Sets','Other Sets','Shoot Days','Avg Sets Per Day','Active Photographers','24/25 Same Week','Variance']];weeks.slice().reverse().forEach(function(w){var base=setBaselineWeek(w.fiscalWeek||setFiscalWeekFromSerial(w.weekStartSerial));rows.push([w.weekLabel,w.fiscalYear||'',w.fiscalWeek||'',w.monthLabel||'',fmtSet(w.totalSets),fmtSet(w.modelSets),fmtSet(w.stillsSets),fmtSet(w.otherSets),fmtSet(w.shootDays),fmtSet(w.avgSetsPerDay),w.activePhotographers||'',base?fmtSet(base.totalSets):'',base?fmtSignedSet(w.totalSets-base.totalSets):'']);});downloadTextFile('seventy7-set-counts.csv',rows.map(function(r){return r.map(csvCell).join(',');}).join('\n'),'text/csv;charset=utf-8');}
-function printDashboardReport(){window.print();}
-function resetGlobalFilters(){var d=document.getElementById('global-dept-filter'),s=document.getElementById('global-search-filter');if(d)d.value='all';if(s)s.value='';applyGlobalFilters();}
-function applyGlobalFilters(){var dept=(document.getElementById('global-dept-filter')||{value:'all'}).value;var search=((document.getElementById('global-search-filter')||{value:''}).value||'').toLowerCase().trim();var utilSearch=document.getElementById('util-search');if(utilSearch)utilSearch.value=search;_utilDeptFilter=dept;document.querySelectorAll('#dept-pills .filter-pill').forEach(function(b){b.classList.toggle('dept-active',b.getAttribute('data-dept')===dept||(dept==='all'&&b.getAttribute('data-dept')==='all'));});if(document.getElementById('util-body'))filterUtilTable();document.querySelectorAll('#dept-cards .dept-card').forEach(function(card){var name=(card.querySelector('.dept-card-name')||{}).textContent||'';card.style.display=(dept==='all'||name.trim()===dept)?'':'none';});document.querySelectorAll('#client-content tbody tr').forEach(function(row){var txt=row.textContent.toLowerCase();row.style.display=(!search||txt.indexOf(search)>=0)?'':'none';});document.querySelectorAll('#set-counts-content .set-bar-row,#set-counts-content tbody tr').forEach(function(row){var txt=row.textContent.toLowerCase();row.style.display=(!search||txt.indexOf(search)>=0)?'':'none';});}
-function removeStrayCssTextNodes(){if(!document.body)return;var nodes=[];document.body.childNodes.forEach(function(n){if(n.nodeType===3&&n.textContent&&n.textContent.indexOf('.history-delete-name{font-family')>=0)nodes.push(n);});nodes.forEach(function(n){n.remove();});}
-document.addEventListener('DOMContentLoaded',removeStrayCssTextNodes);
-
 function showTab(id,btn){
   document.querySelectorAll('.tab-section').forEach(function(s){s.classList.remove('active');});
   document.querySelectorAll('.nav button,.nav-roadmap').forEach(function(b){b.classList.remove('active');});
@@ -3315,7 +2255,6 @@ function showTab(id,btn){
   if(btn)btn.classList.add('active');
   if(id==='tab-dashboard')animateKPIs();
   if(id==='tab-history')buildHistoryTab();
-  if(id==='tab-set-counts')buildSetCountsTab();
   if(id==='tab-skills'&&!document.getElementById('skills-content').innerHTML.trim())
     switchSkillsTab('photo-video',document.querySelector('.skills-sub-btn'));
 }
@@ -3484,232 +2423,8 @@ function renderSkillsMatrix(cont,data){
   html+='</div>';cont.innerHTML=html;
 }
 
-
-
-/* ── v0.9.0 premium experience controls ─────────────────────────── */
-const S77_COMMANDS=[
-  {id:'tab-dashboard',title:'Dashboard',sub:'Overview and executive summary',icon:'D',type:'tab'},
-  {id:'tab-history',title:'Trends',sub:'Monthly utilisation and movement',icon:'T',type:'tab'},
-  {id:'tab-set-counts',title:'Set Counts',sub:'Weekly sets, YTD and 24/25 comparison',icon:'S',type:'tab'},
-  {id:'tab-utilisation',title:'Utilisation',sub:'People level hours and utilisation',icon:'U',type:'tab'},
-  {id:'tab-departments',title:'Departments',sub:'Department level detail',icon:'P',type:'tab'},
-  {id:'tab-capacity',title:'Capacity',sub:'Weekly schedule capacity',icon:'C',type:'tab'},
-  {id:'tab-skills',title:'Skills',sub:'Skills matrix',icon:'K',type:'tab'},
-  {id:'tab-clients',title:'Clients',sub:'Client volume and breadth',icon:'L',type:'tab'},
-  {id:'tab-production',title:'Production',sub:'Producer workload and split',icon:'R',type:'tab'},
-  {id:'tab-efficiency',title:'Efficiency',sub:'Billable efficiency area',icon:'E',type:'tab'},
-  {id:'tab-roadmap',title:'Roadmap',sub:'Upcoming features',icon:'M',type:'tab'},
-  {title:'Export utilisation CSV',sub:'Download the current utilisation table',icon:'CSV',type:'action',fn:function(){exportCurrentUtilisationCsv();}},
-  {title:'Export set counts CSV',sub:'Download set count history',icon:'CSV',type:'action',fn:function(){exportSetCountsCsv();}},
-  {title:'PDF / print',sub:'Open browser print dialogue',icon:'PDF',type:'action',fn:function(){printDashboardReport();}},
-  {title:'Toggle focus mode',sub:'Hide chrome for meeting view',icon:'◉',type:'action',fn:function(){toggleFocusMode();}},
-  {title:'Toggle density',sub:'Compact or spacious table view',icon:'≋',type:'action',fn:function(){toggleDensityMode();}},
-  {title:'Toggle spotlight',sub:'Dim the noise until you hover',icon:'✦',type:'action',fn:function(){toggleSpotlightMode();}},
-  {title:'Back to top',sub:'Scroll to the top of the report',icon:'↑',type:'action',fn:function(){window.scrollTo({top:0,behavior:'smooth'});}}
-];
-
-function s77Toast(msg){
-  const t=document.getElementById('s77-toast');
-  if(!t)return;
-  t.textContent=msg;
-  t.classList.add('show');
-  clearTimeout(t._timer);
-  t._timer=setTimeout(function(){t.classList.remove('show');},1800);
-}
-
-function updateScrollProgress(){
-  const bar=document.getElementById('s77-scroll-progress');
-  if(!bar)return;
-  const doc=document.documentElement;
-  const max=Math.max(1,doc.scrollHeight-window.innerHeight);
-  const pct=Math.min(100,Math.max(0,(window.scrollY/max)*100));
-  bar.style.width=pct+'%';
-}
-
-function getActiveTabName(){
-  const active=document.querySelector('.nav button.active,.nav-roadmap.active');
-  return active?active.textContent.trim().replace(/\s+/g,' '):'Dashboard';
-}
-
-function updateTabChip(){
-  const chip=document.getElementById('s77-tab-chip');
-  if(chip)chip.textContent=getActiveTabName();
-}
-
-function openCommandPalette(){
-  const overlay=document.getElementById('s77-command-overlay');
-  const input=document.getElementById('s77-command-input');
-  if(!overlay||!input)return;
-  overlay.classList.add('open');
-  renderCommandItems('');
-  setTimeout(function(){input.focus();input.select();},30);
-}
-
-function closeCommandPalette(){
-  const overlay=document.getElementById('s77-command-overlay');
-  const input=document.getElementById('s77-command-input');
-  if(!overlay||!input)return;
-  overlay.classList.remove('open');
-  input.value='';
-}
-
-function runCommand(index){
-  const list=document.getElementById('s77-command-list');
-  if(!list)return;
-  const item=list.querySelectorAll('.s77-command-item')[index||0];
-  if(!item)return;
-  const cmd=S77_COMMANDS[Number(item.dataset.cmdIndex)];
-  if(!cmd)return;
-  closeCommandPalette();
-  if(cmd.type==='tab'){
-    const btn=[].slice.call(document.querySelectorAll('.nav button,.nav-roadmap')).find(function(b){
-      return (b.getAttribute('onclick')||'').indexOf(cmd.id)>-1;
-    });
-    showTab(cmd.id,btn||null);
-    s77Toast('Opened '+cmd.title);
-  }else if(typeof cmd.fn==='function'){
-    cmd.fn();
-    s77Toast(cmd.title);
-  }
-}
-
-function renderCommandItems(query){
-  const list=document.getElementById('s77-command-list');
-  if(!list)return;
-  const q=(query||'').toLowerCase().trim();
-  const filtered=S77_COMMANDS.map(function(cmd,idx){return Object.assign({idx:idx},cmd);}).filter(function(cmd){
-    const hay=(cmd.title+' '+cmd.sub+' '+cmd.type).toLowerCase();
-    return !q||hay.indexOf(q)>-1;
-  });
-  if(!filtered.length){
-    list.innerHTML='<div class="s77-command-item"><div class="s77-command-mark">?</div><div><div class="s77-command-title">No matches</div><div class="s77-command-sub">Try dashboard, set counts, export or focus</div></div></div>';
-    return;
-  }
-  list.innerHTML=filtered.map(function(cmd,i){
-    return '<div class="s77-command-item '+(i===0?'active':'')+'" data-cmd-index="'+cmd.idx+'" onclick="runCommand('+i+')">'+
-      '<div class="s77-command-mark">'+cmd.icon+'</div>'+
-      '<div><div class="s77-command-title">'+cmd.title+'</div><div class="s77-command-sub">'+cmd.sub+'</div></div>'+
-      '<div class="s77-command-key">'+(cmd.type==='tab'?'Open':'Run')+'</div>'+
-    '</div>';
-  }).join('');
-}
-
-function moveCommandSelection(delta){
-  const list=document.getElementById('s77-command-list');
-  if(!list)return;
-  const items=[].slice.call(list.querySelectorAll('.s77-command-item[data-cmd-index]'));
-  if(!items.length)return;
-  let idx=items.findIndex(function(el){return el.classList.contains('active');});
-  idx=(idx+delta+items.length)%items.length;
-  items.forEach(function(el){el.classList.remove('active');});
-  items[idx].classList.add('active');
-  items[idx].scrollIntoView({block:'nearest'});
-}
-
-function toggleFocusMode(){
-  document.body.classList.toggle('s77-focus');
-  s77Toast(document.body.classList.contains('s77-focus')?'Focus mode on':'Focus mode off');
-}
-
-function toggleDensityMode(){
-  document.body.classList.toggle('s77-dense');
-  localStorage.setItem('s77-density',document.body.classList.contains('s77-dense')?'dense':'normal');
-  s77Toast(document.body.classList.contains('s77-dense')?'Compact density':'Comfortable density');
-}
-
-function toggleSpotlightMode(){
-  document.body.classList.toggle('s77-spotlight');
-  localStorage.setItem('s77-spotlight',document.body.classList.contains('s77-spotlight')?'on':'off');
-  s77Toast(document.body.classList.contains('s77-spotlight')?'Spotlight mode on':'Spotlight mode off');
-}
-
-function buildRibbonFromDom(){
-  const dash=document.getElementById('tab-dashboard');
-  if(!dash||dash.querySelector('.s77-stat-ribbon'))return;
-  const kpis=[].slice.call(document.querySelectorAll('#kpi-grid .kpi')).slice(0,4);
-  if(!kpis.length)return;
-  const pills=kpis.map(function(k){
-    const label=(k.querySelector('.kpi-label')||{}).textContent||'Metric';
-    const val=(k.querySelector('.kpi-value')||{}).textContent||'';
-    return '<span class="s77-ribbon-pill"><span class="s77-ribbon-dot"></span>'+label.trim()+': <strong>'+val.trim()+'</strong></span>';
-  }).join('');
-  const ribbon=document.createElement('div');
-  ribbon.className='s77-stat-ribbon';
-  ribbon.innerHTML=pills+'<span class="s77-ribbon-pill"><span class="s77-ribbon-dot"></span>Press <strong>⌘K</strong> for command search</span>';
-  const anchor=document.getElementById('exec-hero')||dash.firstElementChild;
-  if(anchor&&anchor.parentNode)anchor.parentNode.insertBefore(ribbon,anchor.nextSibling);
-}
-
-function enhanceExistingShell(){
-  updateScrollProgress();
-  updateTabChip();
-  buildRibbonFromDom();
-  document.querySelectorAll('.kpi-label,.exec-label,.set-label,.set-ytd-label,.chart-label').forEach(function(el){
-    if(el.dataset.enhanced)return;
-    el.dataset.enhanced='1';
-    el.setAttribute('title',el.textContent.trim());
-  });
-}
-
-function initS77Experience(){
-  if(localStorage.getItem('s77-density')==='dense')document.body.classList.add('s77-dense');
-  if(localStorage.getItem('s77-spotlight')==='on')document.body.classList.add('s77-spotlight');
-
-  window.addEventListener('scroll',updateScrollProgress,{passive:true});
-  window.addEventListener('resize',updateScrollProgress);
-
-  const overlay=document.getElementById('s77-command-overlay');
-  const input=document.getElementById('s77-command-input');
-  if(overlay){
-    overlay.addEventListener('click',function(e){if(e.target===overlay)closeCommandPalette();});
-  }
-  if(input){
-    input.addEventListener('input',function(){renderCommandItems(input.value);});
-    input.addEventListener('keydown',function(e){
-      if(e.key==='ArrowDown'){e.preventDefault();moveCommandSelection(1);}
-      if(e.key==='ArrowUp'){e.preventDefault();moveCommandSelection(-1);}
-      if(e.key==='Enter'){e.preventDefault();runCommand(0);}
-      if(e.key==='Escape'){e.preventDefault();closeCommandPalette();}
-    });
-  }
-
-  document.addEventListener('keydown',function(e){
-    const tag=(document.activeElement&&document.activeElement.tagName||'').toLowerCase();
-    const typing=tag==='input'||tag==='textarea'||tag==='select'||document.activeElement.isContentEditable;
-    if((e.metaKey||e.ctrlKey)&&e.key.toLowerCase()==='k'){
-      e.preventDefault();
-      openCommandPalette();
-      return;
-    }
-    if(e.key==='Escape'){
-      closeCommandPalette();
-      return;
-    }
-    if(!typing&&e.key==='/'){
-      e.preventDefault();
-      openCommandPalette();
-    }
-  });
-
-  const original=window.showTab||showTab;
-  window.showTab=function(id,btn){
-    document.body.classList.add('tab-changing');
-    original(id,btn);
-    updateTabChip();
-    setTimeout(function(){
-      document.body.classList.remove('tab-changing');
-      enhanceExistingShell();
-      updateScrollProgress();
-    },360);
-  };
-
-  setInterval(enhanceExistingShell,1200);
-  enhanceExistingShell();
-}
-
 window.addEventListener('load',async function(){
   initTheme();
-  initS77Experience();
   document.getElementById('loading-screen').style.display='flex';
   let current=null;
   if(FB){current=await fbGet(FB_CURRENT);if(current)lsSet(LS_CURRENT,current);}
@@ -3724,9 +2439,6 @@ window.addEventListener('load',async function(){
   let otPayload=null;
   if(FB){otPayload=await fbGet(FB_OVERTIME);if(otPayload)lsSet(LS_OVERTIME,otPayload);}
   if(!otPayload)otPayload=lsGet(LS_OVERTIME);
-  let setHist=null;
-  if(FB){setHist=await fbGet(FB_SETCOUNTS);if(setHist)lsSet(LS_SETCOUNTS,setHist);}
-  if(!setHist)setHist=lsGet(LS_SETCOUNTS)||{};
   if(current&&current.staffData){
     buildAllTabs(current,otPayload);
     showDashboard(current);
